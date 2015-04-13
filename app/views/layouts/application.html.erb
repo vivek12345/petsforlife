@@ -5,8 +5,26 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= cloudinary_js_config %>
 </head>
-<body>
+<body id="home">
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('.attachinary-input').attachinary();
+		$('.gallery').fileupload();
+		$('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {  
+  $('.preview').html(
+    $.cloudinary.image(data.result.public_id, 
+      { format: data.result.format, version: data.result.version, 
+        crop: 'fill', width: 150, height: 100 })
+  );    
+  $('.image_public_id').val(data.result.public_id);    
+  return true;
+});
+		
+	});
+		</script>
+<%=render 'layouts/header'%>
 
 <%= yield %>
 

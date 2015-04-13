@@ -1,0 +1,2 @@
+module PrimePetzHelper
+end

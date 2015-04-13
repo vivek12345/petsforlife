@@ -1,0 +1,269 @@
+<% provide(:title,'Prime Petz| Home') %>
+
+  <div class="ui masthead segment">
+    
+    <div class="ui page grid">
+      <div class="column">
+        
+        <%=image_tag 'pets.png',class:"ui big image"%>
+        <div class="ui hidden transition information">
+          <h1 class="ui header">
+            Pets For Life
+          </h1>
+          <p>Buy or  sell your pets using our portal and also get various other information regarding pets</p>
+          <form class="ui form">
+            <h4 class="ui dividing header">Personal Information</h4>
+            <div class="two fields">
+              <div class="field">
+                <label>Breeder Name</label>
+                <div class="ui small icon input">
+                  <input type="text" placeholder="Search Breeder...">
+                  <i class="search icon"></i>
+                </div>
+              </div>
+              <div class="field">
+                <label>Pet Type</label>
+                <div class="ui selection dropdown">
+                  <input type="hidden" name="gender">
+                  <div class="default text">Pet Type</div>
+                  <i class="dropdown icon"></i>
+                  <div class="menu">
+                    <div class="item" data-value="cat">Cat</div>
+                    <div class="item" data-value="dog">Dog</div>
+                    <div class="item" data-value="bird">Birds</div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="two fields">
+              <div class="field">
+                <label>State</label>
+                <select class="ui search dropdown">
+                  <option value="">State</option>
+                  <option value="AL">Alabama</option>
+                  <option value="AL">Alabama</option>
+                  <option value="AK">Alaska</option>
+                  <option value="AZ">Arizona</option>
+                  <option value="AR">Arkansas</option>
+                  <option value="CA">California</option>
+                  <option value="CO">Colorado</option>
+                  <option value="CT">Connecticut</option>
+                  <option value="DE">Delaware</option>
+                  <option value="DC">District Of Columbia</option>
+                  <option value="FL">Florida</option>
+                  <option value="GA">Georgia</option>
+                  <option value="HI">Hawaii</option>
+                  <option value="ID">Idaho</option>
+                  <option value="IL">Illinois</option>
+                  <option value="IN">Indiana</option>
+                  <option value="IA">Iowa</option>
+                  <option value="KS">Kansas</option>
+                  <option value="KY">Kentucky</option>
+                  <option value="LA">Louisiana</option>
+                  <option value="ME">Maine</option>
+                  <option value="MD">Maryland</option>
+                  <option value="MA">Massachusetts</option>
+                  <option value="MI">Michigan</option>
+                  <option value="MN">Minnesota</option>
+                  <option value="MS">Mississippi</option>
+                  <option value="MO">Missouri</option>
+                  <option value="MT">Montana</option>
+                  <option value="NE">Nebraska</option>
+                  <option value="NV">Nevada</option>
+                  <option value="NH">New Hampshire</option>
+                  <option value="NJ">New Jersey</option>
+                  <option value="NM">New Mexico</option>
+                  <option value="NY">New York</option>
+                  <option value="NC">North Carolina</option>
+                  <option value="ND">North Dakota</option>
+                  <option value="OH">Ohio</option>
+                  <option value="OK">Oklahoma</option>
+                  <option value="OR">Oregon</option>
+                  <option value="PA">Pennsylvania</option>
+                  <option value="RI">Rhode Island</option>
+                  <option value="SC">South Carolina</option>
+                  <option value="SD">South Dakota</option>
+                  <option value="TN">Tennessee</option>
+                  <option value="TX">Texas</option>
+                  <option value="UT">Utah</option>
+                  <option value="VT">Vermont</option>
+                  <option value="VA">Virginia</option>
+                  <option value="WA">Washington</option>
+                  <option value="WV">West Virginia</option>
+                  <option value="WI">Wisconsin</option>
+                  <option value="WY">Wyoming</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>Gender</label>
+                <div class="ui selection dropdown">
+                  <input type="hidden" name="gender">
+                  <div class="default text">Gender</div>
+                  <i class="dropdown icon"></i>
+                  <div class="menu">
+                    <div class="item" data-value="male">Male</div>
+                    <div class="item" data-value="female">Female</div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            
+            
+            
+            
+          </form>
+          <div class="ui right labeled icon button">
+            Search
+            <i class="search icon"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui vertical feature segment">
+    <div class="ui centered page grid">
+      <div class="fourteen wide column">
+        <div class="ui three column center aligned stackable divided grid">
+          <div class="column">
+            <div class="ui icon header">
+              <i class="edit icon"></i>
+              Create A Listing
+            </div>
+            <p>Put a listing describing the pet with some minimal information</p>
+            <p>
+              <a class="ui button" href="#">
+                Create
+              </a>
+            </p>
+          </div>
+          <div class="column">
+            <div class="ui icon header">
+              <i class="user icon"></i>
+              Meet A Breeder
+            </div>
+            <p>
+              Buy your choice of pet from this breeder at the price listed on his advertisement.
+            </p>
+            <p>
+              <a class="ui blue right labeled icon button" href="#">
+                View Breeder
+                <i class="right chevron icon"></i>
+              </a>
+            </p>
+          </div>
+          <div class="column">
+            <div class="ui icon header">
+              <i class="group icon"></i>
+              Community
+            </div>
+            <p>Get feedback on your pet and advice from a community of loving pet owners on our online bulletin board system.</p>
+            <p>
+              <a class="ui button" href="#">
+                Share
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui inverted vertical segment">
+    <div class="ui very relaxed stackable page grid">
+      <div class="row">
+        <div class="column">
+          <h1 class="center aligned ui inverted header">
+            The Best Cat Articles
+          </h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="ten wide column">
+          <h3 class="ui inverted header">How to Win Your Cats Attention</h3>
+          <p>Getting your cat to notice you is a large part of being a pet owner. Although I have a lot of patience for writing things about cats, perhaps this might be enough body copy to make this section of text look filled out.</p>
+          <p>This and other tips can be found in our newsletter, amazing right?</p>
+          <div class="ui basic inverted animated button button">
+            <div class="visible content">Read More</div>
+            <div class="hidden content"><i class="right arrow icon"></i></div>
+          </div>
+          <div class="ui inverted section divider"></div>
+          <h3 class="ui inverted header">More articles</h3>
+          <div class="ui inverted animated selection list">
+            <div class="item">
+              How to win in a fight with a cat
+              <div class="right floated">Jan 20, 2023</div>
+            </div>
+            <div class="item">
+              A Supposedly Fun Cat Toy I will Never Buy Again
+              <div class="right floated">Jan 1, 2023</div>
+            </div>
+            <div class="item">
+              Much ado about yarn
+              <div class="right floated">Dec 20, 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="six wide column">
+          <div class="ui form segment">
+            <h3 class="ui header">Bi-Daily Newsletter</h3>
+            <p>Sign up and get spammed with cats every day. We have no unsubscribe button!</p>
+            <div class="field">
+              <div class="ui left icon action input">
+                <i class="user icon"></i>
+                <input name="email" type="text" placeholder="name@email.com">
+                <div class="ui black submit button">Sign up</div>
+              </div>
+            </div>
+            <div class="ui error message"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <div class="ui footer vertical segment">
+    <div class="ui stackable center aligned page grid">
+      <div class="ten wide column">
+        <div class="ui three column center aligned stackable grid">
+          <div class="column">
+            <h5 class="ui inverted header">Courses</h5>
+            <div class="ui inverted link list">
+              <a class="item">Registration</a>
+              <a class="item">Course Calendar</a>
+              <a class="item">Professors</a>
+            </div>
+          </div>
+          <div class="column">
+            <h5 class="ui inverted header">Library</h5>
+            <div class="ui inverted link list">
+              <a class="item">A-Z</a>
+              <a class="item">Most Popular</a>
+              <a class="item">Recently Changed</a>
+            </div>
+          </div>
+          <div class="column">
+            <h5 class="ui inverted header">Community</h5>
+            <div class="ui inverted link list">
+              <a class="item">BBS</a>
+              <a class="item">Careers</a>
+              <a class="item">Privacy Policy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="six wide column">
+        <h5 class="ui inverted header">Contact Us</h5>
+        <addr>
+          237 Catberry Road <br>
+          Milton Keynes, London <br>
+        </addr>
+        <p>(404) 867-5309</p>
+      </div>
+    </div>
+  </div>
+
+

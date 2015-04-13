@@ -13,4 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+// Loads all Semantic javascripts
+//= require semantic-ui
+//= require jquery.ui.widget
+//= require jquery.iframe-transport
+//= require jquery.fileupload
+
+//= require cloudinary
+//= require attachinary
 //= require_tree .

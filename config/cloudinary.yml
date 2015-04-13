@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: railsway-herokuapp-com
+  api_key: '734981413228757'
+  api_secret: UmMwEsKzeORu9SUSpQV5e0gE35g
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: railsway-herokuapp-com
+  api_key: '734981413228757'
+  api_secret: UmMwEsKzeORu9SUSpQV5e0gE35g
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: railsway-herokuapp-com
+  api_key: '734981413228757'
+  api_secret: UmMwEsKzeORu9SUSpQV5e0gE35g
+  enhance_image_tag: true
+  static_image_support: false

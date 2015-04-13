@@ -1,0 +1,229 @@
+@import "semantic-ui";
+/*******************************
+            Global
+*******************************/
+
+html {
+  font-size: 14px;
+}
+
+
+/*******************************
+            Global
+*******************************/
+
+#home .menu .right.menu > .mobile.item {
+  display: none;
+}
+
+
+/*--------------
+    Masthead
+---------------*/
+
+#home .masthead {
+  background-image: url(concrete_seamless.png);
+  margin: 0em;
+  padding: 0rem 0rem 3rem 0rem;
+}
+#home .masthead .column {
+  position: relative;
+}
+#home .masthead .information {
+  margin: 5em 1em 1em 350px;
+}
+#home .masthead .information p {
+  max-width: 600px;
+}
+#home .masthead .image {
+  position: absolute;
+  left: -22%;
+  bottom: 55px;
+}
+
+/*--------------
+    Ribbons
+---------------*/
+
+#home .segment h1 {
+  font-size: 3em;
+  margin-bottom: 1em;
+}
+
+#home .vertical.segment {
+  padding: 12rem 0rem;
+}
+
+#home .feature.segment {
+  margin: 0em;
+  padding: 6rem 0rem;
+}
+#home .feature.segment p {
+  min-height: 50px;
+}
+
+#home .selection.list {
+  margin: 0em -0.5em;
+}
+
+#home .logo.row {
+  height: 10rem;
+}
+
+/*--------------
+    Footer
+---------------*/
+
+#home .footer.segment {
+  background-color: #000000;
+  padding: 3rem 0rem;
+}
+
+
+
+
+/*******************************
+          Responsive
+*******************************/
+
+/* Mobile Only */
+@media only screen and (max-width : 768px) {
+
+  #home .menu .right.menu > .item {
+    display: none;
+  }
+
+  #home .menu .right.menu > .mobile.item {
+    display: block;
+  }
+  #home .menu .right.menu > .mobile.item .menu {
+    left: auto;
+    right: 0em;
+  }
+
+  #home h1 {
+    font-size: 1.5em;
+  }
+  #home .masthead.segment .information {
+    margin-left: 170px;
+  }
+
+  #home .masthead.segment .image {
+    width: 170px;
+    left:0%;
+
+  }
+
+  #home .masthead.segment .button {
+    font-size: 1rem;
+  }
+
+  #home .overview .divided.grid .header .icon {
+    font-size: 1.5em;
+  }
+
+  #home .overview .divided.grid .header + p {
+    min-height: 0px;
+  }
+
+  #home .masthead.segment .column {
+    font-size: 0.7rem;
+  }
+
+  #home .masthead.segment .column p {
+    display: none;
+  }
+
+  #home .selection.list .right.floated {
+    display: none;
+  }
+  .displayClass
+  {
+    right:0rem;
+  }
+}
+
+
+/*my styles*/
+/*increase the size of size box to match with other form fields*/
+.ui.small.input
+{
+  font-size: 0.985rem;
+}
+.mygrid
+{
+  padding-left:10%;
+  padding-right:0%;
+}
+#home .tabmenu
+{
+  padding:2% 15%; 
+}
+
+.column .filter
+{
+  padding:2%;
+}
+
+.ui.medium.image
+{
+  max-height:169px;
+}
+
+.left.floated.like
+{
+  margin-top:8px;
+}
+
+.ui.header
+{
+  padding:0rem 0.5rem;
+}
+
+
+.examples-list ol {
+  margin-left: 30px;
+}
+
+.examples-list ol li {
+  list-style: decimal;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.example-item ol li {
+  font-size: .875em;
+}
+
+.example-item .slider a {
+  line-height: 1.5em;
+}
+.example-item #bx-pager {
+  text-align: center;
+  margin-top: -30px;
+  display: inline-flex;
+}
+
+.example-item #bx-pager a {
+  margin: 0 3px;
+}
+
+.example-item #bx-pager a img {
+  padding: 3px;
+  border: solid #ccc 1px;
+}
+
+.example-item #bx-pager a:hover img,
+.example-item #bx-pager a.active img {
+  border: solid #5280DD 1px;
+}
+
+
+.bx-wrapper .bx-viewport
+{
+  height:200px;
+}
+.ui.menu
+{
+  nargin:0;
+}

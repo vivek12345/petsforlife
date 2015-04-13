@@ -1,4 +1,19 @@
 Rails.application.routes.draw do
+  
+
+  root 'prime_petz#home'
+
+  get 'prime_petz/home'
+
+  get 'prime_petz/about'
+
+  get 'prime_petz/contact'
+
+  resources :listings
+  mount Attachinary::Engine => "/attachinary"
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
