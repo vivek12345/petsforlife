@@ -1,3 +1,4 @@
+
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -15,10 +16,8 @@
 //= require turbolinks
 // Loads all Semantic javascripts
 //= require semantic-ui
-//= require jquery.ui.widget
-//= require jquery.iframe-transport
-//= require jquery.fileupload
-
-//= require cloudinary
+//= require jquery-fileupload
+//= require jquery-fileupload/vendor/tmpl
+//= require cloudinary/jquery.cloudinary
 //= require attachinary
 //= require_tree .
