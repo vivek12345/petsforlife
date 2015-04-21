@@ -9,8 +9,11 @@ Rails.application.routes.draw do
 
   get 'prime_petz/contact'
 
+  post 'listings/media'
+
   resources :listings
-  mount Attachinary::Engine => "/attachinary"
+  resources :prime_petz
+  
 
 
 

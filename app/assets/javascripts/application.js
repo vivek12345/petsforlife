@@ -16,8 +16,10 @@
 //= require turbolinks
 // Loads all Semantic javascripts
 //= require semantic-ui
-//= require jquery-fileupload
-//= require jquery-fileupload/vendor/tmpl
-//= require cloudinary/jquery.cloudinary
-//= require attachinary
+
+//= require dropzone
+
+//= require cloudinary
+//require attachinary
 //= require_tree .
+

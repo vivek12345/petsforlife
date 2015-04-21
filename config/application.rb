@@ -5,7 +5,7 @@ require 'rails/all'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-require "attachinary/orm/active_record"
+#require "attachinary/orm/active_record"
 
 module PetForLife
   class Application < Rails::Application
@@ -21,5 +21,6 @@ module PetForLife
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
      # active_record or mongoid
+     #Rails.application.config.assets.precompile += %w( dynamic_breeds.js )
   end
 end

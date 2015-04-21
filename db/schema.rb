@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150413152045) do
+ActiveRecord::Schema.define(version: 20150420213200) do
 
   create_table "attachinary_files", force: true do |t|
     t.integer  "attachinariable_id"
@@ -29,6 +29,13 @@ ActiveRecord::Schema.define(version: 20150413152045) do
 
   add_index "attachinary_files", ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent"
 
+  create_table "breeds", force: true do |t|
+    t.string   "name"
+    t.integer  "pet_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "listings", force: true do |t|
     t.string   "title"
     t.string   "pet_type"
@@ -41,6 +48,13 @@ ActiveRecord::Schema.define(version: 20150413152045) do
     t.text     "love_for_pets"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "photos", force: true do |t|
+    t.string   "file_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "listing_id"
   end
 
 end

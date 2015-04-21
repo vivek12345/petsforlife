@@ -56,3 +56,31 @@ $(document)
   })
 ;
 
+ /*$(function() {
+
+  var mediaDropzone;
+  mediaDropzone = new Dropzone("#media-dropzone");
+  Dropzone.options.dropzoneJsForm = {
+
+    //prevents Dropzone from uploading dropped files immediately
+    autoProcessQueue: false,
+    previewsContainer: ".dropzone-previews",
+  };
+  return mediaDropzone.on("success", function(file, responseText) {
+    var _this = this;
+    appendContent(responseText.file_name.url, responseText.id);
+    
+  });
+});
+
+var appendContent = function(imageUrl, mediaId) {
+  $("#media-contents").append('<div class="col-lg-4">' + 
+    '<div class="thumbnail"><img src="' + imageUrl + '"/>' +
+    '<div class="caption">' +
+    '<input id="media_contents_" name="photos[]" value="' + mediaId +'" type="checkbox">' + 
+    '</div>' +
+    '</div></div>');
+  $("#delete").removeAttr('disabled');
+  $("#no-media").html("");
+};*/
+
