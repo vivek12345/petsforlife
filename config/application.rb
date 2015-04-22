@@ -21,6 +21,6 @@ module PetForLife
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
      # active_record or mongoid
-     #Rails.application.config.assets.precompile += %w( dynamic_breeds.js )
+     Rails.application.config.assets.precompile += %w( dynamic_breeds.js )
   end
 end

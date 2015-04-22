@@ -1,12 +1,15 @@
-
+ <% javascript 'dynamic_breeds'%>
 <div class="ui padded page grid">
 
   <div class="ui eight wide column">
 
-    <%=form_for @listing, :html=> { class:'ui form centered teal segment'},remote: true do |f|%>
-    <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
-    <a class="ui teal ribbon label">
-      New Listing</a>
+    <%=form_for @listing, :html=> { class:'ui form centered black stacked segment'},remote: true do |f|%>
+
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    
+    <div class="ui black ribbon label">
+        <i class="signup icon"></i> New Listing
+      </div>
       <h2 class="ui header">
         <i class="settings icon"></i>
         <div class="content">
@@ -108,7 +111,7 @@
           <label>Price</label>
           <div class="ui icon input">
             <%=f.text_field :price,placeholder:"Price"%>
-            <i class="user icon"></i>
+            <i class="rupee icon"></i>
           </div>
         </div>
         <div class="field">
@@ -119,72 +122,7 @@
           </div>
         </div>
 
-    <!--script type="text/javascript">
-      /*Dropzone.autoDiscover=false;
-      var myDropzone=new Dropzone("#my-dropzone",
-    {
-      autoProcessQueue:false,*/
-      /*url:'/listings',*/
-      /*paramName:"file",
-      addRemoveLinks:true,
-      previewsContainer:'.dropzone-previews',*/
-      /*headers: 
-      {
-        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
-      }*/
-      /*uploadMultiple: true
-
-    });*/
-      /*$(function() {
-      return myDropzone.on("success", function(file, responseText) {
-    var imageUrl;
-    imageUrl = responseText.file_name.url;
-  });
-    });*/
-Dropzone.options.myDropzone = { // The camelized version of the ID of the form element
-
-  // The configuration we've talked about above
-  autoProcessQueue: false,
-  uploadMultiple: true,
-  parallelUploads: 100,
-  maxFiles: 100,
-
-  // The setting up of the dropzone
-  init: function() {
-    var myzone = this;
-
-    // First change the button to actually tell Dropzone to process the queue.
-    this.element.querySelector("button[type=submit]").addEventListener("click", function(e) {
-      // Make sure that the form isn't actually being sent.
-      e.preventDefault();
-      e.stopPropagation();
-      myzone.processQueue();
-    });
-
-    // Listen to the sendingmultiple event. In this case, it's the sendingmultiple event instead
-    // of the sending event because uploadMultiple is set to true.
-    this.on("sendingmultiple", function() {
-      // Gets triggered when the form is actually being sent.
-      // Hide the success button or the complete form.
-    });
-    this.on("successmultiple", function(files, response) {
-      // Gets triggered when the files have successfully been sent.
-      // Redirect user or notify of success.
-    });
-    this.on("errormultiple", function(files, response) {
-      // Gets triggered when there was an error sending the files.
-      // Maybe show form again, and notify user of error
-    });
-  }
-
-};
- /*     $('.ui.submit').click(function(e){
-
-      myDropzone.autoProcessQueue();
-    });*/
-  </script-->
-
-
+    
 
 </div>
 
@@ -209,10 +147,11 @@ Dropzone.options.myDropzone = { // The camelized version of the ID of the form e
 </div>
 
 <div class="ui eight wide column">
-
-  <div class="ui teal segment dropzone" id="media-dropzone">
-    <!--p class="dz-default dz-message"><span>Drop files here to upload</span>
-  </p-->
+ 
+  <div class="ui black stacked segment dropzone" id="media-dropzone">
+    <div class="ui blue right ribbon label">
+        <i class="upload icon"></i> Upload Images
+      </div>
   <h2 class="ui center aligned icon header dz-message">
     <i class="upload icon"></i>
     <div class="content">
@@ -225,5 +164,6 @@ Dropzone.options.myDropzone = { // The camelized version of the ID of the form e
 
 
 </div>
+
 
 

@@ -4,55 +4,12 @@
   <title>PetForLife</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%=yield(:head)%>
   <%= csrf_meta_tags %>
   <%= cloudinary_js_config %>
 </head>
 <body id="home">
-	<script type="text/javascript">
-	$(document).ready(function(){
-   
-		/*$('.attachinary-input').attachinary();*/
-		/*$('.gallery').fileupload();
-		$('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {  
-  $('.preview').html(
-    $.cloudinary.image(data.result.public_id, 
-      { format: data.result.format, version: data.result.version, 
-        crop: 'fill', width: 150, height: 100 })
-  );    
-  $('.image_public_id').val(data.result.public_id);    
-  return true;
-});
-		*/
-    /*Dropzone.autoDiscover=false;*/
-    /*$(function() {
-  var mediaDropzone;
-  mediaDropzone = new Dropzone("#media-dropzone");
-  return mediaDropzone.on("success", function(file, responseText) {
-    var imageUrl;
-    imageUrl = responseText.file_name.url;
-  });
-});*/
-    /*var myDropzone=new Dropzone("#my-dropzone",
-    {
-      autoProcessQueue:false,
-      addRemoveLinks:true,
-      previewsContainer:'.dropzone-previews',
-      uploadMultiple: true
-
-    });*/
-    /*Dropzone.options.myDropzone = */
-    /*$("#my-dropzone").dropzone(
-    {
-      url:'/listings',
-      autoProcessQueue:false,
-      addRemoveLink:true
-    });*/
-    /*$('.ui.submit').click(function(e){
-      myDropzone.autoProcessQueue();
-    });*/
-
-	});
-		</script>
+	
 <%=render 'layouts/header'%>
 
 <%= yield %>

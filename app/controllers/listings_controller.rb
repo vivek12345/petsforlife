@@ -9,8 +9,9 @@ class ListingsController < ApplicationController
 		if @listing.save
 			session[:listing]=@listing.id
 			respond_to do |format|
-        		format.js
+				format.js
       		end
+      		
 		end
 	end
 	def media

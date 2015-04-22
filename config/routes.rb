@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :listings
   resources :prime_petz
+  get ':controller/:action.:format'
   
 
 

@@ -1,0 +1,28 @@
+var breeds= new Array();
+    <% for breed in Breed.all %>
+      breeds.push(new Array(<%= breed.pet_id %>, '<%=breed.name %>', <%= breed.id %>));
+    <% end%>
+
+    function petSelected() {
+      pet_id = $('#listing_pet_type').val();
+      options = $('#listing_breed_type').options;
+      options.length = 1;
+      for(var i=0;i<breeds.length;i++)
+      {
+        if (breed[i][0] == pet_id) {
+          options[options.length] = new Option(breed[i][1], breed[i][2]);
+        }
+      };
+      if (options.length == 1) {
+        $('.breed_type').addClass('disabled');
+      } else {
+        $('.breed_type').removeClass('disabled')
+      }
+    }
+
+    $(document).ready(function() {
+     $('.pet_type').dropdown({
+     onChange:petSelected
+    });
+
+});
