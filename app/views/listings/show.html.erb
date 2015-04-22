@@ -1,141 +1,66 @@
-<div class="ui padded grid">
-    
-      <div class="eight wide column">
-        
-      
-        
-      <div class="ui segment">
-        <!--div class="image">
-          <img src="images/Pets.jpg" class="ui big image">
-        </div>
-         
+<div class="ui padded page grid">
+  <div class="six wide column"> 
+    <div class="ui segment">
+      <div class="image">
+        <img src="images/Pets.jpg" class="ui big image">
       </div>
-      <div class="ui segment">
-        <div class="image">
-          <img src="images/Pets.jpg" class="ui big image">
-        </div>
-         
-      </div>
-      <div class="ui segment">
-        <div class="image">
-          <img src="images/dog.gif" class="ui big image">
-        </div>
-         
-      </div-->
-      <!--div id="owl-demo" class="owl-carousel">
-              <div><img src="images/cat1.jpg" class="ui image medium"></div>
-              <div><img src="images/cat1.jpg" class="ui image medium"></div>
-              <div><img src="images/cat1.jpg" class="ui image medium"></div>
-              <div><img src="images/cat1.jpg" class="ui image medium"></div>
-            </div>
-            <script>
-            $(document).ready(function() {
- 
-  $("#owl-demo").owlCarousel({
- 
-      autoPlay: 3000, //Set AutoPlay to 3 seconds
- 
-      items : 1,
-      itemsDesktop : [1199,1],
-      itemsDesktopSmall : [979,1],
-      autoHeight : true,
-      singleItem : true
- 
-  });
- 
-});
-</script-->
-      <!--div class="ui active tab" data-tab="unread">
-        <div class="image">
-          <img src="images/cat1.jpg" class="ui image medium"/>
-        </div>
-      </div>
-      <div class="ui tab" data-tab="Saved">
-        <div class="image">
-          <img src="images/dog.gif" class="ui image medium"/>
-        </div>
-      </div>
-      <div class="ui divider"></div>
-        <div class="ui four doubling cards">
-          <div class="card">
-            <a data-tab="unread"><img src="images/cat1.jpg" class="ui image small"></a>
-          </div>
-          <div class="card">
-            <a data-tab="Saved"><img src="images/cat1.jpg" class="ui image small"></a>
-          </div>
-          <div class="card">
-            <a data-tab="unread"><img src="images/cat1.jpg" class="ui image small"></a>
-          </div>    
-        </div-->  
-        <div class="image">
-          <img src="images/cat1.jpg" class="ui image medium displayClass"/>
-        </div>
-        <div class="ui divider">
-          
-        </div>
-
-
-
-        
-  
-	   
-     
     </div>
   </div>
-      <div class="eight wide column">
-      <div class="ui segment">
-        <a class="ui blue ribbon label">
-          Pet Information</a>
-          <div class="ui card" style="width:100%;">
-            <div class="content">
-              <div class="header">Cute Dog
-			  <div class="right floated header">
-			  <i class="call icon">
-			  </i>7350152765
-			  </div>
-			  </div>
-			  
-              <div class="meta">Posted 2 days ago</div>
-              <div class="description">
-                <p>Cute dogs come in a variety of shapes and sizes. Some cute dogs are cute for their adorable faces, others for their tiny stature, and even others for their massive size.</p>
-                <p>Many people also have their own barometers for what makes a cute dog.</p>
-              </div>
-              <div class="ui divider"></div>
-			  <table class="ui definition table">
-    <tbody>
-      <tr>
-        <td class="two wide column">Type</td>
-        <td>Dog</td>
-      </tr>
-      <tr>
-        <td>Breed</td>
-        <td>German Shephard</td>
-      </tr>
-      <tr>
-        <td>Color</td>
-        <td>Brownish</td>
-      </tr>
-      <tr>
-        <td>Gender</td>
-        <td>Male</td>
-      </tr>
-    </tbody>
-  </table>
-  <div class="ui divider"></div>
-              <div class="header">Price
-                <div class="right floated header">Posted By
-               </div>
 
+  <div class="ten wide column">
+    <div class="ui segment">
+      <a class="ui blue ribbon label">
+        Pet Information</a>
+        <div class="ui card" style="width:100%;">
+          <div class="content">
+            <div class="header"><%=@listing.title%>
+              <div class="right floated header">
+                <i class="call icon">
+                </i><%=listing.phone_no%>
               </div>
-               <!--div class="meta"-->2500<i class="rupee icon"></i>
-               <div class="right floated author">
-                    <img class="ui avatar image medium" src="images/mypic.jpg"> Vivek Nayyar
-                  </div>
-                </div>
+            </div>
+
+            <div class="meta">Posted on <%=listing.created_at%></div>
+            <div class="description">
+              <p><%=@listing.love_for_pets</p>
+              
+            </div>
+            <div class="ui divider"></div>
+            <table class="ui definition table">
+              <tbody>
+                <tr>
+                  <td class="two wide column">Type</td>
+                  <td>Dog</td>
+                </tr>
+                <tr>
+                  <td>Breed</td>
+                  <td>German Shephard</td>
+                </tr>
+                <tr>
+                  <td>Color</td>
+                  <td>Brownish</td>
+                </tr>
+                <tr>
+                  <td>Gender</td>
+                  <td>Male</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="ui divider"></div>
+            <div class="header">Price
+              <div class="right floated header">Posted By
+              </div>
+
+            </div>
+            <!--div class="meta"-->2500<i class="rupee icon"></i>
+            <div class="right floated author">
+              <img class="ui avatar image medium" src="images/mypic.jpg"> Vivek Nayyar
             </div>
           </div>
-         
-      </div>
+        </div>
       </div>
 
     </div>
+  </div>
+
+</div>

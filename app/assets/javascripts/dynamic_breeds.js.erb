@@ -4,12 +4,12 @@ var breeds= new Array();
     <% end%>
 
     function petSelected() {
-      pet_id = $('#listing_pet_type').val();
+      pet_name = $('#listing_pet_type').val();
       options = document.getElementById('listing_breed_type').options;
       options.length = 1;
       for(var i=0;i<breeds.length;i++)
       {
-        if (breeds[i][0] == pet_id) {
+        if (breeds[i][0] == pet_name) {
           options[options.length] = new Option(breeds[i][1], breeds[i][2]);
         }
       };
@@ -24,7 +24,7 @@ var breeds= new Array();
      $('.pet_type').change(function(){
       $('.breed_type').dropdown('restore defaults');
       petSelected();
-      
+
     });
 
 });
