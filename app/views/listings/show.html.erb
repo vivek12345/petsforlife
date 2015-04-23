@@ -1,10 +1,12 @@
 <div class="ui padded page grid">
   <div class="six wide column"> 
+  <%@listing.photos.each do |photo|%>
     <div class="ui segment">
       <div class="image">
-        <img src="images/Pets.jpg" class="ui big image">
+        <%=image_tag photo.file_name.url(:thumb).to_s,class:'ui medium image' %>
       </div>
     </div>
+    <%end%>
   </div>
 
   <div class="ten wide column">
@@ -16,13 +18,16 @@
             <div class="header"><%=@listing.title%>
               <div class="right floated header">
                 <i class="call icon">
-                </i><%=listing.phone_no%>
+                </i><%=@listing.phone_no%>
               </div>
             </div>
 
-            <div class="meta">Posted on <%=listing.created_at%></div>
+            <div class="meta">Posted On
+            <% @date = @listing.created_at  %><%= @date.strftime("%B")%>
+            <%= @date.strftime("%d")%>
+            </div>
             <div class="description">
-              <p><%=@listing.love_for_pets</p>
+              <p><%=@listing.love_for_pets%></p>
               
             </div>
             <div class="ui divider"></div>
@@ -30,11 +35,11 @@
               <tbody>
                 <tr>
                   <td class="two wide column">Type</td>
-                  <td>Dog</td>
+                  <td><%=@listing.pet_type%></td>
                 </tr>
                 <tr>
                   <td>Breed</td>
-                  <td>German Shephard</td>
+                  <td><%=@listing.breed_type%></td>
                 </tr>
                 <tr>
                   <td>Color</td>
@@ -42,7 +47,7 @@
                 </tr>
                 <tr>
                   <td>Gender</td>
-                  <td>Male</td>
+                  <td><%=@listing.gender%></td>
                 </tr>
               </tbody>
             </table>
@@ -52,9 +57,9 @@
               </div>
 
             </div>
-            <!--div class="meta"-->2500<i class="rupee icon"></i>
+            <!--div class="meta"--><%=@listing.price%><i class="rupee icon"></i>
             <div class="right floated author">
-              <img class="ui avatar image medium" src="images/mypic.jpg"> Vivek Nayyar
+              <%=image_tag 'pets.png',class:'ui avatar image medium'%> Vivek Nayyar
             </div>
           </div>
         </div>

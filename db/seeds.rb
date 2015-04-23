@@ -13,8 +13,8 @@ breeds=[
 ["Second Breed","Cat"]
 
 ]
-breeds.each do |name,pet_id|
-	Breed.create(name:name,pet_id:pet_id)
+breeds.each do |name,pet_name|
+	Breed.create(name:name,pet_name:pet_name)
 end
 
 
