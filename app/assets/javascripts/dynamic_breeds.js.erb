@@ -1,5 +1,5 @@
-var breeds= new Array();
-    <% for breed in Breed.all %>
+var breeds= new Array()
+    <% for breed in Breed.all%>
       breeds.push(new Array('<%= breed.pet_name %>', '<%=breed.name %>', '<%= breed.name %>'));
     <% end%>
 

@@ -14,5 +14,6 @@
  
  *= require jquery-ui
  *= require dropzone/dropzone
+ 
  *= require_self
  */

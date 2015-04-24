@@ -1,0 +1,106 @@
+<div class="ui page grid">
+  <div class="column">
+    <form class="ui form">
+      <div class="six fields">
+        <div class="field">
+         <label>Gender</label>
+         <%=select(:listing,:gender,options_for_select([['Male','Male',{class:'item'}],['Female','Female',{class:'item'}]]),{prompt:'Gender'},class:'ui dropdown gender')%>
+       </div>
+
+       <div class="field">
+        <label>Pet</label>
+        <%=select(:listing,:pet_type,options_for_select([['Dog','Dog',{class:'item'}],['Cat','Cat',{class:'item'}],['Bird','Bird',{class:'item'}]]),{prompt:'Pet'},value_method: :value,class:'ui dropdown pet_type')%>
+      </div>
+      <div class="field">
+        <label>Breed</label>
+        <%=select(:listing,:breed_type,options_for_select(Breed.all.collect{|x| [x.name,x.name,class:'item']}),{prompt:'Breed'},class:'ui search dropdown disabled breed_type')%>
+      </div>
+
+
+      <div class="field">
+        <label>Gender</label>
+        <div class="ui selection dropdown">
+          <input type="hidden" name="gender">
+          <div class="default text">Gender</div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item" data-value="male">Male</div>
+            <div class="item" data-value="female">Female</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Gender</label>
+        <div class="ui selection dropdown">
+          <input type="hidden" name="gender">
+          <div class="default text">Gender</div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item" data-value="male">Male</div>
+            <div class="item" data-value="female">Female</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label style="visibility:hidden;">Search</label>
+        <div class="ui left labeled icon button">
+          <i class="filter icon"></i>
+          Filter
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+</div>
+
+<div class="ui page grid tabmenu">
+  <div class="ui secondary pointing filter menu">
+
+    <!--a class="blue item" data-tab="saved">Saved</a-->
+    <a class="active green item" data-tab="all">All</a>
+    <a class="red item" data-tab="favorite">Favorite</a>
+    <a class="blue item" data-tab="user_listing">Your Listings</a>
+  </div>
+</div>
+
+
+<div class="ui segment centersegment">
+  <%@listings.each_slice(4) do |slice|%>
+  <div class="ui four doubling link cards">
+    <%slice.each do |listing|%>
+    <div class="card">
+      <div class="content">
+        <i class="right floated like icon"></i>
+        <i class="right floated star icon"></i>
+        <div class="header"><%=listing.title%></div>
+        
+        <div class="description">
+          <div class="image">
+            
+            <%=image_tag listing.photos.first.file_name.url(:thumb),class:'ui medium image list_image'%>
+
+          </div>
+        </div>
+
+        <div class="description pet_love">
+          <p><%=listing.love_for_pets%></p>
+        </div>
+      
+      
+      </div>
+      <div class="extra content">
+        <span class="left floated like">
+          <i class="like icon"></i>
+          Like
+        </span> 
+        <div class="right floated author">
+          <%=image_tag 'pets.png',class:"ui avatar image small"%> Vivek
+        </div>
+      </div>
+    </div>
+    <%end%>
+  </div>
+  <%end%>
+</div>
