@@ -24,6 +24,7 @@ $(document).ready(function()
     });
     mediaDropzone.on("queuecomplete", function (file) {
       alert("All files have uploaded ");
+      $('.dimmer').removeClass('active');
       window.location.replace('/listings/'+listing_id);
     });
 

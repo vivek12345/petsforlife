@@ -31,6 +31,9 @@ class ListingsController < ApplicationController
 		@listing=Listing.find(params[:id])
 	end
 
+	def index
+		@listings=Listing.all
+	end
 
 	private
 	def listing_params

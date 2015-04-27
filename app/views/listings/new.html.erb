@@ -1,5 +1,5 @@
  <% javascript 'dynamic_breeds'%>
-<div class="ui padded page grid">
+<div class="ui padded page grid new_list_page">
 
   <div class="ui eight wide column">
 
@@ -23,7 +23,7 @@
 
       <div class="required field">
         <label>Title</label>  
-        <%=f.text_field :title,placeholder:'Title of the listing'%>
+        <%=f.text_field :title,placeholder:'Title of the listing' %>
       </div>
       <div class="two fields">
 
@@ -140,7 +140,7 @@
 </div>
 
 
-<%=f.submit 'Register',class:'ui teal button'%>
+<%=f.submit 'Register',class:'ui teal button new_listing'%>
 
 <%end%>
 
@@ -164,7 +164,19 @@
 </div>
 
 
+
 </div>
+<div class="ui inverted dimmer">
+<div class="ui text loader">Creating a new listing</div>
+</div>
+
+
+
+<script type="text/javascript">
+  $('.new_listing').click(function(){
+    $('.dimmer').addClass('active');
+  });
+</script>
 
 
 

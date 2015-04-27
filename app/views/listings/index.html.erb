@@ -1,0 +1,107 @@
+
+<div class="ui page grid">
+  <div class="column">
+    <form class="ui form">
+      <div class="six fields">
+        <div class="field">
+         <label>Gender</label>
+         <%=select(:listing,:gender,options_for_select([['Male','Male',{class:'item'}],['Female','Female',{class:'item'}]]),{prompt:'Gender'},{:'ng-model'=>'listing.gender',class:'ui dropdown gender'})%>
+       </div>
+
+       <div class="field">
+        <label>Pet</label>
+        <%=select(:listing,:pet_type,options_for_select([['Dog','Dog',{class:'item'}],['Cat','Cat',{class:'item'}],['Bird','Bird',{class:'item'}]]),{prompt:'Pet'},value_method: :value,class:'ui dropdown pet_type')%>
+      </div>
+      <div class="field">
+        <label>Breed</label>
+        <%=select(:listing,:breed_type,options_for_select(Breed.all.collect{|x| [x.name,x.name,class:'item']}),{prompt:'Breed'},class:'ui search dropdown disabled breed_type')%>
+      </div>
+
+
+      <div class="field">
+        <label>Gender</label>
+        <div class="ui selection dropdown">
+          <input type="hidden" name="gender">
+          <div class="default text">Gender</div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item" data-value="male">Male</div>
+            <div class="item" data-value="female">Female</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Gender</label>
+        <div class="ui selection dropdown">
+          <input type="hidden" name="gender">
+          <div class="default text">Gender</div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item" data-value="male">Male</div>
+            <div class="item" data-value="female">Female</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label style="visibility:hidden;">Search</label>
+        <div class="ui left labeled icon button filter">
+          <i class="filter icon"></i>
+          Filter
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+</div>
+
+<div class="ui page grid tabmenu">
+  <div class="ui secondary pointing filter menu">
+
+    <!--a class="blue item" data-tab="saved">Saved</a-->
+    <a class="active green item" data-tab="all">All</a>
+    <a class="red item" data-tab="favorite">Favorite</a>
+    <a class="blue item" data-tab="user_listing">Your Listings</a>
+  </div>
+</div>
+
+<div class="ui divided items" ng-controller="ListingController" ng-init="init(<%= @listings.to_json %> )" ng-repeat="listing in listings">
+<%@listings.each do |listing|%>
+
+<div class="item">
+    <div class="image">
+
+      <!--img src={{listing.photos.first.file_name.url}} class="header"/-->
+      <%=image_tag listing.photos.first.file_name.url,class:'header'%>
+    
+    </div>
+    <div class="content">
+      <%=link_to listing.title,listing,class:'header'%>
+
+      <div class="meta">
+        <span class="cinema">Posted On
+            <% @date = '{{listing.created_at}}'  %><%= @date.strftime("%B")%>
+            <%= @date.strftime("%d")%>
+        </span>
+      </div>
+      <div class="description">
+        <p>
+          <%=listing.love_for_pets%>
+        </p>
+      </div>
+      <div class="extra">
+        <div class="ui teal tag label"><i class="rupee icon"></i><%=listing.price%></div>
+      </div>
+    </div>
+  </div>
+  <%end%>
+
+</div>
+<script type="text/javascript">
+  $('.filter').click(function(){
+    filterSelected();
+  });
+</script>
+
+
