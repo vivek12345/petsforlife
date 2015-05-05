@@ -106,7 +106,8 @@
       </div>
       <div class="required field">
         <label>Tell everyone in short about your pet</label>
-        <%=f.text_area :love_for_pets%>
+        <%=f.text_area :love_for_pets,{:'ng-model'=>'newListing.textarea',:'ng-trim'=>'false',maxlength:'500'}%>
+        <span>{{500-newListing.textarea.length}} characters left</span>
       </div>
       <h4 class="ui dividing header">Additional Info</h4>
       <div class="two fields">

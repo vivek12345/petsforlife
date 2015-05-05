@@ -1,7 +1,7 @@
 $(document).ready(function()
 {	
 
-  listing_id=0;
+  var listing_id=0;
 	Dropzone.options.mediaDropzone=false;
  
   
@@ -27,6 +27,8 @@ $(document).ready(function()
       $('.dimmer').removeClass('active');
       window.location.replace('/listings/'+listing_id);
     });
+
+    $('.demo.menu .item').tab({history:false});
 
     $('.ui.form')
   .form({

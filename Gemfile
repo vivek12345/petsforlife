@@ -24,6 +24,7 @@ gem 'jquery-rails'
 gem 'dropzonejs-rails'
 gem 'pry'
 gem 'meta_request'
+gem 'awesome_print', '~> 1.6.1'
 #gem 'bootstrap-sass', '~> 3.2.0'
 
 
