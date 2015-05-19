@@ -1,36 +1,36 @@
 <div class="background" ng-controller="ListingController">
-<div class="ui page grid">
-  <div class="column">
-    <form class="ui form">
-      <div class="five fields">
+  <div class="ui page grid">
+    <div class="column">
+      <form class="ui form">
+        <div class="five fields">
+          <div class="field">
+           <label>Gender</label>
+           <%=select(:listing,:gender,options_for_select([['Male','Male',{class:'item'}],['Female','Female',{class:'item'}]]),{prompt:'Gender'},{:'ng-model'=>'listing1.gender',class:'ui dropdown gender'})%>
+         </div>
+
+         <div class="field">
+          <label>Pet</label>
+          <%=select(:listing,:pet_type,options_for_select([['Dog','Dog',{class:'item'}],['Cat','Cat',{class:'item'}],['Bird','Bird',{class:'item'}]]),{prompt:'Pet'},{:'ng-model'=>'listing1.pet_type',:'ng-change'=>'clear()',class:'ui dropdown pet_type'})%>
+        </div>
         <div class="field">
-         <label>Gender</label>
-         <%=select(:listing,:gender,options_for_select([['Male','Male',{class:'item'}],['Female','Female',{class:'item'}]]),{prompt:'Gender'},{:'ng-model'=>'listing1.gender',class:'ui dropdown gender'})%>
-       </div>
+          <label>Breed</label>
+          <%=select(:listing,:breed_type,options_for_select(Breed.all.collect{|x| [x.name,x.name,class:'item']}),{prompt:'Breed'},{:'ng-model'=>'listing1.breed_type',class:'ui search dropdown disabled breed_type'})%>
+        </div>
+        <div class="field">
+          <label>Price</label>
+          <%=select(:listing,:pet_type,options_for_select([['500-1000','500-1000',{class:'item'}],['2000-3000','2000-3000',{class:'item'}],['5000-8000','5000-8000',{class:'item'}]]),{prompt:'Price'},{:'ng-model'=>'listing1.price',class:'ui dropdown pet_type'})%>
+        </div>
 
-       <div class="field">
-        <label>Pet</label>
-        <%=select(:listing,:pet_type,options_for_select([['Dog','Dog',{class:'item'}],['Cat','Cat',{class:'item'}],['Bird','Bird',{class:'item'}]]),{prompt:'Pet'},{:'ng-model'=>'listing1.pet_type',:'ng-change'=>'clear()',class:'ui dropdown pet_type'})%>
-      </div>
-      <div class="field">
-        <label>Breed</label>
-        <%=select(:listing,:breed_type,options_for_select(Breed.all.collect{|x| [x.name,x.name,class:'item']}),{prompt:'Breed'},{:'ng-model'=>'listing1.breed_type',class:'ui search dropdown disabled breed_type'})%>
-      </div>
-      <div class="field">
-        <label>Price</label>
-        <%=select(:listing,:pet_type,options_for_select([['500-1000','500-1000',{class:'item'}],['2000-3000','2000-3000',{class:'item'}],['5000-8000','5000-8000',{class:'item'}]]),{prompt:'Price'},{:'ng-model'=>'listing1.price',class:'ui dropdown pet_type'})%>
-      </div>
-
-      <div class="right floated field">
-        <label style="visibility:hidden;">Search</label>
-        <div class="ui left labeled icon button filter" ng-click="clearAll()">
-          <i class="filter icon"></i>
-          Reset Filter
+        <div class="right floated field">
+          <label style="visibility:hidden;">Search</label>
+          <div class="ui left labeled icon button filter" ng-click="clearAll()">
+            <i class="filter icon"></i>
+            Reset Filter
+          </div>
         </div>
       </div>
-    </div>
-  </form>
-</div>
+    </form>
+  </div>
 </div>
 
 <div class="ui page grid tabmenu">
@@ -42,22 +42,25 @@
     <a class="blue item" data-tab="user_listing">Your Listings</a>
   </div>
 </div>
-<div class="ui active tab segment" data-tab="all">
 
-<div class="ui divided items" ng-init="init(<%=@listings.to_json(:include=>:photos) %>)">
+<div class="ui divided items active tab" ng-init="init(<%=@listings.to_json(:include=>:photos) %>)" data-tab="all">
   <div class="item" ng-repeat="listing in listings | filter:{'gender':listing1.gender,'pet_type':listing1.pet_type,'breed_type':listing1.breed_type}:true">
-  
-      <div class="image">
-      
+
+    <div class="image">
+
       <img ng-src='{{listing.photos[0].file_name.url}}' class='ui medium image' style='border-radius:5px;max-width:100%'></div>
       <div class="content listing_content">
         <i class="right floated large like icon"></i>
-        <i class="right floated large star icon"></i>
+        
+            <div class="right floated ui huge star rating" id="{{listing.id}}" ng-click="toggleFav(favMarked=!favMarked,listing.id)">
+              <i class="icon"></i>
+            </div>
+        
 
         <%=link_to '{{listing.title}}','/listings/{{listing.id}}',class:'header'%>
         <div class="meta">
           <span class="cinema">Posted On
-          <%@date = '{{listing.created_at}}'  %>
+            <%@date = '{{listing.created_at}}'  %>
           </span>
         </div>
         <div class="description">
@@ -80,24 +83,53 @@
         </div>
       </div>
     </div>
-
-
   </div>
-  </div>
-  </div>
-  <div class="ui tab segment" data-tab="favorite">Second</div>
-<div class="ui tab segment" data-tab="third1">Third</div>
+  <div class="ui divided items tab" data-tab="favorite">
+    <div class="item" ng-repeat="listing in favListings | filter:{'gender':listing1.gender,'pet_type':listing1.pet_type,'breed_type':listing1.breed_type}:true">
+
+    <div class="image">
+
+      <img ng-src='{{listing.photos[0].file_name.url}}' class='ui medium image' style='border-radius:5px;max-width:100%'></div>
+      <div class="content listing_content">
+        <div class="right floated ui huge star rating">
+              <i class="icon active"></i>
+            </div>
 
 
-<div class="ui pointing secondary demo menu">
-    <a class="active red item" data-tab="first">One</a>
-    <a class="blue item" data-tab="second">Two</a>
-    <a class="green item" data-tab="third">Three</a>
+        <%=link_to '{{listing.title}}','/listings/{{listing.id}}',class:'header'%>
+        <div class="meta">
+          <span class="cinema">Posted On
+            <%@date = '{{listing.created_at}}'  %>
+          </span>
+        </div>
+        <div class="description">
+          {{listing.love_for_pets}}
+        </div>
+
+
+        <div class="extra listing_price">
+          <div class="right floated ui circular facebook icon button">
+            <i class="facebook icon"></i>
+          </div>
+          <div class="right floated ui circular twitter icon button">
+            <i class="twitter icon"></i>
+          </div>
+
+          <div class="right floated ui circular google plus icon button">
+            <i class="google plus icon"></i>
+          </div>
+          <div class="ui teal tag label"><i class="rupee icon"></i>{{listing.price}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="ui tab" data-tab="user_listing">Third</div>
 </div>
 
-<div class="ui active tab segment" data-tab="first">First</div>
-<div class="ui tab segment" data-tab="second">Second</div>
-<div class="ui tab segment" data-tab="third">Third</div>
-  
+
+
+
+
 
 

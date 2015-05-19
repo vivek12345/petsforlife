@@ -293,3 +293,12 @@ html {
     margin: 3.5em 3.5em !important;
   }
 }
+@media only screen and (max-width: 460px)
+{
+  .ui.divided.items > .item 
+  {
+    padding: 2em 0.5em !important;
+  }
+}
+
+

@@ -37,6 +37,8 @@ class ListingsController < ApplicationController
 
 	def index
 		@listings=Listing.all
+		@favourite=Listing.first
+		@user_listing=Listing.last
 	end
 
 	private

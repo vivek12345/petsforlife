@@ -1,6 +1,6 @@
-app.controller('ListingController', ['$scope', '$resource', function($scope, $resource) {
+app.controller('ListingController', ['$scope', '$resource','$filter', function($scope, $resource,$filter) {
 	$scope.post = "Angular Rocks!"
-	
+	$scope.favListings=[];
 	$scope.init = function(listings)
 	{
 		$scope.listings = angular.fromJson(listings)	
@@ -14,5 +14,20 @@ app.controller('ListingController', ['$scope', '$resource', function($scope, $re
 	{
         delete $scope.listing1;
 	}
+
+	$scope.toggleFav = function(value,listing_id)
+	{
+		var found = $filter('filter')($scope.listings, {id: listing_id}, true);
+		if(value && found.length)
+		{
+			$scope.favListings.push(found[0]);
+		}
+		else
+		{
+			index=$scope.favListings.indexOf(found[0]);
+			$scope.favListings.splice(index, 1);
+		}
+	}
+
 
 }]);

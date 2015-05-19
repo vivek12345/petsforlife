@@ -4,7 +4,8 @@ $(document).ready(function()
   var listing_id=0;
 	Dropzone.options.mediaDropzone=false;
  
-  
+  if ($('div#media-dropzone').length)
+  {
     mediaDropzone=new Dropzone('div#media-dropzone',
     {
       url:"/listings/media",
@@ -27,8 +28,10 @@ $(document).ready(function()
       $('.dimmer').removeClass('active');
       window.location.replace('/listings/'+listing_id);
     });
+  }
 
-    $('.demo.menu .item').tab({history:false});
+    $('.filter.menu .item').tab({history:false});
+    $('.ui.rating').rating();
 
     $('.ui.form')
   .form({
