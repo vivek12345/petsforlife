@@ -1,15 +1,15 @@
 $(document).ready(function()
-{	
+{
 
   var listing_id=0;
 	Dropzone.options.mediaDropzone=false;
- 
+
   if ($('div#media-dropzone').length)
   {
     mediaDropzone=new Dropzone('div#media-dropzone',
     {
       url:"/listings/media",
-      headers: 
+      headers:
       {
         'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
       },
@@ -86,7 +86,7 @@ $(document).ready(function()
     }
   })
 ;
-  
+
 
 });
 
