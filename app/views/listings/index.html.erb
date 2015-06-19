@@ -68,9 +68,9 @@
 
 <div class="ui segment centersegment">
   <%@listings.each_slice(4) do |slice|%>
-  <div class="ui four doubling link cards">
+  <div class="ui four doubling link cards small_cards">
     <%slice.each do |listing|%>
-    <div class="card">
+    <div class="card small_cards">
       <div class="content">
         <i class="right floated like icon"></i>
         <i class="right floated star icon"></i>
@@ -81,6 +81,9 @@
             
             <%=image_tag listing.photos.first.file_name.url(:thumb),class:'ui medium image list_image'%>
 
+          </div>
+          <div class="ui blue right ribbon label listing_price">
+            <i class="rupee icon"></i> <%=listing.price%>
           </div>
         </div>
 
@@ -103,4 +106,5 @@
     <%end%>
   </div>
   <%end%>
+
 </div>

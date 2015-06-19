@@ -4,28 +4,30 @@ $(document).ready(function()
   listing_id=0;
 	Dropzone.options.mediaDropzone=false;
  
-  
-    mediaDropzone=new Dropzone('div#media-dropzone',
+    if ($('div#media-dropzone').length)
     {
-      url:"/listings/media",
-      headers: 
+      mediaDropzone=new Dropzone('div#media-dropzone',
       {
-        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
-      },
-      autoProcessQueue:false,
-      addRemoveLinks:true,
-      parallelUploads: 10
-    });
-    mediaDropzone.on("success",function(file,responseText)
-    {
-      console.log(responseText.file_name.url);
-      listing_id=responseText.listing_id
-      console.log(responseText);
-    });
-    mediaDropzone.on("queuecomplete", function (file) {
-      alert("All files have uploaded ");
-      window.location.replace('/listings/'+listing_id);
-    });
+        url:"/listings/media",
+        headers: 
+        {
+          'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+        },
+        autoProcessQueue:false,
+        addRemoveLinks:true,
+        parallelUploads: 10
+      });
+      mediaDropzone.on("success",function(file,responseText)
+      {
+        console.log(responseText.file_name.url);
+        listing_id=responseText.listing_id
+        console.log(responseText);
+      });
+      mediaDropzone.on("queuecomplete", function (file) {
+        alert("All files have uploaded ");
+        window.location.replace('/listings/'+listing_id);
+      });
+    }
 
     $('.ui.form')
   .form({
@@ -82,6 +84,19 @@ $(document).ready(function()
 ;
   
 
+});
+
+$(document).ready(function(){
+  if($(window).width() < 500){
+    $('.small_cards').removeClass('ui four doubling link cards');
+    $('.small_cards').addClass('ui one doubling link cards');
+    $('.new_listing_creation').removeClass('ui eight wide column');
+    $('.new_listing_creation').addClass('ui sixteen wide column');
+    $('.listing_show').removeClass('ui six wide column');
+    $('.listing_show').removeClass('ui ten wide column');
+    $('.listing_show').addClass('ui sixteen wide column');
+
+  }
 });
 
 
