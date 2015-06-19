@@ -1,3 +1,4 @@
+
 var breeds= new Array();
     <% for breed in Breed.all%>
       breeds.push(new Array('<%= breed.pet_name %>', '<%=breed.name %>', '<%= breed.name %>'));
@@ -26,5 +27,8 @@ var breeds= new Array();
       petSelected();
 
     });
+     $('.filter').click(function(){
+        $('.ui.dropdown').dropdown('restore defaults');
+     });
 
 });

@@ -27,14 +27,19 @@ class ListingsController < ApplicationController
 
 	end
 
+	def edit
+		@listing=Listing.find(params[:id])
+	end
+
 	def show
 		@listing=Listing.find(params[:id])
 	end
 
 	def index
 		@listings=Listing.all
+		@favourite=Listing.first
+		@user_listing=Listing.last
 	end
-
 
 	private
 	def listing_params

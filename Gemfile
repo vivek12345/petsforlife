@@ -5,6 +5,7 @@ source 'http://rubygems.org'
 gem 'rails', '4.1.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+#gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -23,10 +24,12 @@ gem 'jquery-rails'
 #gem "jquery-fileupload-rails"
 gem 'dropzonejs-rails'
 gem 'meta_request'
+
 group :development do
   gem "better_errors"
   gem 'pry'
 end
+
 #gem 'bootstrap-sass', '~> 3.2.0'
 
 
@@ -43,6 +46,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'less-rails-semantic_ui'
 gem 'autoprefixer-rails'
 
+
+gem 'angularjs-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

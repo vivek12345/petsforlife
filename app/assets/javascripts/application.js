@@ -21,6 +21,10 @@
 //= require dropzone
 
 //= require cloudinary
+//= require angular
+//= require angular-resource
+//= require app.js
+//= require_tree ./angular
 //require attachinary
 //= require_tree .
 

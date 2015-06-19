@@ -3,7 +3,7 @@
   <%@listing.photos.each do |photo|%>
     <div class="ui segment">
       <div class="image">
-        <%=image_tag photo.file_name.url,class:'ui medium image list_image' %>
+        <%=image_tag photo.file_name.url(:thumb),class:'ui medium image show_image' %>
       </div>
     </div>
     <%end%>
