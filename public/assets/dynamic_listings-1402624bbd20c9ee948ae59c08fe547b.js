@@ -1,0 +1,1 @@
+function filterSelected(){var e=$(".pet_type").val(),r=$(".gender").val(),t=$(".breed_type").val(),a=[];"Pet"!=e&&a.push(e),"Gender"!=r&&a.push(r),"Breed"!=t&&a.push(t);for(var l=0;l<a.length;l++);}var listings=new Array;
