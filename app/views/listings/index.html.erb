@@ -125,7 +125,7 @@
         </div>
 
         <div class="description pet_love">
-          <p><%=listing.love_for_pets%></p>
+          <p><%=truncate(listing.love_for_pets,:length => 300, :omission => '... (continued)')%></p>
         </div>
       
       
