@@ -22,5 +22,7 @@ module PetForLife
     # config.i18n.default_locale = :de
      # active_record or mongoid
      Rails.application.config.assets.precompile += %w( dynamic_breeds.js )
+     Rails.application.config.assets.precompile += %w( dynamic_listings.js )
+     #Rails.application.config.assets.precompile += %w( ListingController.js )
   end
 end

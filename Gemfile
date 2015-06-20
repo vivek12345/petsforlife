@@ -5,6 +5,7 @@ source 'http://rubygems.org'
 gem 'rails', '4.1.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+#gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -12,7 +13,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer',  platforms: :ruby
+gem 'therubyracer',  platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'cloudinary'
@@ -22,8 +23,13 @@ gem 'carrierwave'
 gem 'jquery-rails'
 #gem "jquery-fileupload-rails"
 gem 'dropzonejs-rails'
-gem 'pry'
 gem 'meta_request'
+
+group :development do
+  gem "better_errors"
+  gem 'pry'
+end
+
 #gem 'bootstrap-sass', '~> 3.2.0'
 
 
@@ -35,8 +41,13 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 #gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass', branch: 'v1.0beta'
-gem 'semantic-ui-rails'
+#gem 'semantic-ui-rails'
+#gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
+gem 'less-rails-semantic_ui'
+gem 'autoprefixer-rails'
 
+
+gem 'angularjs-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

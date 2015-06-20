@@ -16,10 +16,15 @@
 //require turbolinks
 // Loads all Semantic javascripts
 //require semantic-ui
+//= require semantic_ui/semantic_ui
 
 //= require dropzone
 
 //= require cloudinary
+//= require angular
+//= require angular-resource
+//= require app.js
+//= require_tree ./angular
 //require attachinary
 //= require_tree .
 

@@ -1,4 +1,4 @@
-/*@import "semantic-ui";*/
+
 
 /*******************************
             Global
@@ -83,6 +83,7 @@ html {
 
 
 
+
 /*******************************
           Responsive
 *******************************/
@@ -143,6 +144,17 @@ html {
     right:0rem;
   }
 }
+@media only screen and (max-width :400px){
+  #home .masthead.segment .information {
+    margin-left: 0px;
+  }
+  #home .masthead .image{
+    bottom:0px !important;
+    width:100% !important;
+    max-width:100% !important;
+    position: static;
+  }
+}
 
 
 /*my styles*/
@@ -171,6 +183,13 @@ html {
   max-height:169px;
 }
 
+img.ui.medium.image.list_image
+{
+  height:150px;
+  border: 1px solid rgba(0, 0, 0, 0.13);
+  width:100% !important;
+}
+
 .left.floated.like
 {
   margin-top:8px;
@@ -181,43 +200,29 @@ html {
   padding:0rem 0.5rem;
 }
 
-
-.examples-list ol {
-  margin-left: 30px;
+.ui.menu
+{
+  margin:0rem 0rem 1rem 0rem;
+}
+.list_image
+{
+  margin: auto;
+  border-radius:0px;
 }
 
-.examples-list ol li {
-  list-style: decimal;
-  color: #666;
-  margin-bottom: 8px;
+.ui.ribbon.listing_price{
+  bottom:15px;
 }
 
-.example-item ol li {
-  font-size: .875em;
+.ui.cards > .card{
+  //margin-left:1em !important;
+}
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.example-item .slider a {
-  line-height: 1.5em;
-}
-.example-item #bx-pager {
-  text-align: center;
-  margin-top: -30px;
-  display: inline-flex;
-}
-
-.example-item #bx-pager a {
-  margin: 0 3px;
-}
-
-.example-item #bx-pager a img {
-  padding: 3px;
-  border: solid #ccc 1px;
-}
-
-.example-item #bx-pager a:hover img,
-.example-item #bx-pager a.active img {
-  border: solid #5280DD 1px;
-}
 
 
 .bx-wrapper .bx-viewport
@@ -228,9 +233,76 @@ html {
 {
   margin:0rem 0rem 1rem 0rem;
 }
-.list_image
+
+
+.ui.items{
+  margin:3.5em 6.5em;
+}
+
+.ui.divided.items > .item {
+  border-top: 1px solid rgba(39, 41, 43, 0.15);
+  margin-bottom: 1em;
+  padding: 2em 2.5em;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 0.2857rem;
+}
+
+.ui.divided.items > .item:first-child {
+  
+  padding-top: 2em !important; 
+}
+.ui.divided.items > .item:last-child {
+  margin-bottom: 1em !important;
+  padding-bottom: 2em !important;
+}
+
+
+@media only screen and (max-width: 767px)
 {
-  margin: auto;
-  border-radius:5px;
+  .ui.items > .item > .image + .content 
+  {
+    display: block;
+    padding: 1.5em 1em 0em;
+  }
+}
+@media only screen and (max-width: 767px)
+{
+  .ui.items > .item > .image, .ui.items > .item > .image > img 
+  {
+    margin:0 auto;
+  }
+}
+.show_image
+{
+  margin:0 auto;
+}
+.ui.items .item .listing_price
+{
+  padding:0em 1em 0em;
+}
+.ui.items > .item > .listing_content
+{
+  padding-top:1em;
+}
+@media only screen and (max-width: 460px)
+{
+  .ui.items > .item .extra > *
+  {
+    margin: 0.25rem 0.5rem 0.25rem 3em;
+  }
+}
+@media only screen and (max-width: 460px)
+{
+  .ui.items {
+    margin: 3.5em 3.5em !important;
+  }
+}
+@media only screen and (max-width: 460px)
+{
+  .ui.divided.items > .item 
+  {
+    padding: 2em 0.5em !important;
+  }
 }
 
