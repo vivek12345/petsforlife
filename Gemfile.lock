@@ -29,13 +29,9 @@ GEM
       tzinfo (~> 1.1)
     angularjs-rails (1.3.15)
     arel (5.0.1.20140414130214)
-<<<<<<< HEAD
     autoprefixer-rails (5.2.0.1)
       execjs
       json
-=======
-    awesome_print (1.6.1)
->>>>>>> 383d4bb7b921c2addc84ae192d0979392097ab6c
     aws_cf_signer (0.1.3)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
@@ -135,10 +131,7 @@ GEM
     rake (10.4.2)
     rdoc (4.2.0)
       json (~> 1.4)
-<<<<<<< HEAD
     ref (1.0.5)
-=======
->>>>>>> 383d4bb7b921c2addc84ae192d0979392097ab6c
     rest-client (1.8.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
@@ -157,8 +150,6 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    semantic-ui-sass (1.11.5.0)
-      sass (~> 3.2)
     slop (3.6.0)
     sprockets (2.12.3)
       hike (~> 1.2)
@@ -200,13 +191,9 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
-<<<<<<< HEAD
+  angularjs-rails
   autoprefixer-rails
   better_errors
-=======
-  angularjs-rails
-  awesome_print (~> 1.6.1)
->>>>>>> 383d4bb7b921c2addc84ae192d0979392097ab6c
   carrierwave
   cloudinary
   coffee-rails (~> 4.0.0)
@@ -220,10 +207,6 @@ DEPENDENCIES
   rails (= 4.1.1)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
-<<<<<<< HEAD
-=======
-  semantic-ui-sass (~> 1.11.5.0)
->>>>>>> 383d4bb7b921c2addc84ae192d0979392097ab6c
   sqlite3
   therubyracer
   turbolinks
