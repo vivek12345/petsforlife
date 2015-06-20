@@ -222,7 +222,9 @@ img.ui.medium.image.list_image
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
+.pet_love > p{
+  word-wrap:break-word;
+}
 
 
 .bx-wrapper .bx-viewport
