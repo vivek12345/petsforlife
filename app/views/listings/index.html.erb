@@ -110,7 +110,7 @@
     <div class="card small_cards">
       <div class="content">
         <i class="right floated like icon"></i>
-        <i class="right floated star icon"></i>
+        <i class="right floated star icon" data-content="Please Signin to add this to your favourites" data-variation="large"></i>
         <div class="header"><%=listing.title%></div>
         
         <div class="description">
@@ -146,12 +146,12 @@
 
 </div>
 
-<div class="ui divided items active tab" ng-init="init(<%=@listings.to_json(:include=>:photos) %>)" data-tab="all">
+<div class="ui divided items active tab horizontal_cards" ng-init="init(<%=@listings.to_json(:include=>:photos) %>)" data-tab="all">
   <div class="item" ng-repeat="listing in listings | filter:{'gender':listing1.gender,'pet_type':listing1.pet_type,'breed_type':listing1.breed_type}:true">
 
     <div class="image">
 
-      <img ng-src='{{listing.photos[0].file_name.url}}' class='ui medium image' style='border-radius:5px;max-width:100%'></div>
+      <img ng-src='{{listing.photos[0].file_name.url}}' class='ui medium image list_image' style='border-radius:5px;max-width:100%'></div>
       <div class="content listing_content">
         <i class="right floated large like icon"></i>
         
@@ -229,6 +229,14 @@
   
   <div class="ui tab" data-tab="user_listing">Third</div>
 </div>
+<script type="text/javascript">
+  $(document).ready(function(){
+      $('.star.icon').popup({
+        on:'click',
+        position : 'bottom right'
+      });
+  });
+</script>
 
 
 
