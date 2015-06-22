@@ -98,8 +98,8 @@
     <a class="active green item" data-tab="all">All</a>
     <a class="red item" data-tab="favorite">Favorite</a>
     <a class="blue item" data-tab="user_listing">Your Listings</a>
-    <a class="right floated list-icon blue item" ng-class="{active: layout == 'listview'}" ng-click="layout = 'listview'"><i class="list layout icon"></i></a>
-  <a class="right floated grid-icon teal item" ng-class="{active: layout == 'grid'}" ng-click="layout = 'grid'"><i class="block layout icon"></i></a>
+    <a class="right floated list-icon blue item view_types" ng-class="{active: layout == 'listview'}" ng-click="layout = 'listview'"><i class="list layout icon"></i></a>
+  <a class="right floated grid-icon teal item view_types" ng-class="{active: layout == 'grid'}" ng-click="layout = 'grid'"><i class="block layout icon"></i></a>
   
   </div>
 
@@ -153,7 +153,7 @@
   </div>
 
 </div>
-<div ng-show="layout=='listview'" class="listview">
+<div ng-show="layout=='listview'" class="listview horizontal_cards">
   <div class="ui divided items active tab" ng-init="init(<%=@listings.to_json(:include=>:photos) %>,<%=@favourite.to_json(:include=>:photos) %>,<%=@user_listing.to_json(:include=>:photos) %>)" data-tab="all">
     <div class="item" style="display:none;">
     </div>
