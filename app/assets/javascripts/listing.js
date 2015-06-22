@@ -89,9 +89,11 @@ $(document).ready(function()
     }
   })
 ;
-$('.filter.menu .item').on('changeTab',function(){
-  console.log('trsting');
-});
+$('.no_user').popup({
+    inline   : true,
+    hoverable: false,
+    position : 'bottom right'
+  });
 
 });
 
