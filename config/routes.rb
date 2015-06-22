@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
 
+  get 'activations/create'
+
   root 'prime_petz#home'
 
   get 'prime_petz/home'
@@ -14,6 +16,18 @@ Rails.application.routes.draw do
   resources :listings
   resources :prime_petz
   get ':controller/:action.:format'
+
+  get 'login', to:'user_sessions#new',:as => :login
+  get 'logout',to: 'user_sessions#destroy',:as => :logout
+
+  resources :users,:user_sessions
+  
+
+  get 'signup',to:'users#new',:as=>:signup
+  get '/activations/:activation_code', :controller => 'activations', :action => 'create' , :as => 'activation'
+
+  post 'listings/favourite'
+  post 'listings/removeFavourite'
   
 
 

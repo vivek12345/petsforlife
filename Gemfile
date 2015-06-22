@@ -24,6 +24,8 @@ gem 'jquery-rails'
 #gem "jquery-fileupload-rails"
 gem 'dropzonejs-rails'
 gem 'meta_request'
+gem 'authlogic'
+gem 'ffi'
 
 group :development do
   gem "better_errors"

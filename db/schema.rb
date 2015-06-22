@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150422170906) do
+ActiveRecord::Schema.define(version: 20150621161700) do
 
   create_table "attachinary_files", force: true do |t|
     t.integer  "attachinariable_id"
@@ -36,6 +36,13 @@ ActiveRecord::Schema.define(version: 20150422170906) do
     t.datetime "updated_at"
   end
 
+  create_table "favourites", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "listing_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "listings", force: true do |t|
     t.string   "title"
     t.string   "pet_type"
@@ -48,6 +55,7 @@ ActiveRecord::Schema.define(version: 20150422170906) do
     t.text     "love_for_pets"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "photos", force: true do |t|
@@ -56,5 +64,22 @@ ActiveRecord::Schema.define(version: 20150422170906) do
     t.datetime "updated_at"
     t.integer  "listing_id"
   end
+
+  create_table "users", force: true do |t|
+    t.string   "username"
+    t.string   "email"
+    t.string   "crypted_password"
+    t.string   "password_salt"
+    t.string   "persistence_token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "city"
+    t.string   "gender"
+    t.text     "love_for_pets"
+    t.boolean  "active",            default: false, null: false
+    t.string   "perishable_token",  default: "",    null: false
+  end
+
+  add_index "users", ["perishable_token"], name: "index_users_on_perishable_token"
 
 end

@@ -98,136 +98,189 @@
     <a class="active green item" data-tab="all">All</a>
     <a class="red item" data-tab="favorite">Favorite</a>
     <a class="blue item" data-tab="user_listing">Your Listings</a>
-  </div>
-</div>
-
-
-
-<div class="ui segment centersegment">
-  <%@listings.each_slice(4) do |slice|%>
-  <div class="ui four doubling link cards small_cards">
-    <%slice.each do |listing|%>
-    <div class="card small_cards">
-      <div class="content">
-        <i class="right floated like icon"></i>
-        <i class="right floated star icon"></i>
-        <div class="header"><%=listing.title%></div>
-        
-        <div class="description">
-          <div class="image">
-            
-            <%=image_tag listing.photos.first.file_name.url(:thumb),class:'ui medium image list_image'%>
-
-          </div>
-          <div class="ui blue right ribbon label listing_price">
-            <i class="rupee icon"></i> <%=listing.price%>
-          </div>
-        </div>
-
-        <div class="description pet_love">
-          <p><%=truncate(listing.love_for_pets,:length => 300, :omission => '... (continued)')%></p>
-        </div>
-      
-      
-      </div>
-      <div class="extra content">
-        <span class="left floated like">
-          <i class="like icon"></i>
-          Like
-        </span> 
-        <div class="right floated author">
-          <%=image_tag 'pets.png',class:"ui avatar image small"%> Vivek
-        </div>
-      </div>
-    </div>
-    <%end%>
-  </div>
-  <%end%>
-
-</div>
-
-<div class="ui divided items active tab" ng-init="init(<%=@listings.to_json(:include=>:photos) %>)" data-tab="all">
-  <div class="item" ng-repeat="listing in listings | filter:{'gender':listing1.gender,'pet_type':listing1.pet_type,'breed_type':listing1.breed_type}:true">
-
-    <div class="image">
-
-      <img ng-src='{{listing.photos[0].file_name.url}}' class='ui medium image' style='border-radius:5px;max-width:100%'></div>
-      <div class="content listing_content">
-        <i class="right floated large like icon"></i>
-        
-            <div class="right floated ui huge star rating" id="{{listing.id}}" ng-click="toggleFav(favMarked=!favMarked,listing.id)">
-              <i class="icon"></i>
-            </div>
-        
-
-        <%=link_to '{{listing.title}}','/listings/{{listing.id}}',class:'header'%>
-        <div class="meta">
-          <span class="cinema">Posted On
-            <%@date = '{{listing.created_at}}'  %>
-          </span>
-        </div>
-        <div class="description">
-          {{listing.love_for_pets}}
-        </div>
-
-
-        <div class="extra listing_price">
-          <div class="right floated ui circular facebook icon button">
-            <i class="facebook icon"></i>
-          </div>
-          <div class="right floated ui circular twitter icon button">
-            <i class="twitter icon"></i>
-          </div>
-
-          <div class="right floated ui circular google plus icon button">
-            <i class="google plus icon"></i>
-          </div>
-          <div class="ui teal tag label"><i class="rupee icon"></i>{{listing.price}}</div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="ui divided items tab" data-tab="favorite">
-    <div class="item" ng-repeat="listing in favListings | filter:{'gender':listing1.gender,'pet_type':listing1.pet_type,'breed_type':listing1.breed_type}:true">
-
-    <div class="image">
-
-      <img ng-src='{{listing.photos[0].file_name.url}}' class='ui medium image' style='border-radius:5px;max-width:100%'></div>
-      <div class="content listing_content">
-        <div class="right floated ui huge star rating">
-              <i class="icon active"></i>
-            </div>
-
-
-        <%=link_to '{{listing.title}}','/listings/{{listing.id}}',class:'header'%>
-        <div class="meta">
-          <span class="cinema">Posted On
-            <%@date = '{{listing.created_at}}'  %>
-          </span>
-        </div>
-        <div class="description">
-          {{listing.love_for_pets}}
-        </div>
-
-
-        <div class="extra listing_price">
-          <div class="right floated ui circular facebook icon button">
-            <i class="facebook icon"></i>
-          </div>
-          <div class="right floated ui circular twitter icon button">
-            <i class="twitter icon"></i>
-          </div>
-
-          <div class="right floated ui circular google plus icon button">
-            <i class="google plus icon"></i>
-          </div>
-          <div class="ui teal tag label"><i class="rupee icon"></i>{{listing.price}}</div>
-        </div>
-      </div>
-    </div>
-  </div>
+    <a class="right floated list-icon blue item" ng-class="{active: layout == 'listview'}" ng-click="layout = 'listview'"><i class="list layout icon"></i></a>
+  <a class="right floated grid-icon teal item" ng-class="{active: layout == 'grid'}" ng-click="layout = 'grid'"><i class="block layout icon"></i></a>
   
-  <div class="ui tab" data-tab="user_listing">Third</div>
+  </div>
+
+</div>
+
+
+<div class="ui segment centersegment" ng-show="layout=='grid'">
+ <div ng-show="layout=='grid'" class="grid">
+    <div class="ui four doubling link cards small_cards">
+      <div class="card small_cards" ng-repeat="listing in listings| filter:{'gender':listing1.gender,'pet_type':listing1.pet_type,'breed_type':listing1.breed_type}:true">
+        <div class="content">
+          <i class="right floated like icon"></i>
+          <div class="right floated ui large star rating" id="{{listing.id}}" ng-click="toggleFav(favMarked=!favMarked,listing.id)">
+              <i class="icon"></i>
+          </div>
+          <div class="header"><!--%=listing.title%-->{{listing.title}}</div>
+          
+          <div class="description">
+            <div class="image">
+              
+              <!--%=image_tag listing.photos.first.file_name.url(:thumb),class:'ui medium image list_image'%-->
+              <img ng-src='{{listing.photos[0].file_name.url}}' class:'ui medium image list_image' style="max-width:100%;height:169px;width:100%;">
+
+            </div>
+            <div class="ui blue right ribbon label listing_price">
+              <i class="rupee icon"></i> <!--%=listing.price%-->{{listing.price}}
+            </div>
+          </div>
+
+          <div class="description pet_love">
+            <p><!--%=truncate(listing.love_for_pets,:length => 300, :omission => '... (continued)')%-->
+            {{listing.love_for_pets | limitTo:300}}....(continued)
+            </p>
+          </div>
+        
+        
+        </div>
+        <div class="extra content">
+          <span class="left floated like">
+            <i class="like icon"></i>
+            Like
+          </span> 
+          <div class="right floated author">
+            <%=image_tag 'pets.png',class:"ui avatar image small"%> Vivek
+          </div>
+        </div>
+      </div>
+      <!--%end%-->
+    </div>
+    <!--%end%-->
+  </div>
+
+</div>
+<div ng-show="layout=='listview'" class="listview">
+  <div class="ui divided items active tab" ng-init="init(<%=@listings.to_json(:include=>:photos) %>,<%=@favourite.to_json(:include=>:photos) %>,<%=@user_listing.to_json(:include=>:photos) %>)" data-tab="all">
+    <div class="item" style="display:none;">
+    </div>
+    <div class="item" ng-repeat="listing in listings | filter:{'gender':listing1.gender,'pet_type':listing1.pet_type,'breed_type':listing1.breed_type}:true">
+
+      <div class="image">
+
+        <img ng-src='{{listing.photos[0].file_name.url}}' class='ui medium image list_image' style='border-radius:5px;max-width:100%;height:169px'></div>
+        <div class="content listing_content">
+          <i class="right floated large like icon"></i>
+          
+              <div class="right floated ui huge star rating" id="{{listing.id}}" ng-click="toggleFav(favMarked=!favMarked,listing.id)">
+                <i class="icon"></i>
+              </div>
+          
+
+          <%=link_to '{{listing.title}}','/listings/{{listing.id}}',class:'header'%>
+          <div class="meta">
+            <span class="cinema">Posted On
+              <%@date = '{{listing.created_at}}'  %>
+            </span>
+          </div>
+          <div class="description">
+            {{listing.love_for_pets}}
+          </div>
+
+
+          <div class="extra listing_price">
+            <div class="right floated ui circular facebook icon button">
+              <i class="facebook icon"></i>
+            </div>
+            <div class="right floated ui circular twitter icon button">
+              <i class="twitter icon"></i>
+            </div>
+
+            <div class="right floated ui circular google plus icon button">
+              <i class="google plus icon"></i>
+            </div>
+            <div class="ui teal tag label"><i class="rupee icon"></i>{{listing.price}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui divided items tab" data-tab="favorite"> 
+      <div class="item" style="display:none;">
+      </div>
+      <div class="item" ng-repeat="listing in favListings | filter:{'gender':listing1.gender,'pet_type':listing1.pet_type,'breed_type':listing1.breed_type}:true">
+
+      <div class="image">
+
+        <img ng-src='{{listing.photos[0].file_name.url}}' class='ui medium image' style='border-radius:5px;max-width:100%;height:169px;'></div>
+        <div class="content listing_content">
+          <div class="right floated ui huge star rating" ng-click="toggleFav(favMarked=!favMarked,listing.id)">
+                <i class="active icon"></i>
+              </div>
+
+
+          <%=link_to '{{listing.title}}','/listings/{{listing.id}}',class:'header'%>
+          <div class="meta">
+            <span class="cinema">Posted On
+              <%@date = '{{listing.created_at}}'  %>
+            </span>
+          </div>
+          <div class="description">
+            {{listing.love_for_pets}}
+          </div>
+
+
+          <div class="extra listing_price">
+            <div class="right floated ui circular facebook icon button">
+              <i class="facebook icon"></i>
+            </div>
+            <div class="right floated ui circular twitter icon button">
+              <i class="twitter icon"></i>
+            </div>
+
+            <div class="right floated ui circular google plus icon button">
+              <i class="google plus icon"></i>
+            </div>
+            <div class="ui teal tag label"><i class="rupee icon"></i>{{listing.price}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="ui divided items tab" data-tab="user_listing">
+    <div class="item" style="display:none;">
+      </div>
+      <div class="item" ng-repeat="listing in user_listing | filter:{'gender':listing2.gender,'pet_type':listing2.pet_type,'breed_type':listing2.breed_type}:true">
+
+      <div class="image">
+
+        <img ng-src='{{listing.photos[0].file_name.url}}' class='ui medium image' style='border-radius:5px;max-width:100%;height:169px'></div>
+        <div class="content listing_content">
+          <div class="right floated ui huge star rating" ng-click="toggleFav(favMarked=!favMarked,listing.id)">
+                <i class="icon"></i>
+              </div>
+
+
+          <%=link_to '{{listing.title}}','/listings/{{listing.id}}',class:'header'%>
+          <div class="meta">
+            <span class="cinema">Posted On
+              <%@date = '{{listing.created_at}}'  %>
+            </span>
+          </div>
+          <div class="description">
+            {{listing.love_for_pets}}
+          </div>
+
+
+          <div class="extra listing_price">
+            <div class="right floated ui circular facebook icon button">
+              <i class="facebook icon"></i>
+            </div>
+            <div class="right floated ui circular twitter icon button">
+              <i class="twitter icon"></i>
+            </div>
+
+            <div class="right floated ui circular google plus icon button">
+              <i class="google plus icon"></i>
+            </div>
+            <div class="ui teal tag label"><i class="rupee icon"></i>{{listing.price}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 

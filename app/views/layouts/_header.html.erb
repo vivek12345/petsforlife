@@ -7,22 +7,24 @@
       <div class="ui vertical menu">
 
         <%=link_to 'Create Listing',new_listing_path,class:"active teal item"%>
-
-
-        <a class="item">
-          Login
-
-        </a>
-        <a class="item">
-          Register
-
-        </a>
+        <%=link_to 'Listings',listings_path,class:'item'%>
+        <% if current_user%>
+          <%=link_to 'Logout',logout_path,class:'item'%>
+        <%else%>
+          <%=link_to 'Login',login_path,class:'item'%>
+          <%=link_to 'Register',signup_path,class:'item'%>
+        <%end%>
 
       </div>
     </div>
     <%=link_to 'Create Listing',new_listing_path,class:'item'%>
-    <a class="item">Login</a>
-    <a class="item">Signup</a>
+    <%=link_to 'Listings',listings_path,class:'item'%>
+    <% if current_user%>
+          <%=link_to 'Logout',logout_path,class:'item'%>
+    <%else%>
+          <%=link_to 'Login',login_path,class:'item'%>
+          <%=link_to 'Register',signup_path,class:'item'%>
+    <%end%>
   </div>
 </div>
 

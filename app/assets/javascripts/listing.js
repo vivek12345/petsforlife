@@ -21,7 +21,7 @@ $(document).ready(function()
     mediaDropzone.on("success",function(file,responseText)
     {
       console.log(responseText.file_name.url);
-      listing_id=responseText.listing_id
+      listing_id=responseText.listing_id;
       console.log(responseText);
     });
     mediaDropzone.on("queuecomplete", function (file) {
@@ -31,7 +31,9 @@ $(document).ready(function()
     });
   }
 
-    $('.filter.menu .item').tab({history:false});
+    $('.filter.menu .item').tab({
+      
+    });
     $('.ui.rating').rating();
 
     $('.ui.form')
@@ -87,7 +89,9 @@ $(document).ready(function()
     }
   })
 ;
-
+$('.filter.menu .item').on('changeTab',function(){
+  console.log('trsting');
+});
 
 });
 
@@ -95,8 +99,8 @@ $(document).ready(function(){
   if($(window).width() < 500){
     $('.small_cards').removeClass('ui four doubling link cards');
     $('.small_cards').addClass('ui one doubling link cards');
-    $('.new_listing_creation').removeClass('ui eight wide column');
-    $('.new_listing_creation').addClass('ui sixteen wide column');
+    $('.new_creation').removeClass('ui eight wide column');
+    $('.new_creation').addClass('ui sixteen wide column');
     $('.listing_show').removeClass('ui six wide column');
     $('.listing_show').removeClass('ui ten wide column');
     $('.listing_show').addClass('ui sixteen wide column');
