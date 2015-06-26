@@ -1,0 +1,87 @@
+<div class="ui padded page grid new_list_page">
+    <div class="ui eight wide column new_creation">
+        <%=form_for @user, :html=> { class:'ui form centered black stacked segment'} do |f|%>
+            <%= render 'shared/error_messages', object: f.object %>
+            <div class="ui black ribbon label">
+                <i class="signup icon"></i> Register
+            </div>
+            
+            <h2 class="ui header">
+                <i class="user icon"></i>
+                <div class="content">
+                    Personal Information
+                    <div class="sub header">Details Required for every listing</div>
+                </div>
+            </h2>
+
+            <div class="two fields">
+                <div class="required field">
+                    <label>Username</label>  
+                    <%=f.text_field :username,placeholder:'Username' %>
+                </div>
+                <div class="required field">
+                    <label>Email</label>
+                    <%=f.text_field :email,placeholder:'Email Address'%>
+                </div>
+            </div>
+
+            <div class="two fields">
+                <div class="required field">
+                    <label>Password</label>  
+                    <%=f.password_field :password,placeholder:'Password' %>
+                </div>
+                <div class="required field">
+                    <label>Password Confirmation</label>
+                    <%=f.password_field :password_confirmation,placeholder:'Confirm Password'%>
+                </div>
+            </div>
+
+            <h4 class="ui dividing header">Additional Info</h4>
+
+            <div class="two fields">
+                <div class="required field">
+                    <label>Gender</label>
+                    <%= f.select(:gender,options_for_select([['Male','Male',{class:'item'}],['Female','Female',{class:'item'}]]),{prompt:'Gender'},class:'ui dropdown gender')%>
+                </div>
+                <div class="required field">
+                    <label>City</label>
+                    <select class="ui search dropdown">
+                        <option value="">City</option>
+                        <option value="AL">Alabama</option>
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DE">Delaware</option>
+                        <option value="DC">District Of Columbia</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="required field">
+                <label>Tell us in short why you love your pet</label>
+                <%=f.text_area :love_for_pets,{:'ng-model'=>'newListing.textarea',:'ng-trim'=>'false',maxlength:'500'}%>
+                <span>{{500-newListing.textarea.length}} characters left</span>
+            </div>
+
+            <div class="ui hidden divider"></div>
+        <%=f.submit 'Register',class:'ui teal button new_user'%>
+        <%end%>
+    </div>
+    <div class="ui eight wide column new_creation">
+        <div class="ui message">
+              <div class="header">
+                Perks of being a registered user
+              </div>
+              <ul class="list">
+                <li>You can edit/delete your listings</li>
+                <li>You can follow other breeders and get updates on whenever they post a listing</li>
+                <li>You add listings to your favouites</li>
+                <li>You can view the listings you posted in a separate tab and the activity on that</li>
+              </ul>
+        </div>
+    </div>
+</div>

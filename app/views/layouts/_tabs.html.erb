@@ -1,0 +1,15 @@
+<div class="ui page grid tabmenu">
+    <div class="ui secondary pointing filter menu">
+        <!--a class="blue item" data-tab="saved">Saved</a-->
+        <a class="active green item tab_item" data-tab="all" ng-click="changeTab(1,'all')">All</a>
+        <%if current_user%>
+            <a class="red item tab_item" data-tab="favorite" ng-click="changeTab(2,'favorite')">Favorite</a>
+            <a class="blue item tab_item" data-tab="user_listing" ng-click="changeTab(3,'user_listing')">Your Listings</a>
+        <%end%>
+        <span class="ui secondary pointing filter menu">
+            <a class="right floated list-icon blue item view_types tab_item" ng-class="{active: layout == 'listview'}" ng-click="layout = 'listview'"><i class="list layout icon"></i></a>
+            <a class="right floated grid-icon teal item view_types tab_item" ng-class="{active: layout == 'grid'}" ng-click="layout = 'grid'"><i class="block layout icon"></i></a>
+        </span>
+    </div>
+
+</div>

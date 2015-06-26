@@ -1,0 +1,32 @@
+<div class="ui page grid">
+  <div class="column">
+    <form class="ui form filter_form">
+      <div class="five fields">
+        <div class="field">
+         <label>Gender</label>
+         <%=select(:listing,:gender,options_for_select([['Male','Male',{class:'item'}],['Female','Female',{class:'item'}]]),{prompt:'Gender'},{:'ng-model'=>'listing1.gender',class:'ui dropdown gender'})%>
+        </div>
+
+        <div class="field">
+          <label>Pet</label>
+          <%=select(:listing,:pet_type,options_for_select([['Dog','Dog',{class:'item'}],['Cat','Cat',{class:'item'}],['Bird','Bird',{class:'item'}]]),{prompt:'Pet'},{:'ng-model'=>'listing1.pet_type',:'ng-change'=>'clear()',class:'ui dropdown pet_type'})%>
+        </div>
+        <div class="field">
+          <label>Breed</label>
+          <%=select(:listing,:breed_type,options_for_select(Breed.all.collect{|x| [x.name,x.name,class:'item']}),{prompt:'Breed'},{:'ng-model'=>'listing1.breed_type',class:'ui search dropdown disabled breed_type'})%>
+        </div>
+        <div class="field">
+          <label>Price</label>
+          <%=select(:listing,:pet_type,options_for_select([['500-1000','500-1000',{class:'item'}],['2000-3000','2000-3000',{class:'item'}],['5000-8000','5000-8000',{class:'item'}]]),{prompt:'Price'},{:'ng-model'=>'listing1.price',class:'ui dropdown pet_type'})%>
+        </div>
+        <div class="right floated field">
+          <label style="visibility:hidden;">Search</label>
+          <div class="ui left labeled icon button filter" ng-click="clearAll()">
+            <i class="filter icon"></i>
+            Reset Filter
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

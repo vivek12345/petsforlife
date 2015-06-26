@@ -1,7 +1,7 @@
  <% javascript 'dynamic_breeds'%>
 <div class="ui padded page grid new_list_page">
 
-  <div class="ui eight wide column new_listing_creation">
+  <div class="ui eight wide column new_creation">
 
     <%=form_for @listing, :html=> { class:'ui form centered black stacked segment'},remote: true do |f|%>
 
@@ -11,10 +11,9 @@
     <div class="ui black ribbon label">
         <i class="signup icon"></i> New Listing
       </div>
-      <div class="ui error message">
-    </div>
+      
       <h2 class="ui header">
-        <i class="settings icon"></i>
+        <i class="add user icon"></i>
         <div class="content">
           Create New Listing
           <div class="sub header">Manage your preferences</div>
@@ -119,7 +118,7 @@
 
 </div>
 
-<div class="ui eight wide column new_listing_creation">
+<div class="ui eight wide column new_creation">
  
   <div class="ui black stacked segment dropzone" id="media-dropzone">
     <div class="ui blue right ribbon label">
@@ -142,13 +141,6 @@
 <div class="ui text loader">Creating a new listing</div>
 </div>
 
-
-
-<script type="text/javascript">
-  $('.new_listing').click(function(){
-    $('.dimmer').addClass('active');
-  });
-</script>
 
 
 

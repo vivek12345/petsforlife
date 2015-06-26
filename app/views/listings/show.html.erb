@@ -1,14 +1,20 @@
 <div class="ui padded page grid">
-  <div class="six wide column listing_show"> 
-  <%@listing.photos.each do |photo|%>
-    <div class="ui segment">
-      <div class="image">
-        <%=image_tag photo.file_name.url(:thumb),class:'ui medium image show_image' %>
-      </div>
-    </div>
-    <%end%>
+  <div class="six wide column listing_show">
+    <div class="ui segment imageDisplay">
+      <%if @listing.photos.empty?%>
+        <%=image_tag 'missing.png',class:'ui medium image show_image'%>
+      <%else%>
+        <%@listing.photos.each do |photo|%>
+          <%=image_tag photo.file_name.url(:thumb),class:"ui medium image show_image thumb",style:'display:none'%>
+        <%end%>
+      <%end%>
+      
+      <span class="prev">prev</span>
+      <span class="next">next</span>   
+    </div> 
   </div>
-
+  
+            
   <div class="ten wide column listing_show">
     <div class="ui segment">
       <a class="ui blue ribbon label">
