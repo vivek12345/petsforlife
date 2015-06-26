@@ -13,8 +13,8 @@
             <i class="user icon"></i> <%=current_user.username%>
             <i class="dropdown icon"></i>
             <div class="menu">
-              <i class="write icon"></i><%=link_to 'Profile',current_user,class:'item'%>
-              <i class="sign out icon"></i><%=link_to 'Logout',logout_path,class:'item'%>
+              <%=link_to 'Profile',current_user,class:'item'%><i class="write icon"></i>
+              <%=link_to 'Logout',logout_path,class:'item'%><i class="sign out icon"></i>
             </div>
           </div>
           
@@ -33,8 +33,8 @@
         <i class="dropdown icon"></i>
         
         <div class="menu">
-          <i class="write icon"></i><%=link_to 'Profile',current_user,class:'item'%>
-          <i class="sign out icon"></i><%=link_to 'Logout',logout_path,class:'item'%>
+          <%=link_to 'Profile',current_user,class:'item'%><i class="write icon"></i>
+          <%=link_to 'Logout',logout_path,class:'item'%><i class="sign out icon"></i>
         </div>
       </div>
     <%else%>
