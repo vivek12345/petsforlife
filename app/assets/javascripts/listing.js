@@ -89,6 +89,7 @@ $(document).ready(function()
     }
   })
 ;
+
 $('.no_user').popup({
     inline   : true,
     hoverable: false,
@@ -106,9 +107,61 @@ $(document).ready(function(){
     $('.listing_show').removeClass('ui six wide column');
     $('.listing_show').removeClass('ui ten wide column');
     $('.listing_show').addClass('ui sixteen wide column');
+    $('.home_page_grid').removeClass('ui grid');
+    $('.home_page_grid').addClass('ui page grid');
+    $('.user_show').removeClass('ui four wide column');
+    $('.user_show').removeClass('ui twelve wide column');
+    $('.user_show').addClass('ui sixteen wide column');
 
   }
+  $('.show_image:first-child').addClass('active_show_image');
+  var numImgs = $('.show_image').length;
+  var imageClicked=$('.imageDisplay .active_show_image');
+  if(numImgs==1){
+    $('.next').hide();
+  }
+
+  $(".thumb").click(function(){
+        imageClicked = $(this);
+        imageClicked.addClass('active_show_image');
+  });
+
+  $('.next').click(function(){
+      imageClicked.removeClass('active_show_image');
+      imageClicked.next('img').trigger('click');
+      var prevImages = imageClicked.prevAll().length;
+      if(prevImages > 0){
+          $('.prev').show();
+      }else{
+          $('.prev').hide();
+      }
+      if(prevImages == (numImgs - 1)){
+          $('.next').hide();
+      }else{
+          $('.next').show();
+      }
+
+  });
+
+  $('.prev').click(function(){
+      imageClicked.removeClass('active_show_image');
+      imageClicked.prev('img').trigger('click');
+      var prevImages = imageClicked.prevAll().length;
+      if(prevImages > 0){
+          $('.prev').show();
+      }else{
+          $('.prev').hide();
+      }
+      if(prevImages == (numImgs - 1)){
+          $('.next').hide();
+      }else{
+          $('.next').show();
+      }
+  });
+  
 });
+
+
 
 
 

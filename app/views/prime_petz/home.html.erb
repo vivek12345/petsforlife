@@ -2,7 +2,7 @@
 
   <div class="ui masthead segment">
     
-    <div class="ui page grid">
+    <div class="ui grid home_page_grid">
       <div class="column">
         
         <%=image_tag 'pets.png',class:"ui big image"%>
@@ -84,14 +84,12 @@
             
             
           </form>
+
           <div class="ui right labeled icon button">
             Search
             <i class="search icon"></i>
           </div>
-          <div class="ui right labeled icon positive button">
-            View All Listings
-            <i class="icon dashboard"></i>
-          </div>
+          <%=link_to 'View All Listings',listings_path,class:'ui positive button'%>
         </div>
       </div>
     </div>
@@ -142,16 +140,14 @@
     </div>
   </div>
 
-  <div class="ui inverted vertical segment">
-    <div class="ui very relaxed stackable page grid">
-      <div class="row">
-        <div class="column">
-          <h1 class="center aligned ui inverted header">
-            The Best Cat Articles
-          </h1>
-        </div>
-      </div>
-      <div class="row">
+  
+
+      
+        <h1 class="center aligned ui header">
+            Most Popular Listings
+        </h1>
+        
+      <!--div class="row">
         <div class="ten wide column">
           <h3 class="ui inverted header">How to Win Your Cats Attention</h3>
           <p>Getting your cat to notice you is a large part of being a pet owner. Although I have a lot of patience for writing things about cats, perhaps this might be enough body copy to make this section of text look filled out.</p>
@@ -191,9 +187,11 @@
             <div class="ui error message"></div>
           </div>
         </div>
-      </div>
+
+      </div-->
+      <div class="most_popular_listings" ng-controller="ListingController">
+      <%=render 'listings/small_cards'%>
     </div>
-  </div>
 
   
 

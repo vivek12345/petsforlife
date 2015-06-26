@@ -20,6 +20,15 @@ class UsersController < ApplicationController
         end
     end
 
+    def show
+        @user=User.find_by_id(params[:id])
+        if @user
+            @listings=@user.listings
+            @layoutType="listview".to_json
+            @extraClass="show_view".to_json
+        end
+    end
+
     private
     def user_params
         params.require(:user).permit!

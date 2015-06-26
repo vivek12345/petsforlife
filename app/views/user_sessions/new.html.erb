@@ -25,7 +25,17 @@
                 <%=f.password_field :password,placeholder:'Password'%>
             </div>
             <div class="ui hidden divider"></div>
-            <%=f.submit 'Login',class:'ui blue button login_user'%>
+            <div class="ui buttons">
+                <%=f.submit 'Login',class:'ui button login_user'%>
+                <div class="or"></div>
+                <a href="/auth/facebook">
+                    <div class="ui facebook button">
+                        <i class="facebook icon"></i>
+                        Facebook
+                    </div>
+                </a>
+            </div>
+            
         <%end%>
     </div>
     <div class="ui eight wide column new_creation">

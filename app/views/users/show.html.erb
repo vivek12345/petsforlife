@@ -1,0 +1,39 @@
+<%if !@user.nil?%>
+<div class="ui page grid" ng-controller="ListingController">
+  <div class="four wide column user_show">
+    <div class="ui card">
+      <div class="image">
+        <%=image_tag 'default.jpg',class:'ui medium image'%>
+      </div>
+      <div class="content">
+        <a class="header"><%=@user.username%></a>
+        <div class="meta">
+          <span class="date">Joined in <%=@user.created_at.strftime("%B")%><%=@user.created_at.strftime("%Y")%></span>
+        </div>
+        <div class="description">
+          <%=@user.love_for_pets%>
+        </div>
+      </div>
+      <div class="extra content">
+        <a>
+          <i class="edit icon"></i>
+          <%= pluralize(@listings.count, "listing")%>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="twelve wide column user_show">
+      <span class="listing_heading">Vivek Nayyar's Listing</span>
+        <%if !@listings.empty?%>
+          <%=render 'listings/horizontal_cards'%>
+        <%else%>
+          <div class="ui icon blue message">
+            <i class="info icon"></i>
+            <p>This breeder is yet to post any listings</p>
+          </div>
+        <%end%>
+
+  </div>
+</div>
+<%end%>
+

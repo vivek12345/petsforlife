@@ -28,6 +28,8 @@ Rails.application.routes.draw do
 
   post 'listings/favourite'
   post 'listings/removeFavourite'
+  resources :authentications
+  get '/auth/:provider/callback' => 'authentications#create'
   
 
 
