@@ -112,8 +112,10 @@ $(document).ready(function(){
     $('.user_show').removeClass('ui four wide column');
     $('.user_show').removeClass('ui twelve wide column');
     $('.user_show').addClass('ui sixteen wide column');
-
   }
+  $('.special.cards .image').dimmer({
+      on: 'hover'
+  });
   $('.show_image:first-child').addClass('active_show_image');
   var numImgs = $('.show_image').length;
   var imageClicked=$('.imageDisplay .active_show_image');

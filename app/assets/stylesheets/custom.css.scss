@@ -279,7 +279,7 @@ img.ui.medium.image.list_image
   .view_types{
     display: none !important;
   }
-  .ui.cards > .card, .ui.card{
+  .ui.cards > .small_cards, .ui.card{
     margin-left:0px !important;
   }
   #home .tabmenu{
@@ -439,6 +439,9 @@ img.ui.medium.image.list_image
 .ui.footer.vertical.segment{
   bottom: 0px;
   width: 100%;
+}
+.user_profile_card{
+
 }
 
 
