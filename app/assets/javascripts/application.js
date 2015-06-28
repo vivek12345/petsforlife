@@ -24,6 +24,7 @@
 //= require angular
 //= require angular-resource
 //= require app.js
+//= require dynamic_breeds.js
 //= require_tree ./angular
 //require attachinary
 //= require_tree .
