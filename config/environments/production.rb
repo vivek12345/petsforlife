@@ -79,5 +79,23 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   # Do not dump schema after migrations.
-  config.active_record.dump_schema_after_migration = false
+  #config.active_record.dump_schema_after_migration = false
+  Rails.application.config.assets.precompile += %w( dynamic_breeds.js )
+  #Rails.application.config.assets.precompile += %w( dynamic_listings.js )
+
+  config.action_mailer.default_url_options = {:host => 'http://morning-taiga-2067.herokuapp.com/'} 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true 
+  config.action_mailer.raise_delivery_errors = true 
+  config.action_mailer.default :charset => "utf-8"
+
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: "example.com",
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: "vivek.of.nayyar@gmail.com", # this should be a real gmail id
+    password: "zaojtqzyxfshswgn" # this should be real password of your gmail id
+  }
 end
