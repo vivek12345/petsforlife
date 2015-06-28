@@ -23,7 +23,7 @@ html {
 ---------------*/
 
 #home .masthead {
-  background-image: url(image_path(concrete_seamless.png));
+  background-image: url(image-path(concrete_seamless.png));
   //background-image:linear-gradient(0deg, rgba(255,255,255,.2),rgba(255,255,255,.2)),url('pets.png');
   margin: 0em;
   padding: 0rem 0rem 3rem 0rem;
@@ -429,7 +429,7 @@ img.ui.medium.image.list_image
   width: 100%;
   height: 100%;
   z-index: 9999;
-  background: url(image_path(preloader.gif)) center no-repeat #fff;
+  background: url(image-path(preloader.gif)) center no-repeat #fff;
 }
 
 
