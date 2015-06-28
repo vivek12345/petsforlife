@@ -10,8 +10,8 @@
         <div class="meta">
           <span class="date">Joined in <%=@user.created_at.strftime("%B")%><%=@user.created_at.strftime("%Y")%></span>
         </div>
-        <div class="description">
-          <%=truncate(@user.love_for_pets, length: 200)%>
+        <div class="description pet_love">
+          <p><%=truncate(@user.love_for_pets, length: 200)%></p>
         </div>
       </div>
       <div class="extra content">
