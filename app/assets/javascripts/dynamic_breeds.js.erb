@@ -1,12 +1,8 @@
-breeds=[];
 function petSelected() {
-  breeds= breeds || new Array();
-  if(breeds==[])
-  {
-    <% for breed in Breed.all%>
-      breeds.push(new Array('<%= breed.pet_name %>', '<%=breed.name %>', '<%= breed.name %>'));
-    <% end%>
-  }
+  var breeds=new Array();
+  <% Breed.all.each do |breed|%>
+    breeds.push(new Array('<%= breed.pet_name %>', '<%=breed.name %>', '<%= breed.name %>'));
+  <% end%>
   pet_name = $('#listing_pet_type').val();
   options = document.getElementById('listing_breed_type').options;
   options.length = 1;
