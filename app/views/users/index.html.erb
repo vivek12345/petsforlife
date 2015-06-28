@@ -17,7 +17,7 @@
           <%=user.gender%>
         </div>
         <div class="description">
-          <%=user.love_for_pets%>
+          <%=truncate(user.love_for_pets, length: 200, omission: '... (ReadMore)')%>
         </div>
       </div>
       <div class="extra content">
