@@ -1,7 +1,7 @@
 breeds=[];
 function petSelected() {
   breeds= breeds || new Array();
-  if(breeds!=[])
+  if(breeds==[])
   {
     <% for breed in Breed.all%>
       breeds.push(new Array('<%= breed.pet_name %>', '<%=breed.name %>', '<%= breed.name %>'));
