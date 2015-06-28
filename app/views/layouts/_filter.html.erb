@@ -30,3 +30,9 @@
     </form>
   </div>
 </div>
+<script type="text/javascript">
+  var breeds=new Array();
+  <% Breed.all.each do |breed|%>
+    breeds.push(new Array('<%= breed.pet_name %>', '<%=breed.name %>', '<%= breed.name %>'));
+  <% end%>
+</script>
