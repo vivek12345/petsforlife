@@ -11,7 +11,7 @@
           <span class="date">Joined in <%=@user.created_at.strftime("%B")%><%=@user.created_at.strftime("%Y")%></span>
         </div>
         <div class="description">
-          <%=@user.love_for_pets%>
+          <%=truncate(@user.love_for_pets, length: 200)%>
         </div>
       </div>
       <div class="extra content">
