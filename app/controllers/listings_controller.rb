@@ -1,4 +1,5 @@
 class ListingsController < ApplicationController
+	before_filter :store_return_to
 	before_filter :require_user,except: [:index,:show]
 	def new
 		@breeds=Breed.all

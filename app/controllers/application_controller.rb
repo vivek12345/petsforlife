@@ -25,10 +25,14 @@ class ApplicationController < ActionController::Base
     end
   end
   def require_no_user
-      if current_user
-        #store_location
-        redirect_to root_url
-        return false
-      end
+    if current_user
+      #store_location
+      redirect_to root_url
+      return false
     end
+  end
+
+  def store_return_to
+    session[:return_to] = request.url
+  end
 end

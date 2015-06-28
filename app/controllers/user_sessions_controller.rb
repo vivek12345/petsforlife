@@ -9,8 +9,12 @@ class UserSessionsController < ApplicationController
     def create
         @user_session=UserSession.create(params_user_session)
         if @user_session.save
-            flash[:positive]="Successfully Logged In"
-            redirect_to listings_path
+            #flash[:positive]="Successfully Logged In"
+            if (session[:return_to])
+                redirect_to session[:return_to]
+            else
+               redirect_to listings_path
+            end 
         else
             render 'new'
         end

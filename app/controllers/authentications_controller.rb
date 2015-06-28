@@ -5,7 +5,7 @@ class AuthenticationsController < ApplicationController
      
         if authentication
           # User is already registered with application
-          flash[:info] = 'Signed in successfully.'
+          #flash[:info] = 'Signed in successfully.'
           sign_in_and_redirect(authentication.user)
         elsif current_user
           # User is signed in but has not already authenticated with this social network
@@ -13,8 +13,8 @@ class AuthenticationsController < ApplicationController
           current_user.apply_omniauth(omniauth)
           current_user.save
      
-          flash[:info] = 'Authentication successful.'
-          redirect_to root_url
+          #flash[:info] = 'Authentication successful.'
+          redirect_to listings_path
         else
           # User is new to this application
           user = User.new
@@ -23,7 +23,7 @@ class AuthenticationsController < ApplicationController
           if user.save(:validate => false)
             #binding.pry
             user.authentications.create(:provider => omniauth['provider'], :uid => omniauth['uid'])
-            flash[:info] = 'User created and signed in successfully.'
+            #flash[:info] = 'User created and signed in successfully.'
             sign_in_and_redirect(user)
           else
             #binding.pry
@@ -36,7 +36,7 @@ class AuthenticationsController < ApplicationController
     def destroy
         @authentication = current_user.authentications.find(params[:id])
         @authentication.destroy
-        flash[:notice] = 'Successfully destroyed authentication.'
+        #flash[:notice] = 'Successfully destroyed authentication.'
         redirect_to authentications_url
     end
      
@@ -46,6 +46,6 @@ class AuthenticationsController < ApplicationController
             user_session = UserSession.new(User.find_by_perishable_token(user.perishable_token))
             user_session.save
         end
-        redirect_to root_url
+        redirect_to listings_path
     end
 end

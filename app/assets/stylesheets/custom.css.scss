@@ -433,9 +433,13 @@ img.ui.medium.image.list_image
 }
 
 .ui.menu{
-  margin:0px !important;
+  margin-top:0em !important;
 }
 
+.ui.footer.vertical.segment{
+  bottom: 0px;
+  width: 100%;
+}
 
 
 
