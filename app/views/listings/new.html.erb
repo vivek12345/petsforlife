@@ -1,7 +1,7 @@
- <% javascript 'dynamic_breeds'%>
+<% javascript 'dynamic_breeds'%>
 <div class="ui padded page grid new_list_page">
 
-  <div class="ui eight wide column new_creation">
+  <div class="ui eight wide column new_creation" ng-controller="BreedController" ng-init="<%=@breeds%>">
 
     <%=form_for @listing, :html=> { class:'ui form centered black stacked segment'},remote: true do |f|%>
 
@@ -28,11 +28,13 @@
 
         <div class="required field">
           <label>Pet</label>
-          <%= f.select(:pet_type,options_for_select([['Dog','Dog',{class:'item'}],['Cat','Cat',{class:'item'}],['Bird','Bird',{class:'item'}]]),{prompt:'Pet'},value_method: :value,class:'ui dropdown pet_type')%>
+          <%= f.select(:pet_type,options_for_select([['Dog','Dog',{class:'item'}],['Cat','Cat',{class:'item'}],['Bird','Bird',{class:'item'}]]),{prompt:'Pet'},{:"ng-model"=>"breed.pet_type",value_method: :value,class:'ui dropdown pet_type'})%>
         </div>
         <div class="field">
           <label>Breed</label>
           <%= f.select(:breed_type,options_for_select(Breed.all.collect{|x| [x.name,x.name,class:'item']}),{prompt:'Breed'},class:'ui search dropdown disabled breed_type')%>
+          <% f.select(:breed_type,options_for_select(:"ng-repeat"=>"breed in breeds | filter:breed.pet_type"),{prompt:'Breed'},class:'ui search dropdown disabled breed_type')%>
+          <% f.select(:breed_type,options_for_select(@breeds.map{|x| [x.name,x.name,class:'item']}),{prompt:'Breed'},class:'ui search dropdown disabled breed_type')%>
         </div>
 
 

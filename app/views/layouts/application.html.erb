@@ -10,10 +10,19 @@
         <%=yield(:head)%>
         <%= csrf_meta_tags %>
         <%= cloudinary_js_config %>
+        <script type="text/javascript">
+            $(window).load(function() {
+                // Animate loader off screen
+                $(".se-pre-con").fadeOut("slow");;
+            });
+        </script>
 
     </head>
     <body id="home">
+        <div class="se-pre-con">
+        </div>
         <div id="fb-root"></div>
+
         <script>
             window.fbAsyncInit = function() {
             FB.init({appId: '1579788118950175', status: true, cookie: true,
