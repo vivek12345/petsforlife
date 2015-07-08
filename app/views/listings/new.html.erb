@@ -32,8 +32,6 @@
         <div class="field">
           <label>Breed</label>
           <%= f.select(:breed_type,options_for_select(Breed.all.collect{|x| [x.name,x.name,class:'item']}),{prompt:'Breed'},class:'ui search dropdown disabled breed_type')%>
-          <% f.select(:breed_type,options_for_select(:"ng-repeat"=>"breed in breeds | filter:breed.pet_type"),{prompt:'Breed'},class:'ui search dropdown disabled breed_type')%>
-          <% f.select(:breed_type,options_for_select(@breeds.map{|x| [x.name,x.name,class:'item']}),{prompt:'Breed'},class:'ui search dropdown disabled breed_type')%>
         </div>
 
 
@@ -47,31 +45,13 @@
         <div class="field">
           <label>State</label>
           <select class="ui search dropdown">
-            <option value="">State</option>
-            <option value="AL">Alabama</option>
-            <option value="AL">Alabama</option>
-            <option value="AK">Alaska</option>
-            <option value="AZ">Arizona</option>
-            <option value="AR">Arkansas</option>
-            <option value="CA">California</option>
-            <option value="CO">Colorado</option>
-            <option value="CT">Connecticut</option>
-            <option value="DE">Delaware</option>
-            <option value="DC">District Of Columbia</option>
-            <option value="FL">Florida</option>
-            <option value="GA">Georgia</option>
-            <option value="HI">Hawaii</option>
-            <option value="ID">Idaho</option>
-            <option value="IL">Illinois</option>
-            <option value="IN">Indiana</option>
-            <option value="IA">Iowa</option>
-            <option value="KS">Kansas</option>
-            <option value="KY">Kentucky</option>
-            <option value="LA">Louisiana</option>
-            <option value="ME">Maine</option>
-            <option value="MD">Maryland</option>
-            
+            <option value="">City</option>
+            <option value="MU">Mumbai</option>
+            <option value="DE">Delhi</option>
+            <option value="PU">Pune</option>
+            <option value="BA">Bangalore</option>
           </select>
+          
         </div>
 
       </div>
@@ -96,23 +76,20 @@
             <i class="call icon"></i>
           </div>
         </div>
-
-    
-
 </div>
 
 
 
 <div class="ui hidden divider"></div>
-<div class="field">
+<!--div class="field">
   <div class="ui checkbox">
     <input type="checkbox" name="hot-deals">
     <label>I agree to the <a href="#">Terms of Service</a>.</label>
   </div>
-</div>
+</div-->
 
 
-<%=f.submit 'Register',class:'ui teal button new_listing'%>
+<%=f.submit 'Create',class:'ui teal button new_listing'%>
 
 <%end%>
 

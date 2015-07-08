@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    before_filter :require_user,only: [:edit,:update,:destroy]
     def new
         @user_session=UserSession.new
         @user = User.new
@@ -31,6 +32,32 @@ class UsersController < ApplicationController
 
     def index
         @users=User.all
+    end
+
+    def destroy
+        @listing=Listing.find(params[:id])
+        if @listing.destroy
+            redirect_to listings_path
+        end
+    end
+
+    def autocomplete
+        render json: User.search(params[:query],autocomplete:true).map{|user| {username:user.username,value:user.id}}
+        #binding.pry
+    end
+
+    def edit
+        @user=current_user
+    end
+
+    def update
+        @user=current_user
+        if @user.update_attributes(user_params)
+            flash[:positive]="Profile Edited"
+            redirect_to current_user
+        else
+            render 'edit'
+        end
     end
 
     private

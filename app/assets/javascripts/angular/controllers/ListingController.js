@@ -49,6 +49,8 @@ app.controller('ListingController', ['$rootScope','$scope', '$resource','$filter
 			$http(req).
 		  	success(function(data){
 		      	$scope.favListings=data;
+		      	if($('.active.tab').attr('data-tab')=="favorite")
+		      		$scope.genListings=data;
 
 		      	console.log($scope.favListings);
 		      	$('.icon_'+listing_id).addClass('active');
@@ -63,6 +65,8 @@ app.controller('ListingController', ['$rootScope','$scope', '$resource','$filter
 			$http(req1).
 		      success(function(data){
 		      	$scope.favListings=data;
+		      	if($('.active.tab').attr('data-tab')=="favorite")
+		      		$scope.genListings=data;
 		      	$('.icon_'+listing_id).removeClass('active');
 	      	  }).
 	      	  error(function(){
@@ -94,16 +98,46 @@ app.controller('ListingController', ['$rootScope','$scope', '$resource','$filter
 
 	$scope.changeTab=function(tab_no,clicked_tab)
 	{
-		switch(tab_no){
-			case 1: $scope.genListings = $scope.listings;
+		switch(clicked_tab){
+			case "all": $scope.genListings = angular.fromJson($scope.listings);
 			break;
-			case 2: $scope.genListings = $scope.favListings;		
+			case "favorite": $scope.genListings = angular.fromJson($scope.favListings);		
 			break;
-			case 3: $scope.genListings = $scope.user_listing;
+			case "user_listing": $scope.genListings = angular.fromJson($scope.user_listing);
 			break;
 		}
-		$('.active.tab').attr('data-tab',clicked_tab);
+		if(tab_no!==undefined)
+			$('.active.tab').attr('data-tab',clicked_tab);
 
+	}
+
+	$scope.removeListing=function(listing_id)
+	{
+		var req = {
+	 		url: '/listings/destroy',
+			method: "DELETE",
+			data: {listing_id:listing_id},
+			headers: {'Content-Type': 'application/json','X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')}
+		}
+		$http(req).
+		success(function(data){
+			var found = $filter('filter')($scope.favListings, {id: listing_id}, true);
+			
+			if(found!==null && found.length){
+				$scope.favListings=data.favListings;
+			}
+			found = $filter('filter')($scope.user_listing, {id: listing_id}, true);
+			if(found!==null && found.length){
+				$scope.user_listing=data.user_listing;
+			}
+			
+			$scope.listings=data.listings;
+			
+			$scope.changeTab(undefined,$('.active.tab').attr('data-tab'));
+		}).
+		error(function(){
+			console.log('error');
+		});
 	}
 
 }]);

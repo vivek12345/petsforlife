@@ -3,7 +3,7 @@
         <%=form_for @user, :html=> { class:'ui form centered black stacked segment'} do |f|%>
             <%= render 'shared/error_messages', object: f.object %>
             <div class="ui black ribbon label">
-                <i class="signup icon"></i> Register
+                <i class="signup icon"></i> Edit Profile
             </div>
             
             <h2 class="ui header">
@@ -15,16 +15,15 @@
             </h2>
 
             <div class="two fields">
-                <div class="required field">
+                <div class="required disabled field">
                     <label>Username</label>  
-                    <%=f.text_field :username,placeholder:'Username' %>
+                    <%=f.text_field :username,placeholder:'Username',:readonly => true %>
                 </div>
-                <div class="required field">
+                <div class="required disabled field">
                     <label>Email</label>
-                    <%=f.text_field :email,placeholder:'Email Address'%>
+                    <%=f.text_field :email,placeholder:'Email Address',:readonly => true%>
                 </div>
             </div>
-
             <div class="two fields">
                 <div class="required field">
                     <label>Password</label>  
@@ -36,12 +35,13 @@
                 </div>
             </div>
 
+
             <h4 class="ui dividing header">Additional Info</h4>
 
             <div class="two fields">
                 <div class="required field">
                     <label>Gender</label>
-                    <%= f.select(:gender,options_for_select([['Male','Male',{class:'item'}],['Female','Female',{class:'item'}]]),{prompt:'Gender'},class:'ui dropdown gender')%>
+                    <%= f.select(:gender,options_for_select([['Male','Male',{class:'item'}],['Female','Female',{class:'item'}]]),{prompt:@user.gender},{class:'ui dropdown gender'})%>
                 </div>
                 <div class="required field">
                     <label>City</label>
@@ -57,25 +57,34 @@
 
             <div class="required field">
                 <label>Tell us in short why you love your pet</label>
-                <%=f.text_area :love_for_pets,{:'ng-model'=>'user.textarea',:'ng-trim'=>'false',maxlength:'500'}%>
+                <%=f.text_area :love_for_pets,{:"ng-model"=>"user.textarea",:"ng-init"=>"user.textarea='#{@user.love_for_pets}'",:'ng-trim'=>'false',maxlength:'500'}%>
                 <span>{{500-user.textarea.length}} characters left</span>
             </div>
 
             <div class="ui hidden divider"></div>
-        <%=f.submit 'Register',class:'ui teal button new_user'%>
+        <%=f.submit 'Edit Profile',class:'ui teal button new_user'%>
         <%end%>
     </div>
     <div class="ui eight wide column new_creation">
-        <div class="ui message">
-              <div class="header">
-                Perks of being a registered user
-              </div>
-              <ul class="list">
-                <li>You can edit/delete your listings</li>
-                <li>You can follow other breeders and get updates on whenever they post a listing</li>
-                <li>You add listings to your favouites</li>
-                <li>You can view the listings you posted in a separate tab and the activity on that</li>
-              </ul>
+        <div class="ui card">
+          <div class="image">
+            <%=image_tag 'default.jpg',class:'ui medium image'%>
+          </div>
+          <div class="content">
+            <a class="header"><%=current_user.username%></a>
+            <div class="meta">
+              <span class="date">Joined in <%=@user.created_at.strftime("%B")%><%=@user.created_at.strftime("%Y")%></span>
+            </div>
+            <div class="description pet_love">
+              <p>{{user.textarea | limitTo:200}}</p>
+            </div>
+          </div>
+          <div class="extra content">
+            <a>
+              <i class="edit icon"></i>
+              <%= pluralize(@user.listings.count, "listing")%>
+            </a>
+          </div>
         </div>
     </div>
 </div>

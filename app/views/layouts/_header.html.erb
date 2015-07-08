@@ -6,7 +6,7 @@
       Menu
       <i class="dropdown icon"></i>
       <div class="ui vertical menu">
-
+         <%=link_to 'Breeders',users_path,class:'item'%>
         <%=link_to 'Create Listing',new_listing_path,class:"active teal item"%>
         <%=link_to 'Listings',listings_path,class:'item'%>
         <% if current_user%>
@@ -14,7 +14,8 @@
             <i class="user icon"></i> <%=current_user.username%>
             <i class="dropdown icon"></i>
             <div class="menu">
-              <%=link_to 'Profile',current_user,class:'item'%><i class="write icon"></i>
+              <%=link_to 'View Profile',current_user,class:'item'%><i class="write icon"></i>
+              <%=link_to 'Edit Profile',current_user,method: :put,class:'item'%><i class="edit icon"></i>
               <%=link_to 'Logout',logout_path,class:'item'%><i class="sign out icon"></i>
             </div>
           </div>
@@ -26,6 +27,7 @@
 
       </div>
     </div>
+    <%=link_to 'Breeders',users_path,class:'item'%>
     <%=link_to 'Create Listing',new_listing_path,class:'item'%>
     <%=link_to 'Listings',listings_path,class:'item'%>
     <% if current_user%>
@@ -34,7 +36,8 @@
         <i class="dropdown icon"></i>
         
         <div class="menu">
-          <%=link_to 'Profile',current_user,class:'item'%><i class="write icon"></i>
+          <%=link_to 'View Profile',current_user,class:'item'%><i class="write icon"></i>
+          <%=link_to 'Edit Profile',edit_user_path(current_user),class:'item'%><i class="edit icon"></i>
           <%=link_to 'Logout',logout_path,class:'item'%><i class="sign out icon"></i>
         </div>
       </div>

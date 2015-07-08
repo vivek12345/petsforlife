@@ -23,8 +23,17 @@
           <div class="content">
             <div class="header"><%=@listing.title%>
               <div class="right floated header">
-                <i class="call icon">
-                </i><%=@listing.phone_no%>
+                <%if current_user%>
+                  <i class="call icon">
+                  </i><%=@listing.phone_no%>
+                <%else%>
+                  <a href="/login">
+                    <button class="ui basic button">
+                      <i class="icon call"></i>
+                      Sign In To View The Number
+                    </button>
+                  </a>
+                <%end%>
               </div>
             </div>
 
@@ -65,7 +74,7 @@
             </div>
             <!--div class="meta"--><%=@listing.price%><i class="rupee icon"></i>
             <div class="right floated author">
-              <%=image_tag 'pets.png',class:'ui avatar image medium'%> Vivek Nayyar
+              <%=image_tag 'pets.png',class:'ui avatar image medium'%> <%=@listing.user.username%>
             </div>
           </div>
         </div>

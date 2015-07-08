@@ -20,7 +20,13 @@ Rails.application.routes.draw do
   get 'login', to:'user_sessions#new',:as => :login
   get 'logout',to: 'user_sessions#destroy',:as => :logout
 
-  resources :users,:user_sessions
+  resources :users do
+   collection do
+      get :autocomplete
+    end
+  end
+
+  resources :user_sessions
   
 
   get 'signup',to:'users#new',:as=>:signup

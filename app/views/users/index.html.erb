@@ -12,7 +12,7 @@
         <%=image_tag 'default_avatar.png',class:'ui small image'%>
       </div>
       <div class="content">
-        <a class="header"><%=user.username%></a>
+        <%=link_to user.username,user,class:'header'%>
         <div class="meta">
           <%=user.gender%>
         </div>
@@ -26,7 +26,7 @@
         </span>
         <span>
           <i class="edit icon"></i>
-          <%=user.listings.count%> Listings
+          <%=link_to "#{user.listings.count} Listings",user%>
         </span>
       </div>
     </div>

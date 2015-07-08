@@ -4,9 +4,10 @@ class User < ActiveRecord::Base
         c.validates_length_of_password_field_options = {:on => :update, :minimum => 4}
         c.validates_length_of_password_confirmation_field_options = {:on => :update, :minimum => 4}
     end
+    searchkick autocomplete: ['username']
 
     #validates_presence_of :gender,:love_for_pets
-    has_many :listings
+    has_many :listings,:dependent => :destroy
     has_many :favourites
     has_many :authentications
     def activate!

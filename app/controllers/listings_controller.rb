@@ -38,8 +38,10 @@ class ListingsController < ApplicationController
 	end
 
 	def index
-		#@listings=Listing.joins("LEFT OUTER JOIN favourites on favourites.listing_id=listings.id")
-		@listings=Listing.all
+		# @listings=Listing.joins("LEFT OUTER JOIN favourites on favourites.listing_id=listings.id")
+		@listings=Listing.paginate(:page => params[:page], :per_page => 12)
+		# binding.pry
+		#@listings=Listing.all
 		#binding.pry
 		if current_user
 			if !current_user.favourites[0].nil?
@@ -56,7 +58,7 @@ class ListingsController < ApplicationController
 	def favourite
 		@favourite=Favourite.new(listing_id:params[:listing_id],user_id:current_user.id)
 		if @favourite.save
-			render json: Listing.where(id:current_user.favourites.map {|x| x.listing_id}).to_json(:include=>:photos)
+			render json: Listing.where(id:current_user.favourites.map {|x| x.listing_id}).to_json(:include => :photos)
 			#render json: Listing.find(current_user.favourites[0].listing_id)
 		end
 	end
@@ -65,10 +67,21 @@ class ListingsController < ApplicationController
 		@favourite=Favourite.find_by_listing_id(params[:listing_id])
 		@favourite.destroy
 		if !current_user.favourites[0].nil?
-			render json: Listing.where(id:current_user.favourites.map {|x| x.listing_id}).to_json(:include=>:photos)
+			render json: Listing.where(id:current_user.favourites.map {|x| x.listing_id}).to_json(:include => :photos)
 		else
 			render json: []
 		end	
+	end
+
+	def destroy
+		@listing=Listing.find(params[:listing_id])
+		if @listing.destroy
+			render json: {
+				:listings => Listing.all.to_json(:include => :photos),
+				:favListings => Listing.where(id:current_user.favourites.map {|x| x.listing_id}).to_json(:include => :photos),
+				:user_listing => current_user.listings.map{|x| x}.to_json(:include => :photos)
+			}
+		end
 	end
 
 	private

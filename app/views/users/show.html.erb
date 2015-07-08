@@ -1,7 +1,10 @@
 <%if !@user.nil?%>
 <div class="ui page grid" ng-controller="ListingController">
   <div class="four wide column user_show">
-    <div class="ui card">
+    <%flash.each do |key,value| %>
+      <div class="ui <%=key %> message"><%=value %></div>
+    <%end%>
+    <div class="ui centered card">
       <div class="image">
         <%=image_tag 'default.jpg',class:'ui medium image'%>
       </div>
@@ -23,7 +26,7 @@
     </div>
   </div>
   <div class="twelve wide column user_show">
-      <span class="listing_heading">Vivek Nayyar's Listing</span>
+      <span class="listing_heading"><%=@user.username%> listing's</span>
         <%if !@listings.empty?%>
           <%=render 'listings/horizontal_cards'%>
         <%else%>
