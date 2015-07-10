@@ -50,7 +50,8 @@
             <i class="facebook icon"></i>
           </span> 
           <div class="right floated author">
-            <%=image_tag 'pets.png',class:"ui avatar image small"%> {{listing.user.username}}
+            <%=image_tag 'pets.png',class:"ui avatar image small"%> 
+            <a href="/users/{{listing.user.id}}">{{listing.user.username}}</a>
           </div>
         </div>
       </div>

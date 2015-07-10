@@ -1,8 +1,10 @@
 <%if !@user.nil?%>
 <div class="ui page grid" ng-controller="ListingController">
   <div class="four wide column user_show">
-    <%flash.each do |key,value| %>
-      <div class="ui <%=key %> message"><%=value %></div>
+    <%if current_user%>
+      <%flash.each do |key,value| %>
+        <div class="ui <%=key %> message"><%=value %></div>
+      <%end%>
     <%end%>
     <div class="ui centered card">
       <div class="image">

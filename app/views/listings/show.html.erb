@@ -12,6 +12,10 @@
       <span class="prev">prev</span>
       <span class="next">next</span>   
     </div> 
+    <div class="right floated ui facebook button" ng-click="shareFb(listing)">
+      <i class="facebook icon"></i>
+      Share On Facebook
+    </div>
   </div>
   
             
@@ -74,7 +78,7 @@
             </div>
             <!--div class="meta"--><%=@listing.price%><i class="rupee icon"></i>
             <div class="right floated author">
-              <%=image_tag 'pets.png',class:'ui avatar image medium'%> <%=@listing.user.username%>
+              <%=image_tag 'pets.png',class:'ui avatar image medium'%> <%=link_to @listing.user.username,@listing.user%>
             </div>
           </div>
         </div>

@@ -1,49 +1,37 @@
-var ready;
+$(document).ready(function(){
 
-ready = function() {
-    var dt=[  
-       {  
-          "id":568,
-          "state":"al",
-          "city":"pittsview"
-       },
-       {  
-          "id":4095,
-          "state":"ga",
-          "city":"pitts"
-       }
-    ];
-    var engine = new Bloodhound({
+  var engine = new Bloodhound({
         datumTokenizer: function(d) {
             console.log(d);
-            return Bloodhound.tokenizers.whitespace("city");
+            return Bloodhound.tokenizers.whitespace(d);
         },
+        
         queryTokenizer: Bloodhound.tokenizers.whitespace,
-        local:dt
-        // remote: {
-        //     url: "../users/autocomplete?query=viv",
-        //     filter: function(resp) {
-        //         debugger
-        //         return resp
-        //     }
-        // }
+        remote: {
+            url: '/users/autocomplete?query=%QUERY',
+            // filter: function(resp) {
+            //     console.log(resp);
+            //     return resp
+            // },
+            wildcard: "%QUERY"
+        }
     });
 
-    // var promise = engine.initialize();
+    var promise = engine.initialize();
 
-    // promise
-    //     .done(function() { console.log('success!'); })
-    //     .fail(function() { console.log('err!'); });
+    promise
+        .done(function() { console.log('success!'); })
+        .fail(function() { console.log('err!'); });
 
-    $('#city_or_zip').typeahead({
-        minLength: 1,
+    $('#user_search').typeahead({
+       minLength: 1,
         highlight: true,
         hint: true
     }, {
         name: 'engine',
-        displayKey: 'city',
-        source: engine.ttAdapter()
+        display: 'username',
+        source: engine,
+        limit:50
     });
-}
 
-$(document).ready(ready);
+});
