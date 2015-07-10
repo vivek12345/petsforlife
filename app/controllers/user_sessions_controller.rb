@@ -1,4 +1,5 @@
 class UserSessionsController < ApplicationController
+
     def new
         @user_session = UserSession.new
         respond_to do |format|
@@ -25,7 +26,10 @@ class UserSessionsController < ApplicationController
         @user_session.destroy
 
         respond_to do |format|
-            format.html { redirect_to(root_url) }
+            format.html { 
+                redirect_to(login_path)
+                flash[:info]="Logged Out"
+            }
         end
     end
 

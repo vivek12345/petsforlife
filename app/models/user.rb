@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
     acts_as_authentic do |c|
-        c.login_field = 'username'
+        # c.login_field = 'username'
         c.validates_length_of_password_field_options = {:on => :update, :minimum => 4}
         c.validates_length_of_password_confirmation_field_options = {:on => :update, :minimum => 4}
     end
@@ -33,6 +33,10 @@ class User < ActiveRecord::Base
       self.gender=omniauth['extra']['raw_info']['gender']
       self.love_for_pets="love them"
       self.active=true
+    end
+
+    def self.find_by_username_or_email(login)
+      find_by_username(login) || find_by_email(login)
     end
 end
 

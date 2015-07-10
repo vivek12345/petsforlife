@@ -452,16 +452,17 @@ img.ui.medium.image.list_image
 .tt-menu {
   width: 100%;
   min-width: 160px;
-  margin-top: 2px;
   padding: 5px 0;
   background-color: #fff;
   border: 1px solid #ccc;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  // border: 1px solid rgba(0, 0, 0, 0.2);
   *border-right-width: 2px;
   *border-bottom-width: 2px;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
+  // -webkit-border-radius: 6px;
+  // -moz-border-radius: 6px;
+  // border-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
@@ -471,9 +472,9 @@ img.ui.medium.image.list_image
 }
 .tt-suggestion {
   display: block;
-  padding: 3px 20px;
+  padding: 6px 20px;
 }
-.tt-suggestion.tt-cursor{
+.tt-suggestion.tt-cursor,.tt-suggestion:hover{
 // .tt-is-under-cursor {
   color: #fff;
   background-color: #0081c2;

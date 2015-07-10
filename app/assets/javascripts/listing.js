@@ -160,6 +160,7 @@ $(document).ready(function(){
           $('.next').show();
       }
   });
+  $('.user_profile').accordion();
   
 });
 
