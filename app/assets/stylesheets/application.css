@@ -15,6 +15,7 @@
  *= require jquery-ui
  *= require dropzone/dropzone
  *= require semantic_ui/semantic_ui
+ *= require sweet-alert
  
  *= require_self
  */

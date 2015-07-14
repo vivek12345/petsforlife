@@ -46,6 +46,10 @@ class AuthenticationsController < ApplicationController
             user_session = UserSession.new(User.find_by_perishable_token(user.perishable_token))
             user_session.save
         end
-        redirect_to listings_path
+        if (session[:return_to])
+          redirect_to session[:return_to]
+        else
+          redirect_to listings_path
+        end
     end
 end

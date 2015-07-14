@@ -1,5 +1,5 @@
 class Notifier < ActionMailer::Base
-  default from: "vivek.of.nayyar@gmail.com"
+  default from: "no-reply@petzoned.com"
 
   def deliver_password_reset_instructions(user)
     email = user.email

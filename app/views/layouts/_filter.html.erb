@@ -1,7 +1,7 @@
-<div class="ui page grid">
+<div class="ui grid" style="margin-left:5px;margin-right:5px;">
   <div class="column">
     <form class="ui form filter_form">
-      <div class="five fields">
+      <div class="seven fields">
         <div class="field">
          <label>Gender</label>
          <%=select(:listing,:gender,options_for_select([['Male','Male',{class:'item'}],['Female','Female',{class:'item'}]]),{prompt:'Gender'},{:'ng-model'=>'listing1.gender',class:'ui dropdown gender'})%>
@@ -16,8 +16,19 @@
           <%=select(:listing,:breed_type,options_for_select(Breed.all.collect{|x| [x.name,x.name,class:'item']}),{prompt:'Breed'},{:'ng-model'=>'listing1.breed_type',class:'ui search dropdown disabled breed_type'})%>
         </div>
         <div class="field">
-          <label>Price</label>
-          <%=select(:listing,:pet_type,options_for_select([['500-1000','500-1000',{class:'item'}],['2000-3000','2000-3000',{class:'item'}],['5000-8000','5000-8000',{class:'item'}]]),{prompt:'Price'},{:'ng-model'=>'listing1.price',class:'ui dropdown pet_type'})%>
+          <label>City</label>
+          <%=select(:listing,:city,options_for_select([['Mumbai','Mumbai',{class:'item'}],['Delhi','Delhi',{class:'item'}],['Pune','Pune',{class:'item'}],['Bangalore','Bangalore',{class:'item'}]]),{prompt:'City'},{:'ng-model'=>'listing1.city',class:'ui dropdown city'})%>
+        </div>
+      
+        
+        <div class="field">
+          <label>Age</label>
+          <%= select(:listing,:age,options_for_select([['Young','Young',{class:'item'}],['Adult','Adult',{class:'item'}],['Senior','Senior',{class:'item'}],['Puppy','Puppy',{class:'item'}]]),{prompt:'Age'},{:'ng-model'=>'listing1.age',class:'ui dropdown age'})%>
+        </div>
+        <div class="field">
+          <label>Color</label>
+          <%= select(:listing,:color,options_for_select([['Black','Black',{class:'item'}],['Brindle','Brindle',{class:'item'}],['Brown/Choclate','Brown/Choclate',{class:'item'}],['Grey/Blue/Silver/Salt & Pepper','Grey/Blue/Silver/Salt & Pepper',{class:'item'}],['Merle','Merle',{class:'item'}],['Red/Golden/Orange/Chestnut','Red/Golden/Orange/Chestnut',{class:'item'}],['Tan/Yellow/Fawn','Tan/Yellow/Fawn',{class:'item'}],['Tricolor (Tan/Brown & Black & White)','Tricolor (Tan/Brown & Black & White)',{class:'item'}],['White','White',{class:'item'}]]),{prompt:'Color'},{:'ng-model'=>'listing1.color',class:'ui dropdown color'})%>
+          
         </div>
         <div class="right floated field">
           <label style="visibility:hidden;">Search</label>

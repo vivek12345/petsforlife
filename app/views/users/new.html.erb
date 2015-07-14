@@ -43,15 +43,9 @@
                     <label>Gender</label>
                     <%= f.select(:gender,options_for_select([['Male','Male',{class:'item'}],['Female','Female',{class:'item'}]]),{prompt:'Gender'},class:'ui dropdown gender')%>
                 </div>
-                <div class="required field">
+                <div class="field">
                     <label>City</label>
-                    <select class="ui search dropdown">
-                        <option value="">City</option>
-                        <option value="MU">Mumbai</option>
-                        <option value="DE">Delhi</option>
-                        <option value="PU">Pune</option>
-                        <option value="BA">Bangalore</option>
-                    </select>
+                    <%= f.select(:city,options_for_select([['Mumbai','Mumbai',{class:'item'}],['Delhi','Delhi',{class:'item'}],['Pune','Pune',{class:'item'}],['Bangalore','Bangalore',{class:'item'}]]),{prompt:'City'},class:'ui dropdown city')%>
                 </div>
             </div>
 

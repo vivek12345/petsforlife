@@ -2,7 +2,7 @@
   <div class="ui divided items active tab" ng-init="init(<%=@listings.to_json(:include=>[:photos,:user]) %>,<%=@favourite.to_json(:include=>:photos) %>,<%=@user_listing.to_json(:include=>:photos) %>,<%=@layoutType%>,<%=@extraClass%>)" data-tab="all" ng-class="{general_class: extra_class=='index_view'}">
     <div class="item" style="display:none;">
     </div>
-    <div class="item card" ng-repeat="listing in genListings | filter:{'gender':listing1.gender,'pet_type':listing1.pet_type,'breed_type':listing1.breed_type}:true">
+    <div class="item card" ng-repeat="listing in genListings | filter:{'gender':listing1.gender,'pet_type':listing1.pet_type,'breed_type':listing1.breed_type,'age':listing1.age,'color':listing1.color,'city':listing1.city}:true">
 
       <div class="image">
 
@@ -14,9 +14,11 @@
             <div class="right floated ui huge star rating" id="{{listing.id}}" ng-click="toggleFav(favMarked=!favMarked,listing.id)">
               <i class="icon icon_{{listing.id}}"></i>
             </div>
-            <div class="right floated" ng-show="listing.user_id==<%=current_user.id%>">
-              <i class="circular inverted blue trash icon" ng-click="removeListing(listing.id)"></i>
-            </div>
+            <%if request.fullpath!='/'%>
+              <div class="right floated" ng-show="listing.user_id==<%=current_user.id%>">
+                <i class="circular inverted blue trash icon" ng-click="removeListing(listing.id)"></i>
+              </div>
+            <%end%>
           <%else%>
             <div class="right floated ui huge star rating no_user" data-content="You need to login to add to favourites" data-variation="large">
               <i class="icon"></i>
@@ -27,11 +29,20 @@
           <span class="listing_title"><%=link_to '{{listing.title}}','/listings/{{listing.id}}',class:'header'%></span>
           
           <div class="meta">
-            <span class="cinema">Posted By
-              {{listing.user.username}}
+            <span class="cinema">Posted On
+              {{listing.created_at| date:'MMMM d, y'}}
+            </span>/
+            <span class="city">
+              {{listing.city}}
+            </span>/
+            <span class="age">
+              {{listing.age}}
+            </span>/
+            <span class="color">
+              {{listing.color}}
             </span>
           </div>
-          <div class="description">
+          <div class="description horizontal_description">
             {{listing.love_for_pets}}
           </div>
 

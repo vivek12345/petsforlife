@@ -161,8 +161,57 @@ $(document).ready(function(){
       }
   });
   $('.user_profile').accordion();
+  $('.user_profile').click(function(e){
+    e.stopPropagation();
+  });
+  $('.ui.dropdown').dropdown();
+  $('.new_listing').on('click',function(e){
+    e.preventDefault();
+    if($('.dropzone').find('.dz-preview').length<=0)
+    {
+      swal({  
+        title: "Creating without images?",  
+        text: "Are you sure you want to create this listing without any images.Images increase your chances of getting a buyer!",   
+        type: "warning",   
+        showCancelButton: true,   
+        confirmButtonColor: "#DD6B55",   
+        confirmButtonText: "Yes, Create It!",   
+        closeOnConfirm: false,
+        closeOnCancel:false
+      }, function(isConfirm){
+          if(isConfirm)
+          {
+            swal("Alright!", "Your listing will be created without images", "success");
+            $("#new_listing_form").trigger("submit.rails");
+          }
+          else
+          {
+            swal("Good Decision", "Please upload some nice images to attract the buyers :)", "error");
+            return false;
+          }
+      });
+    }
+    else
+    {
+      $('.dimmer').addClass('active');
+      $("#new_listing_form").trigger("submit.rails");
+    }
+  });
+
+//   $('.ui.search')
+//   .search({
+//     apiSettings: {
+//       url: '../users/autocomplete/?query={query}'
+//     },
+//     // searchFields   : [
+//     //   'username'
+//     // ],
+//     searchFullText: false
+//   })
+// ;
   
 });
+
 
 
 

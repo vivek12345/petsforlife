@@ -6,6 +6,8 @@ app.controller('ListingController', ['$rootScope','$scope', '$resource','$filter
 	$scope.extra_class=''
 
 	$scope.genListings=[]
+	$scope.areas=[]
+	$scope.isDisabled=true
 
 
 	
@@ -119,25 +121,56 @@ app.controller('ListingController', ['$rootScope','$scope', '$resource','$filter
 			data: {listing_id:listing_id},
 			headers: {'Content-Type': 'application/json','X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')}
 		}
-		$http(req).
-		success(function(data){
-			var found = $filter('filter')($scope.favListings, {id: listing_id}, true);
-			
-			if(found!==null && found.length){
-				$scope.favListings=data.favListings;
-			}
-			found = $filter('filter')($scope.user_listing, {id: listing_id}, true);
-			if(found!==null && found.length){
-				$scope.user_listing=data.user_listing;
-			}
-			
-			$scope.listings=data.listings;
-			
-			$scope.changeTab(undefined,$('.active.tab').attr('data-tab'));
-		}).
-		error(function(){
-			console.log('error');
+		swal({  
+			title: "Are you sure?",  
+			text: "This Listing will be deleted and you can not recover it!",   
+			type: "warning",   
+			showCancelButton: true,   
+			confirmButtonColor: "#DD6B55",   
+			confirmButtonText: "Yes, delete it!",   
+			closeOnConfirm: false 
+		}, function()
+		{   
+			swal("Deleted!", "Your Listing has been deleted.", "success"); 
+			$http(req).
+			success(function(data){
+				var found = $filter('filter')($scope.favListings, {id: listing_id}, true);
+				
+				if(found!==null && found.length){
+					$scope.favListings=data.favListings;
+				}
+				found = $filter('filter')($scope.user_listing, {id: listing_id}, true);
+				if(found!==null && found.length){
+					$scope.user_listing=data.user_listing;
+				}
+				
+				$scope.listings=data.listings;
+				
+				$scope.changeTab(undefined,$('.active.tab').attr('data-tab'));
+			}).
+			error(function(){
+				console.log('error');
+			});
 		});
 	}
+
+	$scope.selectArea=function(line){
+		switch(line){
+			case 'Western Line':$scope.areas=myareas[line];$scope.isDisabled=false;break;
+			case 'Central Line':$scope.areas=myareas[line];$scope.isDisabled=false;break;
+			
+		}
+	}
+
+	var myareas={
+    "Central Line": [
+        "thane",
+        "mulund"
+    ],
+    "Western Line": [
+        "malad",
+        "borivali"
+    ]
+};
 
 }]);

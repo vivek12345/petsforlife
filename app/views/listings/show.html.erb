@@ -12,9 +12,17 @@
       <span class="prev">prev</span>
       <span class="next">next</span>   
     </div> 
-    <div class="right floated ui facebook button" ng-click="shareFb(listing)">
+    <div class="ui facebook button social_share" ng-click="shareFb(listing)">
       <i class="facebook icon"></i>
       Share On Facebook
+    </div>
+    <div class="ui google plus button social_share">
+      <i class="google plus icon"></i>
+      Share On Goggle Plus
+    </div>
+    <div class="ui twitter button social_share">
+      <i class="twitter icon"></i>
+      Share On Twitter
     </div>
   </div>
   
@@ -62,11 +70,31 @@
                 </tr>
                 <tr>
                   <td>Color</td>
-                  <td>Brownish</td>
+                  <%if @listing.color.empty?%>
+                    <td>Not Specified</td>
+                  <%else%>
+                    <td><%=@listing.color%></td>
+                  <%end%>
                 </tr>
                 <tr>
                   <td>Gender</td>
                   <td><%=@listing.gender%></td>
+                </tr>
+                <tr>
+                  <td>Age</td>
+                  <%if @listing.age.empty?%>
+                    <td>Not Specified</td>
+                  <%else%>
+                    <td><%=@listing.age%></td>
+                  <%end%>
+                </tr>
+                <tr>
+                  <td>City</td>
+                  <%if @listing.city.empty?%>
+                    <td>Not Specified</td>
+                  <%else%>
+                    <td><%=@listing.city%></td>
+                  <%end%>
                 </tr>
               </tbody>
             </table>
@@ -78,7 +106,7 @@
             </div>
             <!--div class="meta"--><%=@listing.price%><i class="rupee icon"></i>
             <div class="right floated author">
-              <%=image_tag 'pets.png',class:'ui avatar image medium'%> <%=link_to @listing.user.username,@listing.user%>
+              <%=image_tag 'pets.png',class:'ui avatar image medium'%> <%=link_to @listing.user.username,@listing.user,class:'creator_name'%>
             </div>
           </div>
         </div>

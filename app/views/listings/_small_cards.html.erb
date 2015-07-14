@@ -1,16 +1,16 @@
 <div class="ui segment centersegment" ng-show="layout=='grid'">
   <div ng-show="layout=='grid'" class="grid">
     <!--start of active tab-->
-    <div class="ui four doubling link cards small_cards active tab" ng-init="init(<%=@listings.to_json(:include=>[:photos,:user =>{:include => :favourites}]) %>,<%=@favourite.to_json(:include=>:photos) %>,<%=@user_listing.to_json(:include=>:photos) %>,<%=@layoutType%>)" data-tab="all">
-      <div class="card" ng-repeat="listing in genListings | filter:{'gender':listing1.gender,'pet_type':listing1.pet_type,'breed_type':listing1.breed_type}:true">
+    <div class="ui four doubling link cards small_cards active tab" ng-init="init(<%=@listings.to_json(:include=>[:photos,:user =>{:include => :favourites}]) %>,<%=@favourite.to_json(:include=>:photos) %>,<%=@user_listing.to_json(:include=>:photos) %>,<%=@layoutType%>)" data-tab="all" id="small_cards">
+      
+      <div class="card" ng-repeat="listing in genListings | filter:{'gender':listing1.gender,'pet_type':listing1.pet_type,'breed_type':listing1.breed_type,'age':listing1.age,'color':listing1.color,'city':listing1.city}:true">
         <div class="content small_card_content">
           <!--i class="right floated like icon"></i-->
           <%if current_user%>
             <div class="right floated ui huge star rating" id="{{listing.id}}" ng-click="toggleFav(favMarked=!favMarked,listing.id)">
                 <i class="icon icon_{{listing.id}}"></i>
             </div>
-
-            <%!if request.fullpath=='/'%>
+            <%if request.fullpath!='/'%>
               <div class="right floated" ng-show="listing.user_id==<%=current_user.id%>">
                 <i class="circular inverted blue trash icon" ng-click="removeListing(listing.id)"></i>
               </div>
@@ -23,7 +23,6 @@
 
           
           <%=link_to '{{listing.title}}','/listings/{{listing.id}}',class:'header'%>
-
           <div class="description">
             <div class="image">
               <a href="/listings/{{listing.id}}">
@@ -37,26 +36,35 @@
 
           <div class="description pet_love">
             <p>
-            {{listing.love_for_pets | limitTo:300}}....(continued)
+            {{listing.love_for_pets | limitTo:300}}
             </p>
             <!-- <a class="ui teal label">
               <i class="checkmark icon"></i>
                 Verified
             </a> -->
           </div>
+          <div class="description city_color_age">
+          <p class="meta">Posted On {{listing.created_at| date:'MMMM d, y'}}</p>
+          <p class="meta">City:{{listing.city}}</p>
+          <p class="meta">Age:{{listing.age}} and 
+           Color:{{listing.color}}</p>
+        </div> 
         </div>
+        
         <div class="extra content">
           <span class="ui circular facebook icon button" ng-click="shareFb(listing)">
             <i class="facebook icon"></i>
           </span> 
           <div class="right floated author">
             <%=image_tag 'pets.png',class:"ui avatar image small"%> 
-            <a href="/users/{{listing.user.id}}">{{listing.user.username}}</a>
+            <a href="/users/{{listing.user.id}}" class="creator_name">{{listing.user.username}}</a>
           </div>
         </div>
       </div>
+      
     </div>
     <!-- end of active tab-->
+
     
   </div>
 </div>

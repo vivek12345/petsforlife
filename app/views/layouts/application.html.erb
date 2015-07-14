@@ -35,7 +35,9 @@
             document.getElementById('fb-root').appendChild(e);
             }());
         </script>
-        <%=render 'layouts/header'%>
+        <%if request.fullpath!='/'%>
+            <%=render 'layouts/header'%>
+        <%end%>
         <%= yield %>
     </body>
 </html>

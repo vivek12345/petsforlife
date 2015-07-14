@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150622211718) do
+ActiveRecord::Schema.define(version: 20150714162814) do
 
   create_table "attachinary_files", force: true do |t|
     t.integer  "attachinariable_id"
@@ -64,6 +64,8 @@ ActiveRecord::Schema.define(version: 20150622211718) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "age"
+    t.string   "city"
   end
 
   create_table "photos", force: true do |t|

@@ -1,12 +1,12 @@
 <%if !@user.nil?%>
 <div class="ui page grid" ng-controller="ListingController">
-  <div class="four wide column user_show">
+  <div class="four wide column user_show" id="user_show_page">
     <%if current_user%>
       <%flash.each do |key,value| %>
         <div class="ui <%=key %> message"><%=value %></div>
       <%end%>
     <%end%>
-    <div class="ui centered card">
+    <div class="ui centered card" id="profile_card">
       <div class="image">
         <%=image_tag 'default.jpg',class:'ui medium image'%>
       </div>
@@ -30,13 +30,18 @@
   <div class="twelve wide column user_show">
       <span class="listing_heading"><%=@user.username%> listing's</span>
         <%if !@listings.empty?%>
-          <%=render 'listings/horizontal_cards'%>
+          <%if request.user_agent =~ /Mobile|webOS/%>
+            <%=render 'listings/small_cards'%>
+          <%else%>
+            <%=render 'listings/horizontal_cards'%>
+          <%end%>
         <%else%>
           <div class="ui icon blue message">
             <i class="info icon"></i>
             <p>This breeder is yet to post any listings</p>
           </div>
         <%end%>
+
 
   </div>
 </div>

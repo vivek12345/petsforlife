@@ -25,7 +25,12 @@ class UsersController < ApplicationController
         @user=User.find_by_id(params[:id])
         if @user
             @listings=@user.listings
-            @layoutType="listview".to_json
+            if request.user_agent =~ /Mobile|webOS/
+                @layoutType="grid".to_json
+            else
+                @layoutType="listview".to_json
+            end
+            
             @extraClass="show_view".to_json
         end
     end
@@ -42,8 +47,17 @@ class UsersController < ApplicationController
     end
 
     def autocomplete
+        # @results=
         render json: User.search(params[:query],autocomplete:true).map{|user| {username:user.username,value:user.id}}
         #binding.pry
+
+        
+            #     @results=(User.search(params[:query],autocomplete:true).map{|user| {username:user.username,value:user.id}})
+            
+            # render json: {
+            #     results:@results
+            # }
+        
     end
 
     def edit

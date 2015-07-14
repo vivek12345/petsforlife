@@ -23,19 +23,27 @@ html {
 ---------------*/
 
 #home .masthead {
-   background-image: url(image_path('concrete_seamless.png'));
-  // background-image: url(image_path('pets.png'));
+   // background-image: url(image_path('concrete_seamless.png'));
+  background-image: url(image_path('bg1.jpg'));
   
   //background-image:linear-gradient(0deg, rgba(255,255,255,.2),rgba(255,255,255,.2)),url('pets.png');
   margin: 0em;
   padding: 0rem 0rem 3rem 0rem;
-  // background-repeat: no-repeat;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+  height:500px;
+  background-color: rgba(55, 41, 41, 0.53);
+  background-blend-mode: overlay;
 }
 #home .masthead .column {
   position: relative;
 }
 #home .masthead .information {
-  margin: 5em 1em 1em 600px;
+  //margin: 5em 1em 1em 600px;
+  margin: 15em auto 1em;
+  padding: 0em 15em;
 }
 #home .masthead .information p {
   max-width: 600px;
@@ -105,13 +113,19 @@ html {
   #home .menu .right.menu > .mobile.item .menu {
     left: auto;
     right: 0em;
+    background: #fff !important;
   }
 
   #home h1 {
     font-size: 1.5em;
   }
+  #home .masthead.segment{
+    height: 100%;
+  }
   #home .masthead.segment .information {
-    margin-left: 170px;
+    //margin-left: 170px;
+    margin: 0px;
+    padding: 0px;
   }
 
   #home .masthead.segment .image {
@@ -146,6 +160,22 @@ html {
   .displayClass
   {
     right:0rem;
+  }
+  .logo_image{
+    position: relative !important;
+    right: 7vw !important;
+    width: 385px !important;
+    bottom: -9vw !important;
+  }
+  #user_show_page{
+    display: table;
+    #profile_card{
+      display: table-cell;
+    }
+  }
+
+  #small_cards{
+    margin-left:-15px;
   }
 }
 @media only screen and (max-width :400px){
@@ -344,7 +374,7 @@ img.ui.medium.image.list_image
   color: rgba(0, 0, 0, 0.62) !important;
 }
 .small_cards .pet_love > p{
-    height:150px !important;
+    height:100px !important;
   }
 
 
@@ -438,6 +468,10 @@ img.ui.medium.image.list_image
 
 .ui.menu{
   margin-top:0em !important;
+  // background: none !important;
+}
+.right.menu .item{
+  padding:10px 20px !important;
 }
 
 .ui.footer.vertical.segment{
@@ -564,7 +598,42 @@ img.ui.medium.image.list_image
   width:50% !important;
   margin:0 auto;
 }
+.creator_name{
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.5);
+}
+.social_share{
+  width:100%;
+  margin-bottom: 15px !important;
+}
+#home .masthead.segment > .ui.inverted.menu{
+  background: none;
+  padding-top:10px;
+}
 
+.ui.form .field > #home_label{
+  color: rgba(239, 231, 229, 0.8);
+  font-size: 1.9285em;
+}
+.right.menu a:nth-child(2){
+  border:2px solid;
+  border-radius: 2px
+}
+.logo_image{
+  position: absolute;
+  right: 25vw;
+  width: 44vw;
+  bottom: 3vw
+}
+.city_color_age{
+  height:50px;
+}
+.dimmer{
+  height:100% !important;
+}
+.horizontal_description{
+  min-height: 70px;
+}
 
 
 

@@ -19,9 +19,11 @@
 //= require semantic_ui/semantic_ui
 
 //= require dropzone
+//= require sweet-alert
 
 //= require cloudinary
 //= require twitter/typeahead.min
+
 //= require angular
 //= require angular-resource
 //= require app.js

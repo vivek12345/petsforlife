@@ -1,8 +1,9 @@
-<div class="ui padded page grid new_list_page">
+<div class="ui padded page grid new_list_page" ng-controller="ListingController">
 
   <div class="ui eight wide column new_creation" ng-controller="BreedController" ng-init="<%=@breeds%>">
 
-    <%=form_for @listing, :html=> { class:'ui form centered black stacked segment'},remote: true do |f|%>
+    <%=form_for @listing, :html=> { class:'ui form centered black stacked segment',id:'new_listing_form'},remote: true do |f|%>
+    <%= render 'shared/error_messages', object: f.object %>
 
 
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
@@ -43,17 +44,22 @@
           <%= f.select(:gender,options_for_select([['Male','Male',{class:'item'}],['Female','Female',{class:'item'}]]),{prompt:'Gender'},class:'ui dropdown gender')%>
         </div>
         <div class="field">
-          <label>State</label>
-          <select class="ui search dropdown">
-            <option value="">City</option>
-            <option value="MU">Mumbai</option>
-            <option value="DE">Delhi</option>
-            <option value="PU">Pune</option>
-            <option value="BA">Bangalore</option>
-          </select>
+          <label>City</label>
+          <%= f.select(:city,options_for_select([['Mumbai','Mumbai',{class:'item'}],['Delhi','Delhi',{class:'item'}],['Pune','Pune',{class:'item'}],['Bangalore','Bangalore',{class:'item'}]]),{prompt:'City'},class:'ui dropdown city')%>
           
         </div>
 
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>Age</label>
+          <%= f.select(:age,options_for_select([['Young','Young',{class:'item'}],['Adult','Adult',{class:'item'}],['Senior','Senior',{class:'item'}],['Puppy','Puppy',{class:'item'}]]),{prompt:'Age'},class:'ui dropdown age')%>
+        </div>
+        <div class="field">
+          <label>Color</label>
+          <%= f.select(:color,options_for_select([['Black','Black',{class:'item'}],['Brindle','Brindle',{class:'item'}],['Brown/Choclate','Brown/Choclate',{class:'item'}],['Grey/Blue/Silver/Salt & Pepper','Grey/Blue/Silver/Salt & Pepper',{class:'item'}],['Merle','Merle',{class:'item'}],['Red/Golden/Orange/Chestnut','Red/Golden/Orange/Chestnut',{class:'item'}],['Tan/Yellow/Fawn','Tan/Yellow/Fawn',{class:'item'}],['Tricolor (Tan/Brown & Black & White)','Tricolor (Tan/Brown & Black & White)',{class:'item'}],['White','White',{class:'item'}]]),{prompt:'Color'},class:'ui dropdown color')%>
+          
+        </div>
       </div>
       <div class="required field">
         <label>Tell everyone in short about your pet</label>
@@ -89,7 +95,7 @@
 </div-->
 
 
-<%=f.submit 'Create',class:'ui teal button new_listing'%>
+<%=f.submit 'Create',class:'ui teal button new_listing' %>
 
 <%end%>
 

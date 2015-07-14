@@ -13,7 +13,8 @@ class ListingsController < ApplicationController
 			respond_to do |format|
 				format.js
       		end
-      		
+      	else
+      		render 'new'      		
 		end
 	end
 	def media
@@ -31,7 +32,20 @@ class ListingsController < ApplicationController
 
 	def edit
 		@listing=Listing.find(params[:id])
+		if @listing.user_id!=current_user.id
+			redirect_to listings_path
+		end
 	end
+
+	def update
+		@listing=Listing.find(params[:id])
+		if @listing.update_attributes(listing_params)
+			redirect_to @listing
+		else
+			render 'edit'
+		end
+	end
+
 
 	def show
 		@listing=Listing.find(params[:id])
@@ -77,7 +91,7 @@ class ListingsController < ApplicationController
 		@listing=Listing.find(params[:listing_id])
 		if @listing.destroy
 			render json: {
-				:listings => Listing.all.to_json(:include => :photos),
+				:listings => Listing.paginate(:page => params[:page], :per_page => 12).to_json(:include => :photos),
 				:favListings => Listing.where(id:current_user.favourites.map {|x| x.listing_id}).to_json(:include => :photos),
 				:user_listing => current_user.listings.map{|x| x}.to_json(:include => :photos)
 			}

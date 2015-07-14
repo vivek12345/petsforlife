@@ -1,1 +1,4 @@
+if(mediaDropzone.files.length<=0)
+    $(window.location.replace("/listings/<%= @listing.id %>"));
+else
 mediaDropzone.processQueue();
