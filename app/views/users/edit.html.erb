@@ -36,13 +36,7 @@
                 </div>
                 <div class="required field">
                     <label>City</label>
-                    <select class="ui search dropdown">
-                        <option value="">City</option>
-                        <option value="MU">Mumbai</option>
-                        <option value="DE">Delhi</option>
-                        <option value="PU">Pune</option>
-                        <option value="BA">Bangalore</option>
-                    </select>
+                    <%= f.select(:city,options_for_select([['Mumbai','Mumbai',{class:'item'}],['Delhi','Delhi',{class:'item'}],['Pune','Pune',{class:'item'}],['Bangalore','Bangalore',{class:'item'}]]),{prompt:'City'},class:'ui dropdown city')%>
                 </div>
             </div>
 
@@ -57,7 +51,7 @@
         <%end%>
     </div>
     <div class="ui eight wide column new_creation">
-        <div class="ui card">
+        <div class="ui card" id="user_show_profile">
           <div class="image">
             <%=image_tag 'default.jpg',class:'ui medium image'%>
           </div>

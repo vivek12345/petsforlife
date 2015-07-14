@@ -62,6 +62,9 @@ class UsersController < ApplicationController
 
     def edit
         @user=current_user
+        if(params[:id].to_i!=@user.id)
+            redirect_to listings_path
+        end
     end
 
     def update

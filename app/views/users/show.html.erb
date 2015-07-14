@@ -1,6 +1,6 @@
 <%if !@user.nil?%>
 <div class="ui page grid" ng-controller="ListingController">
-  <div class="four wide column user_show" id="user_show_page">
+  <div class="four wide column user_show" id="user_show_profile">
     <%if current_user%>
       <%flash.each do |key,value| %>
         <div class="ui <%=key %> message"><%=value %></div>

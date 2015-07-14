@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
     acts_as_authentic do |c|
         # c.login_field = 'username'
-        c.validates_length_of_password_field_options = {:on => :update, :minimum => 4}
-        c.validates_length_of_password_confirmation_field_options = {:on => :update, :minimum => 4}
+        c.validates_length_of_password_field_options = {:on => :create, :minimum => 4}
+        c.validates_length_of_password_confirmation_field_options = {:on => :create, :minimum => 4}
     end
     searchkick autocomplete: ['username']
 
