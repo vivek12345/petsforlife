@@ -162,6 +162,10 @@ app.controller('ListingController', ['$rootScope','$scope', '$resource','$filter
 		}
 	}
 
+	$scope.isUndefinedOrNull = function(val) {
+    	return angular.isUndefined(val) || val === null || val==[] || val==""
+	}
+
 	var myareas={
     "Central Line": [
         "thane",

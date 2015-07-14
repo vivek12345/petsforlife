@@ -31,15 +31,15 @@
           <div class="meta">
             <span class="cinema">Posted On
               {{listing.created_at| date:'MMMM d, y'}}
-            </span>/
-            <span class="city">
-              {{listing.city}}
-            </span>/
-            <span class="age">
-              {{listing.age}}
-            </span>/
-            <span class="color">
-              {{listing.color}}
+            </span>
+            <span class="city" ng-show="!isUndefinedOrNull(listing.city)">
+              City:{{listing.city}}
+            </span>
+            <span class="age" ng-show="!isUndefinedOrNull(listing.age)">
+              Age:{{listing.age}}
+            </span>
+            <span class="color" ng-show="!isUndefinedOrNull(listing.color)">
+              Color:{{listing.color}}
             </span>
           </div>
           <div class="description horizontal_description">

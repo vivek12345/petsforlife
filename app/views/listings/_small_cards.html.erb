@@ -45,9 +45,9 @@
           </div>
           <div class="description city_color_age">
           <p class="meta">Posted On {{listing.created_at| date:'MMMM d, y'}}</p>
-          <p class="meta">City:{{listing.city}}</p>
-          <p class="meta">Age:{{listing.age}} and 
-           Color:{{listing.color}}</p>
+          <p class="meta" ng-show="!isUndefinedOrNull(listing.city)">City:{{listing.city}}</p>
+          <p class="meta"><span ng-show="!isUndefinedOrNull(listing.age)">Age:{{listing.age}} and</span><span ng-show="!isUndefinedOrNull(listing.color)"> 
+          Color:{{listing.color}}</span></p>
         </div> 
         </div>
         
