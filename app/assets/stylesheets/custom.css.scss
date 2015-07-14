@@ -120,7 +120,7 @@ html {
     font-size: 1.5em;
   }
   #home .masthead.segment{
-    height: 100%;
+    height: 500px;
   }
   #home .masthead.segment .information {
     //margin-left: 170px;
@@ -504,6 +504,8 @@ img.ui.medium.image.list_image
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding;
   background-clip: padding-box;
+  height:140px;
+  overflow-y:auto;
 }
 .tt-suggestion {
   display: block;
@@ -529,6 +531,7 @@ img.ui.medium.image.list_image
 }
 .twitter-typeahead {
   width: 100%;
+
 }
 .pagination {
   margin: 1em 0;
@@ -584,11 +587,11 @@ img.ui.medium.image.list_image
   width: 1px;
   background: rgba(34,36,38,.1);
 }
-.grid .trash.icon{
+.grid .vk_icons{
   position: relative;
   top:-6px;
 }
-.listview .trash.icon{
+.listview .vk_icons{
   position: relative;
   top:-2px;
 }

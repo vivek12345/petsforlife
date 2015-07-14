@@ -1,6 +1,7 @@
 $(document).ready(function()
 {
-
+  $('.dimmer').removeClass('active');
+  $('.new_listing').removeClass('disabled');
   var listing_id=0;
 	Dropzone.options.mediaDropzone=false;
 
@@ -194,6 +195,7 @@ $(document).ready(function(){
     else
     {
       $('.dimmer').addClass('active');
+      $('.new_listing').addClass('disabled');
       $("#new_listing_form").trigger("submit.rails");
     }
   });

@@ -14,7 +14,9 @@ class ListingsController < ApplicationController
 				format.js
       		end
       	else
-      		render 'new'      		
+      		respond_to do |format|
+				format.json { render :json =>  @listing.errors, :status => :unprocessable_entity }	
+      		end	
 		end
 	end
 	def media
@@ -24,7 +26,6 @@ class ListingsController < ApplicationController
 		if @photo.save!
 			respond_to do |format|
 				format.json{render :json=>@photo}
-
 			end
 		end
 
