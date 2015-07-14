@@ -55,6 +55,8 @@
           <span class="ui circular facebook icon button" ng-click="shareFb(listing)">
             <i class="facebook icon"></i>
           </span> 
+          <a href="https://twitter.com/share" class="ui circular twitter icon button" data-via="petzoned" data-size="large" data-hashtags="petzoned"><i class="twitter icon"></i></a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
           <div class="right floated author">
             <%=image_tag 'pets.png',class:"ui avatar image small"%> 
             <a href="/users/{{listing.user.id}}" class="creator_name">{{listing.user.username}}</a>
