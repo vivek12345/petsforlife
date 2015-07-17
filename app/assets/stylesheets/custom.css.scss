@@ -161,11 +161,15 @@ html {
   {
     right:0rem;
   }
-  .logo_image{
-    position: relative !important;
-    right: 7vw !important;
-    width: 385px !important;
-    bottom: -9vw !important;
+  .petzoned_logo{
+    margin: -3em 2em !important;
+    .logo_image{
+      position: relative !important;
+      // right: 7vw !important;
+      width: 315px !important;
+      bottom: -9vw !important;
+      margin:0px !important;
+    }
   }
   #user_show_profile{
     display: table;
@@ -623,11 +627,15 @@ img.ui.medium.image.list_image
   border:2px solid;
   border-radius: 2px
 }
-.logo_image{
-  position: absolute;
-  right: 25vw;
-  width: 44vw;
-  bottom: 3vw
+.petzoned_logo{
+  margin:0em 15em;
+  .logo_image{
+    position: absolute;
+    // right: 25vw;
+    width: 35vw;
+    bottom: 5vw;
+    // max-width: 100%;
+  }
 }
 .city_color_age{
   height:50px;
