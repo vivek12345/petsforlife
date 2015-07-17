@@ -46,12 +46,14 @@
                 Verified
             </a> -->
           </div>
-          <div class="description city_color_age">
-          <p class="meta">Posted On {{listing.created_at| date:'MMMM d, y'}}</p>
-          <p class="meta" ng-show="!isUndefinedOrNull(listing.city)">City:{{listing.city}}</p>
-          <p class="meta"><span ng-show="!isUndefinedOrNull(listing.age)">Age:{{listing.age}} and</span><span ng-show="!isUndefinedOrNull(listing.color)"> 
-          Color:{{listing.color}}</span></p>
-        </div> 
+          <div class="content description city_color_age">
+            <span class="meta">Posted On {{listing.created_at| date:'MMMM d, y'}}</span>
+            <span class="right floated meta" ng-show="!isUndefinedOrNull(listing.city)">City:{{listing.city}}</span>
+          </div>
+          <div class="content description city_color_age">
+            <span class="meta" ng-show="!isUndefinedOrNull(listing.color)">Color:{{listing.color}}</span>
+            <span class="right floated meta" ng-show="!isUndefinedOrNull(listing.age)">Age:{{listing.age}}</span>
+          </div> 
         </div>
         
         <div class="extra content">
