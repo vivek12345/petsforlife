@@ -1,0 +1,33 @@
+<div class="ui padded page grid new_creation">
+    <div class="ui eight wide column new_creation">
+        <%flash.each do |key,value| %>
+            <div class="ui <%=key %> message"><%=value %></div>
+        <%end%>
+        <%=form_for @user, :url => password_reset_path, :method => :put,:html=> { class:'ui form centered black stacked segment'} do |f|%>
+            <%= render 'shared/error_messages', object: f.object %>
+            <div class="ui blue ribbon label">
+                <i class="edit icon"></i> Update Password
+            </div>
+            
+            <h2 class="ui header">
+                <i class="user icon"></i>
+                <div class="content">
+                    Update Password
+                </div>
+            </h2>
+            
+            <div class="field">
+                <label>Password</label>  
+                <%=f.password_field :password,placeholder:'Passsword' %>
+            </div>
+            <div class="field">
+                <label>Password Confirmation</label>  
+                <%=f.password_field :password_confirmation,placeholder:'Password Confirmation' %>
+            </div>
+            <div class="ui hidden divider"></div>
+            <%=f.submit 'Update Password',class:'ui button'%>
+        <%end%>
+    </div>
+</div>
+
+            

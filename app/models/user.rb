@@ -24,6 +24,11 @@ class User < ActiveRecord::Base
         Notifier.welcome(self).deliver
     end
 
+    def deliver_password_reset_instructions!
+      reset_perishable_token!
+      Notifier.password_reset_instructions(self).deliver
+    end
+
     def apply_omniauth(omniauth)  
       self.email = omniauth['info']['email']
       self.password=omniauth['credentials']['token']
