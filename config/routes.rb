@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   end
 
   resources :user_sessions
+  resources :password_resets
   
 
   get 'signup',to:'users#new',:as=>:signup
