@@ -5,7 +5,7 @@
         <%=image_tag 'missing.png',class:'ui medium image show_image'%>
       <%else%>
         <%@listing.photos.each do |photo|%>
-          <%=image_tag photo.file_name.url(:thumb),class:"ui medium image show_image thumb",style:'display:none'%>
+          <%=image_tag photo.file_name.url,class:"ui medium image show_image thumb",style:'display:none'%>
         <%end%>
       <%end%>
       
