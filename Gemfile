@@ -32,6 +32,7 @@ gem 'searchkick'
 gem 'twitter-typeahead-rails'
 gem 'will_paginate', '~> 3.0.6'
 gem 'sweet-alert'
+gem 'newrelic_rpm'
 
 group :development do
   gem "better_errors"

@@ -83,7 +83,7 @@ Rails.application.configure do
   Rails.application.config.assets.precompile += %w( dynamic_breeds.js )
   #Rails.application.config.assets.precompile += %w( dynamic_listings.js )
 
-  config.action_mailer.default_url_options = {:host => 'http://petzoned.com/'} 
+  config.action_mailer.default_url_options = {:host => 'http://www.petzoned.com/'} 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true 
   config.action_mailer.raise_delivery_errors = true 
