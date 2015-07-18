@@ -9,87 +9,26 @@
         
         <%image_tag 'pets.png',class:"ui big image"%>
         <div class="ui hidden transition information">
-          <!-- <h1 class="ui header">
-            Pets For Life
-          </h1>
-          <p>Buy or  sell your pets using our portal and also get various other information regarding pets</p> -->
+          
+         
           <div class="petzoned_logo">
             <%=image_tag 'plogo1.png',class:"logo_image"%>
           </div>
-          <%= form_tag users_path, class:'ui form',method: :get do %>
-            <!-- <h4 class="ui dividing header">Personal Information</h4> -->
-            <!-- div class="two fields"> -->
+          <%= form_tag search_path, class:'ui form',method: :get do %>
+            
               <div class="field" id="breed_search_field">
                 <label id="home_label">Breed Name</label>
-                <!-- <div class="ui small icon input"-->
-                  <%=text_field_tag :query,params[:query],class:'typeahead',id:'user_search',placeholder:'Search Breeder' %>
-                  <!-- <i class="search icon"></i> -->
-               <!--  </div> -->
-                  <!-- <div class="ui category search">
-                    <div class="ui icon input">
-                      <input class="prompt" type="text" placeholder="Search Breeder..." id="user_search">
-                      <i class="search icon"></i>
-                    </div>
-                    <div class="results"></div>
-                </div> -->
+                
+                  <%=text_field_tag :query,params[:query],class:'typeahead',id:'breed_search',placeholder:'Search Breed' %>
+                  
               </div>
-              <!-- <div class="field">
-                <label id="home_label">Pet Type</label>
-                <div class="ui selection dropdown">
-                  <input type="hidden" name="gender">
-                  <div class="default text">Pet Type</div>
-                  <i class="dropdown icon"></i>
-                  <div class="menu">
-                    <div class="item" data-value="cat">Cat</div>
-                    <div class="item" data-value="dog">Dog</div>
-                    <div class="item" data-value="bird">Birds</div>
-
-                  </div>
-                </div>
-              </div> -->
-           <!--  </div> -->
-            <!-- <div class="two fields"> -->
-              <!-- <div class="field"> -->
-                <!-- <label>City</label>
-                <select class="ui search dropdown">
-                  <option value="">City</option>
-                  <option value="MU">Mumbai</option>
-                  <option value="DE">Delhi</option>
-                  <option value="PU">Pune</option>
-                  <option value="BA">Bangalore</option>
-                </select> -->
-                <!-- <label>Pet Type</label>
-                <div class="ui selection dropdown">
-                  <input type="hidden" name="gender">
-                  <div class="default text">Pet Type</div>
-                  <i class="dropdown icon"></i>
-                  <div class="menu">
-                    <div class="item" data-value="cat">Cat</div>
-                    <div class="item" data-value="dog">Dog</div>
-                    <div class="item" data-value="bird">Birds</div>
-
-                  </div>
-                </div>
-              </div> -->
-              <!-- <div class="field">
-                <label>Gender</label>
-                <div class="ui selection dropdown">
-                  <input type="hidden" name="gender">
-                  <div class="default text">Gender</div>
-                  <i class="dropdown icon"></i>
-                  <div class="menu">
-                    <div class="item" data-value="male">Male</div>
-                    <div class="item" data-value="female">Female</div>
-                  </div>
-                </div>
-              </div> -->
               
-           <!--  </div> -->
-            <div class="ui right labeled icon button" id="home_page_search_btn">
-            Search
-            <i class="search icon"></i>
-          </div>
-          <%link_to 'View All Listings',listings_path,class:'ui positive button'%>
+            
+            <%= button_tag(type: "submit", class: "ui right labeled icon button",id:"home_page_search_btn") do %>
+              Search <i class="search icon"></i>
+            <% end %>
+           
+          
             
             
             

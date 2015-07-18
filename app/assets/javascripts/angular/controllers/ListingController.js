@@ -18,8 +18,8 @@ app.controller('ListingController', ['$rootScope','$scope', '$resource','$filter
 		$scope.favListings=angular.fromJson(favourites);
 		$scope.user_listing=angular.fromJson(user_listing);
 		$scope.genListings=angular.fromJson(listings);
-		$scope.layout=type
-		$scope.extra_class=extra_class
+		$scope.layout=type;
+		$scope.extra_class=extra_class;
 	}
 
 	$scope.clear = function()

@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
 	before_filter :store_return_to
-	before_filter :require_user,except: [:index,:show]
+	before_filter :require_user,except: [:index,:show,:search]
 	def new
 		@breeds=Breed.all
 		@listing=current_user.listings.new
@@ -54,7 +54,12 @@ class ListingsController < ApplicationController
 
 	def index
 		# @listings=Listing.joins("LEFT OUTER JOIN favourites on favourites.listing_id=listings.id")
-		@listings=Listing.paginate(:page => params[:page], :per_page => 12)
+		# if params[:query]
+		# 	# listings=Listing.find_by_breed_type(params[:query])
+		# 	@listings=Listing.paginate(:page => params[:page], :per_page => 12).where("breed_type = ?",params[:query])
+		# else
+			@listings=Listing.paginate(:page => params[:page], :per_page => 12)
+		# end
 		# binding.pry
 		#@listings=Listing.all
 		#binding.pry
@@ -97,6 +102,10 @@ class ListingsController < ApplicationController
 				:user_listing => current_user.listings.map{|x| x}.to_json(:include => :photos)
 			}
 		end
+	end
+
+	def search
+		@listings=Listing.where("breed_type = ?",params[:query])
 	end
 
 	private
