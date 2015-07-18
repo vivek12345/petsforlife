@@ -105,7 +105,7 @@ class ListingsController < ApplicationController
 	end
 
 	def search
-		@listings=Listing.where("breed_type = ?",params[:query].capitalize)
+		@listings=Listing.where("breed_type = ?",params[:query])
 	end
 
 	private
