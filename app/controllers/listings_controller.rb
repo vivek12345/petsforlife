@@ -105,7 +105,7 @@ class ListingsController < ApplicationController
 	end
 
 	def search
-		@listings=Listing.where("lower(breed_type) = ?",params[:query],downcase)
+		@listings=Listing.where("lower(breed_type) = ?",params[:query].downcase)
 	end
 
 	private
