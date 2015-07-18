@@ -14,7 +14,7 @@
 
 # ]
 # breeds.each do |name,pet_name|
-# 	Breed.create(name:name,pet_name:pet_name)
+#   Breed.create(name:name,pet_name:pet_name)
 # end
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
@@ -168,9 +168,57 @@ breeds=[
     ["Staffordshire Bull Terrier","Dog"],
     ["Standard Poodle","Dog"],
     ["Standard Schnauzer","Dog"],
-    ["Sussex Spaniel","Dog"],["Swedish Vallhund","Dog"],["Tibetan Mastiff","Dog"],["Tibetan Spaniel","Dog"],["Tibetan Terrier","Dog"],["Toy Fox Terrier","Dog"],["Toy Manchester Terrier","Dog"],["Toy Poodle","Dog"],["Vizsla","Dog"],["Weimaraner","Dog"],["Welsh Springer Spaniel","Dog"],["Welsh Terrier","Dog"],["West Highland White Terrier","Dog"],["Whippet","Dog"],["Wire Fox Terrier","Dog"],["Wirehaired Pointing Griffon","Dog"],["Yorkshire Terrier","Dog"],["First Breed","Cat"],
-    ["Second Breed","Cat"]
+    ["Sussex Spaniel","Dog"],["Swedish Vallhund","Dog"],["Tibetan Mastiff","Dog"],["Tibetan Spaniel","Dog"],["Tibetan Terrier","Dog"],["Toy Fox Terrier","Dog"],["Toy Manchester Terrier","Dog"],["Toy Poodle","Dog"],["Vizsla","Dog"],["Weimaraner","Dog"],["Welsh Springer Spaniel","Dog"],["Welsh Terrier","Dog"],["West Highland White Terrier","Dog"],["Whippet","Dog"],["Wire Fox Terrier","Dog"],["Wirehaired Pointing Griffon","Dog"],["Yorkshire Terrier","Dog"],["Abyssinian","Cat"],
+    ["American Bobtail","Cat"],
 
+    ["American Curl","Cat"],
+    ["American Shorthair","Cat"],
+    ["American Wirehair","Cat"],
+    ["Balinese","Cat"],
+    ["Bengal Cats","Cat"],
+    ["Birman","Cat"],
+    ["Bombay","Cat"],
+    ["British Shorthair","Cat"],
+    ["Burmese","Cat"],
+    ["Burmilla","Cat"],
+    ["Chartreux","Cat"],
+    ["Chinese Li Hua","Cat"],
+    ["Colorpoint Shorthair","Cat"],
+    ["Cornish Rex","Cat"],
+    ["Cymric","Cat"],
+    ["Devon Rex","Cat"],
+    ["Egyptian Mau","Cat"],
+    ["European Burmese","Cat"],
+    ["Exotic","Cat"],
+    ["Havana Brown","Cat"],
+    ["Himalayan","Cat"],
+    ["Japanese Bobtail","Cat"],
+    ["Javanese","Cat"],
+    ["Korat","Cat"],
+    ["LaPerm","Cat"],
+    ["Maine Coon","Cat"],
+    ["Manx","Cat"],
+    ["Nebelung","Cat"],
+    ["Norwegian Forest","Cat"],
+    ["Ocicat","Cat"],
+    ["Oriental","Cat"],
+    ["Persian","Cat"],
+    ["Ragamuffin","Cat"],
+    ["Ragdoll","Cat"],
+    ["Russian Blue","Cat"],
+    ["Savannah","Cat"],
+    ["Scottish Fold","Cat"],
+    ["Selkirk Rex","Cat"],
+    ["Siamese Cat","Cat"],
+    ["Siberian","Cat"],
+    ["Singapura","Cat"],
+    ["Snowshoe","Cat"],
+    ["Somali","Cat"],
+    ["Somali","Cat"],
+    ["Sphynx","Cat"],
+    ["Tonkinese","Cat"],
+    ["Turkish Angora","Cat"],
+    ["Turkish Van","Cat"]
 ]
 breeds.each do |name,pet_name|
     Breed.create(name:name,pet_name:pet_name)
