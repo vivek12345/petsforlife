@@ -100,7 +100,7 @@ $('.no_user').popup({
 });
 
 $(document).ready(function(){
-  if($(window).width() < 500){
+  if($(window).width() < 550){
     $('.small_cards').removeClass('ui four doubling link cards');
     $('.small_cards').addClass('ui one doubling link cards');
     $('.new_creation').removeClass('ui eight wide column');

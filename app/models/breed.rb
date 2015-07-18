@@ -1,3 +1,3 @@
 class Breed < ActiveRecord::Base
-    searchkick autocomplete: ['name']
+    # searchkick autocomplete: ['name']
 end

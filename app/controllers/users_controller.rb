@@ -49,7 +49,8 @@ class UsersController < ApplicationController
     def autocomplete
         # @results=
         # render json: User.search(params[:query],autocomplete:true).map{|user| {username:user.username,value:user.id}}
-        render json: Breed.search(params[:query],autocomplete:true).map{|breed| {username:breed.name,value:breed.name}}
+        # render json: Breed.search(params[:query],autocomplete:true).map{|breed| {username:breed.name,value:breed.name}}
+        render json: Breed.where("name LIKE ?", "#{params[:query]}%").map{|breed| {username:breed.name,value:breed.name}}
         #binding.pry
 
         

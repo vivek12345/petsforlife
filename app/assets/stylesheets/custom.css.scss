@@ -166,7 +166,7 @@ html {
     .logo_image{
       position: relative !important;
       // right: 7vw !important;
-      width: 315px !important;
+      width: 86vw !important;
       bottom: -9vw !important;
       margin:0px !important;
     }
@@ -180,6 +180,14 @@ html {
 
   #small_cards{
     margin-left:-15px;
+  }
+  #breed_search_field{
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+  #home #home_page_search_btn{
+    margin-left: 28%;
+    margin-right: 28%;
   }
 }
 @media only screen and (max-width :400px){
@@ -508,7 +516,7 @@ img.ui.medium.image.list_image
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding;
   background-clip: padding-box;
-  height:140px;
+  max-height:140px;
   overflow-y:auto;
 }
 .tt-suggestion {
@@ -628,12 +636,13 @@ img.ui.medium.image.list_image
   border-radius: 2px
 }
 .petzoned_logo{
-  margin:0em 15em;
+  // margin:0em 15em;
+  margin: 0% 24%;
   .logo_image{
     position: absolute;
     // right: 25vw;
     width: 35vw;
-    bottom: 5vw;
+    bottom: 3vw;
     // max-width: 100%;
   }
 }
@@ -648,6 +657,15 @@ img.ui.medium.image.list_image
 }
 .price_label{
   position: absolute !important;
+}
+#breed_search_field{
+  margin-left:8em;
+  margin-right: 8em;
+}
+#home_page_search_btn{
+  margin-left: 26em;
+  margin-right: 26em;
+
 }
 
 
