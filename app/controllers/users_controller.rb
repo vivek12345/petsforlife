@@ -51,7 +51,7 @@ class UsersController < ApplicationController
         # render json: User.search(params[:query],autocomplete:true).map{|user| {username:user.username,value:user.id}}
         # render json: Breed.search(params[:query],autocomplete:true).map{|breed| {username:breed.name,value:breed.name}}
         
-        render json: Breed.where("name LIKE ?", "#{params[:query].capitalize}%").map{|breed| {username:breed.name,value:breed.pet_name}}
+        render json: Breed.where("lower(name) LIKE ?", "%#{params[:query].downcase}%").map{|breed| {username:breed.name,value:breed.pet_name}}
         #binding.pry
 
         
