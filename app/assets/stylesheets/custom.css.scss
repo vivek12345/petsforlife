@@ -334,8 +334,11 @@ img.ui.medium.image.list_image
 .show_image
 {
   margin:0 auto;
-  max-height: 250px !important;
+  img{
+    max-height: 250px !important;
+  }
 }
+
 .ui.items .item .listing_price
 {
   padding:0em 1em 0em;
