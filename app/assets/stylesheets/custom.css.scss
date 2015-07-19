@@ -107,6 +107,10 @@ html {
     display: none;
   }
 
+  #home .search-query.mobile.item{
+    display: inline-block !important;
+    width:150px !important;
+  }
   #home .menu .right.menu > .mobile.item {
     display: block;
   }
@@ -671,6 +675,10 @@ img.ui.medium.image.list_image
   margin-left: 26em;
   margin-right: 26em;
 
+}
+
+#home .mobile.item{
+    display: none;
 }
 
 

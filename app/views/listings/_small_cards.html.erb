@@ -4,7 +4,7 @@
     
     <div class="ui four doubling link cards small_cards active tab" ng-init="init(<%=@listings.to_json(:include=>[:photos,:favourite]) %>,<%=@favourite.to_json(:include=>:photos) %>,<%=@user_listing.to_json(:include=>:photos) %>,<%=@layoutType%>)" data-tab="all" id="small_cards">
       
-      <div class="card" ng-repeat="listing in genListings | filter:{'gender':listing1.gender,'pet_type':listing1.pet_type,'breed_type':listing1.breed_type,'age':listing1.age,'color':listing1.color,'city':listing1.city}:true">
+      <div class="card" ng-repeat="listing in genListings | filter:{'title':listing1.query} | filter:{'gender':listing1.gender,'pet_type':listing1.pet_type,'breed_type':listing1.breed_type,'age':listing1.age,'color':listing1.color,'city':listing1.city}:true">
         <div class="content small_card_content">
           <!--i class="right floated like icon"></i-->
           <%if current_user%>
@@ -62,8 +62,8 @@
           <span class="ui circular facebook icon button" ng-click="shareFb(listing)">
             <i class="facebook icon"></i>
           </span> 
-          <a href="https://twitter.com/share" class="ui circular twitter icon button" data-via="petzoned" data-size="large" data-hashtags="petzoned"><i class="twitter icon"></i></a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+          <a ng-href="https://twitter.com/share" class="ui circular twitter icon button" data-via="petzoned" data-size="large" data-hashtags="petzoned"><i class="twitter icon"></i></a>
+
           <div class="right floated author">
             <%=image_tag 'pets.png',class:"ui avatar image small"%> 
             <a href="/users/{{listing.user.id}}" class="creator_name">{{listing.user.username}}</a>
