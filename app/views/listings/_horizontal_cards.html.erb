@@ -2,7 +2,7 @@
   <div class="ui divided items active tab" ng-init="init(<%=@listings.to_json(:include=>[:photos,:user]) %>,<%=@favourite.to_json(:include=>:photos) %>,<%=@user_listing.to_json(:include=>:photos) %>,<%=@layoutType%>,<%=@extraClass%>)" data-tab="all" ng-class="{general_class: extra_class=='index_view'}">
     <div class="item" style="display:none;">
     </div>
-    <div class="item card" ng-repeat="listing in genListings | filter:{'title':listing1.query} | filter:{'gender':listing1.gender,'pet_type':listing1.pet_type,'breed_type':listing1.breed_type,'age':listing1.age,'color':listing1.color,'city':listing1.city}:true">
+    <div class="item card" ng-repeat="listing in genListings | filter:{'title':listing2.query} | filter:{'gender':listing1.gender,'pet_type':listing1.pet_type,'breed_type':listing1.breed_type,'age':listing1.age,'color':listing1.color,'city':listing1.city}:true">
 
       <div class="image">
 

@@ -2,7 +2,7 @@
   <div class="header item">
   <%=link_to 'PetZoned',root_url%></div>
   <%if request.fullpath!='/'%>
-    <input type="text" class="search-query mobile item" placeholder="Search listing" name="query" ng-model="listing1.query">
+    <input type="text" class="search-query mobile item" placeholder="Search listing" name="query" ng-model="listing2.query">
   <%end%>
   <div class="right menu">
     <div class="ui mobile dropdown link item">
@@ -33,7 +33,7 @@
       </div>
     </div>
      <%if request.fullpath!='/'%>
-      <input type="text" class="search-query item" placeholder="Search listing" name="query" ng-model="listing1.query">
+      <input type="text" class="search-query item" placeholder="Search listing" name="query" ng-model="listing2.query">
     <%end%>
     <%=link_to 'Create Listing',new_listing_path,class:'item'%>
     <%=link_to 'Breeders',users_path,class:'item'%>

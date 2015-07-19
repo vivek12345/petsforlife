@@ -28,7 +28,7 @@ app.controller('ListingController', ['$rootScope','$scope', '$resource','$filter
 	}
 	$scope.clearAll = function()
 	{
-        delete $scope.listing1;
+        $scope.listing1={};
 	}
 
 	$scope.toggleFav = function(value,listing_id)
