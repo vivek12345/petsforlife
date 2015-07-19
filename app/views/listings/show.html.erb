@@ -1,4 +1,4 @@
-<div class="ui padded page grid">
+<div class="ui padded page grid" ng-controller="ListingController">
   <div class="six wide column listing_show">
     <div class="ui segment imageDisplay">
     
@@ -13,7 +13,7 @@
       <span class="prev">prev</span>
       <span class="next">next</span>   
     </div> 
-    <div class="ui facebook button social_share" ng-click="shareFb(listing)">
+    <div class="ui facebook button social_share" ng-click="shareFb(<%=@listing.to_json(:include=>:photos)%>)">
       <i class="facebook icon"></i>
       Share On Facebook
     </div>
