@@ -23,6 +23,7 @@
 
 //= require cloudinary
 //= require twitter/typeahead.min
+//= require magnific-popup
 
 //= require angular
 //= require angular-resource

@@ -1,11 +1,12 @@
 <div class="ui padded page grid">
   <div class="six wide column listing_show">
     <div class="ui segment imageDisplay">
+    
       <%if @listing.photos.empty?%>
-        <%=image_tag 'missing.png',class:'ui medium image show_image'%>
+        <%=image_tag 'missing.png',class:'ui large image show_image'%>
       <%else%>
         <%@listing.photos.each do |photo|%>
-          <%=image_tag photo.file_name.url,class:"ui medium image show_image thumb",style:'display:none'%>
+          <a href="<%=photo.file_name.url%>" style='display:none;' class="show_image thumb"><%=image_tag photo.file_name.url,class:"ui large image"%></a>
         <%end%>
       <%end%>
       

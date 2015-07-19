@@ -33,6 +33,7 @@ gem 'twitter-typeahead-rails'
 gem 'will_paginate', '~> 3.0.6'
 gem 'sweet-alert'
 gem 'newrelic_rpm'
+gem 'magnific-popup-rails'
 
 group :development do
   gem "better_errors"
