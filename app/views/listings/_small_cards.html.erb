@@ -2,12 +2,13 @@
   <div ng-show="layout=='grid'" class="grid">
     <!--start of active tab-->
     
-    <div class="ui four doubling link cards small_cards active tab" ng-init="init(<%=@listings.to_json(:include=>[:photos,:user =>{:include => :favourites}]) %>,<%=@favourite.to_json(:include=>:photos) %>,<%=@user_listing.to_json(:include=>:photos) %>,<%=@layoutType%>)" data-tab="all" id="small_cards">
+    <div class="ui four doubling link cards small_cards active tab" ng-init="init(<%=@listings.to_json(:include=>[:photos,:favourite]) %>,<%=@favourite.to_json(:include=>:photos) %>,<%=@user_listing.to_json(:include=>:photos) %>,<%=@layoutType%>)" data-tab="all" id="small_cards">
       
       <div class="card" ng-repeat="listing in genListings | filter:{'gender':listing1.gender,'pet_type':listing1.pet_type,'breed_type':listing1.breed_type,'age':listing1.age,'color':listing1.color,'city':listing1.city}:true">
         <div class="content small_card_content">
           <!--i class="right floated like icon"></i-->
           <%if current_user%>
+
             <div class="right floated ui huge star rating" id="{{listing.id}}" ng-click="toggleFav(favMarked=!favMarked,listing.id)">
                 <i class="icon icon_{{listing.id}}"></i>
             </div>

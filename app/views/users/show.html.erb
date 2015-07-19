@@ -28,7 +28,10 @@
     </div>
   </div>
   <div class="twelve wide column user_show">
-      <span class="listing_heading"><%=@user.username%> listing's</span>
+      <!-- <span class="listing_heading"><%@user.username%> listing's</span> -->
+      <div class="ui small info message">
+        Showing <%=@user.listings.count%> listings of <strong><%=@user.username%></strong>
+      </div>
         <%if !@listings.empty?%>
           <%if request.user_agent =~ /Mobile|webOS/%>
             <%=render 'listings/small_cards'%>
