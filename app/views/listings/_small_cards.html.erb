@@ -1,17 +1,13 @@
 <div class="ui segment centersegment" ng-show="layout=='grid'">
+
   <div ng-show="layout=='grid'" class="grid">
     <!--start of active tab-->
     
-    <div class="ui four doubling link cards small_cards active tab" ng-init="init(<%=@listings.to_json(:include=>[:photos,:favourite]) %>,<%=@favourite.to_json(:include=>:photos) %>,<%=@user_listing.to_json(:include=>:photos) %>,<%=@layoutType%>)" data-tab="all" id="small_cards">
+    <div class="ui four doubling link cards small_cards active tab" ng-init="init(<%=@listings.to_json(:include=>[:photos,:user]) %>,<%=@user_listing.to_json(:include=>[:photos,:user]) %>,<%=@layoutType%>)" data-tab="all" id="small_cards">
       
-      <div class="card" ng-repeat="listing in genListings | filter:{'title':listing2.query} | filter:{'gender':listing1.gender,'pet_type':listing1.pet_type,'breed_type':listing1.breed_type,'age':listing1.age,'color':listing1.color,'city':listing1.city}:true">
+      <div class="card" ng-repeat="listing in genListings | filter:{'title':listing2.query} | filter:{'for_foster':listing1.for_foster} | filter:{'gender':listing1.gender,'pet_type':listing1.pet_type,'breed_type':listing1.breed_type,'age':listing1.age,'city':listing1.city}:true">
         <div class="content small_card_content">
-          <!--i class="right floated like icon"></i-->
           <%if current_user%>
-
-            <div class="right floated ui huge star rating" id="{{listing.id}}" ng-click="toggleFav(favMarked=!favMarked,listing.id)">
-                <i class="icon icon_{{listing.id}}"></i>
-            </div>
             <%if request.fullpath!='/'%>
               <div class="right floated" ng-show="listing.user_id=='<%=current_user.uuid%>'">
                 <i class="circular inverted blue trash icon vk_icons" ng-click="removeListing(listing.uuid)"></i>
@@ -20,13 +16,8 @@
                 <a ng-href="/listings/{{listing.uuid}}/edit"><i class="circular inverted teal edit icon vk_icons"></i></a>
               </div>
             <%end%>
-          <%else%>
-            <div class="right floated ui large star rating no_user" data-content="You need to login to add to favourites" data-variation="large">
-              <i class="icon"></i>
-            </div>
           <%end%>
 
-          
           <%=link_to '{{listing.title}}','/listings/{{listing.uuid}}',class:'header'%>
           <div class="description">
             <div class="image">
@@ -43,30 +34,32 @@
             <p>
             {{listing.love_for_pets | limitTo:300}}
             </p>
-            <!-- <a class="ui teal label">
-              <i class="checkmark icon"></i>
-                Verified
-            </a> -->
           </div>
           <div class="content description city_color_age">
             <span class="meta">Posted On {{listing.created_at| date:'MMMM d, y'}}</span>
-            <span class="right floated meta" ng-show="!isUndefinedOrNull(listing.city)">City:{{listing.city}}</span>
+            <span class="right floated meta" ng-show="!isUndefinedOrNull(listing.city)">City: {{listing.city}}</span>
           </div>
           <div class="content description city_color_age">
-            <span class="meta" ng-show="!isUndefinedOrNull(listing.color)">Color:{{listing.color}}</span>
-            <span class="right floated meta" ng-show="!isUndefinedOrNull(listing.age)">Age:{{listing.age}}</span>
+            <span class="meta" ng-show="!isUndefinedOrNull(listing.color)">Color: {{listing.color}}</span>
+            <span class="right floated meta" ng-show="!isUndefinedOrNull(listing.age)">Age: {{listing.age}}</span>
           </div> 
         </div>
+        <button class="ui positive button foster_button" ng-show="listing.for_foster">For Foster</button>
+        <button class="ui blue button foster_button" ng-show="!listing.for_foster">Buy/Sell</button>
         
         <div class="extra content">
           <span class="ui circular facebook icon button" ng-click="shareFb(listing)">
             <i class="facebook icon"></i>
           </span> 
-          <a ng-href="https://twitter.com/share" class="ui circular twitter icon button" data-via="petzoned" data-size="large" data-hashtags="petzoned"><i class="twitter icon"></i></a>
 
+          <a ng-href="https://twitter.com/share" class="ui circular twitter icon button" data-via="petzoned" data-size="large" data-hashtags="petzoned"><i class="twitter icon"></i></a>
           <div class="right floated author">
-            <%=image_tag 'pets.png',class:"ui avatar image small"%> 
-            <a href="/users/{{listing.user.id}}" class="creator_name">{{listing.user.username}}</a>
+            
+            <a class="ui blue image label creator_name" href="/users/{{listing.user.id}}">
+              Posted By
+              <div class="detail">{{listing.user.username}}</div>
+
+            </a>
           </div>
         </div>
       </div>

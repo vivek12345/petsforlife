@@ -1,9 +1,7 @@
 <div class="ui page grid tabmenu">
     <div class="ui secondary pointing filter menu">
-        <!--a class="blue item" data-tab="saved">Saved</a-->
         <a class="active green item tab_item" data-tab="all" ng-click="changeTab(1,'all')">All</a>
         <%if current_user%>
-            <a class="red item tab_item" data-tab="favorite" ng-click="changeTab(2,'favorite')">Favorite</a>
             <a class="blue item tab_item" data-tab="user_listing" ng-click="changeTab(3,'user_listing')">Your Listings</a>
         <%end%>
         <span class="ui secondary pointing filter menu">

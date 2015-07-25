@@ -22,6 +22,14 @@
         <label>Title</label>  
         <%=f.text_field :title,placeholder:'Title of the listing' %>
       </div>
+      <div class="ui segment">
+        <div class="field">
+          <div class="ui toggle checkbox foster_pet">
+            <%=f.check_box :for_foster,class:'hidden foster_checkbox'%>
+            <label>Put my pet for foster home</label>
+          </div>
+        </div>
+      </div>
       <div class="two fields">
 
         <div class="required field">
@@ -66,10 +74,10 @@
       </div>
       <h4 class="ui dividing header">Additional Info</h4>
       <div class="two fields">
-        <div class="required field">
+        <div class="required field price_field">
           <label>Price</label>
           <div class="ui icon input">
-            <%=f.text_field :price,placeholder:"Price"%>
+            <%=f.text_field :price,placeholder:"Price",class:'price_box'%>
             <i class="rupee icon"></i>
           </div>
         </div>

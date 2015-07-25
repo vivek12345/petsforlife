@@ -25,6 +25,14 @@
         <label>Title</label>  
         <%=f.text_field :title,placeholder:'Title of the listing' %>
       </div>
+      <div class="ui segment">
+        <div class="field">
+          <div class="ui toggle checkbox foster_pet">
+            <%=f.check_box :for_foster,class:'hidden foster_checkbox'%>
+            <label>Put my pet for foster home</label>
+          </div>
+        </div>
+      </div>
       <div class="two fields">
 
         <div class="required field">
@@ -49,6 +57,17 @@
           <%= f.select(:city,options_for_select([['Mumbai','Mumbai',{class:'item'}],['Delhi','Delhi',{class:'item'}],['Pune','Pune',{class:'item'}],['Bangalore','Bangalore',{class:'item'}]]),{prompt:'City'},class:'ui dropdown city')%>
         </div>
       </div>
+      <div class="two fields">
+        <div class="field">
+          <label>Age</label>
+          <%= f.select(:age,options_for_select([['Young','Young',{class:'item'}],['Adult','Adult',{class:'item'}],['Senior','Senior',{class:'item'}],['Puppy','Puppy',{class:'item'}]]),{prompt:'Age'},class:'ui dropdown age')%>
+        </div>
+        <div class="field">
+          <label>Color</label>
+          <%= f.select(:color,options_for_select([['Black','Black',{class:'item'}],['Brindle','Brindle',{class:'item'}],['Brown/Choclate','Brown/Choclate',{class:'item'}],['Grey/Blue/Silver/Salt & Pepper','Grey/Blue/Silver/Salt & Pepper',{class:'item'}],['Merle','Merle',{class:'item'}],['Red/Golden/Orange/Chestnut','Red/Golden/Orange/Chestnut',{class:'item'}],['Tan/Yellow/Fawn','Tan/Yellow/Fawn',{class:'item'}],['Tricolor (Tan/Brown & Black & White)','Tricolor (Tan/Brown & Black & White)',{class:'item'}],['White','White',{class:'item'}]]),{prompt:'Color'},class:'ui dropdown color')%>
+          
+        </div>
+      </div>
       <div class="required field">
         <label>Tell everyone in short about your pet</label>
         <%=f.text_area :love_for_pets,{maxlength:'500'}%>
@@ -56,13 +75,23 @@
       </div>
       <h4 class="ui dividing header">Additional Info</h4>
       <div class="two fields">
-        <div class="required field">
-          <label>Price</label>
-          <div class="ui icon input">
-            <%=f.text_field :price,placeholder:"Price"%>
-            <i class="rupee icon"></i>
+        <%if !@listing.for_foster?%>
+          <div class="required field price_field">
+            <label>Price</label>
+            <div class="ui icon input">
+              <%=f.text_field :price,placeholder:"Price",class:'price_box'%>
+              <i class="rupee icon"></i>
+            </div>
           </div>
-        </div>
+        <%else%>
+          <div class="required field disabled price_field">
+            <label>Price</label>
+            <div class="ui icon input">
+              <%=f.text_field :price,placeholder:"Price",class:'price_box',:readonly => true%>
+              <i class="rupee icon"></i>
+            </div>
+          </div>
+        <%end%>
         <div class="field">
           <label>Phone Number</label>
           <div class="ui icon input">

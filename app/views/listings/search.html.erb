@@ -31,10 +31,7 @@
             <p>
               <%=listing.love_for_pets%>
             </p>
-            <!-- <a class="ui teal label">
-              <i class="checkmark icon"></i>
-                Verified
-            </a> -->
+            
           </div>
           <div class="content description city_color_age">
             <span class="meta">Posted on <%=listing.created_at.strftime("%B")%><%=listing.created_at.strftime("%Y")%></span>
@@ -45,6 +42,12 @@
             <%if !listing.age.empty?%><span class="right floated meta">Age:<%=listing.age%></span><%end%>
           </div> 
         </div>
+
+        <%if listing.for_foster?%>
+          <button class="ui positive button foster_button">For Foster</button>
+        <%else%>
+          <button class="ui blue button foster_button">Buy/Sell</button>
+        <%end%>
         
         <div class="extra content">
           <span class="ui circular facebook icon button" ng-click="shareFb(listing)">
@@ -53,8 +56,11 @@
           <a href="https://twitter.com/share" class="ui circular twitter icon button" data-via="petzoned" data-size="large" data-hashtags="petzoned"><i class="twitter icon"></i></a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
           <div class="right floated author">
-            <%=image_tag 'pets.png',class:"ui avatar image small"%> 
-            <a href="/users/<%=listing.user.id%>" class="creator_name"><%=listing.user.username%></a>
+            <a class="ui blue image label creator_name" href="/users/<%=listing.user.id%>">
+                Posted By
+              <div class="detail"><%=listing.user.username%></div>
+
+            </a>
           </div>
         </div>
       </div>

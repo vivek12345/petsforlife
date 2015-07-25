@@ -1,6 +1,4 @@
 app.controller('ListingController', ['$rootScope','$scope', '$resource','$filter','$http',function($rootScope,$scope, $resource,$filter,$http) {
-	$scope.post = "Angular Rocks!"
-	$scope.favListings=[]
 	$scope.user_listing=[]
 	$scope.layout = 'grid'
 	$scope.extra_class=''
@@ -8,14 +6,10 @@ app.controller('ListingController', ['$rootScope','$scope', '$resource','$filter
 	$scope.genListings=[]
 	$scope.areas=[]
 	$scope.isDisabled=true
-
-
 	
-
-	$scope.init = function(listings,favourites,user_listing,type,extra_class)
+	$scope.init = function(listings,user_listing,type,extra_class)
 	{
 		$scope.listings = angular.fromJson(listings);	
-		$scope.favListings=angular.fromJson(favourites);
 		$scope.user_listing=angular.fromJson(user_listing);
 		$scope.genListings=angular.fromJson(listings);
 		$scope.layout=type;
@@ -29,56 +23,6 @@ app.controller('ListingController', ['$rootScope','$scope', '$resource','$filter
 	$scope.clearAll = function()
 	{
         $scope.listing1={};
-	}
-
-	$scope.toggleFav = function(value,listing_id)
-	{
-		var req = {
-	 		url: '/listings/favourite',
-			method: "POST",
-			data: {listing_id:listing_id},
-			headers: {'Content-Type': 'application/json','X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')}
-		}
-		var req1 = {
-	 		url: '/listings/removeFavourite',
-			method: "POST",
-			data: {listing_id:listing_id},
-			headers: {'Content-Type': 'application/json','X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')}
-		}
-		var found = $filter('filter')($scope.favListings, {id: listing_id}, true);
-		if(found==null || !found.length)
-		{
-			$http(req).
-		  	success(function(data){
-		      	$scope.favListings=data;
-		      	if($('.active.tab').attr('data-tab')=="favorite")
-		      		$scope.genListings=data;
-
-		      	console.log($scope.favListings);
-		      	$('.icon_'+listing_id).addClass('active');
-	      	  }).
-	      	  error(function(){
-	      	  	console.log('error');
-	      	  });
-
-		}
-		else
-		{
-			$http(req1).
-		      success(function(data){
-		      	$scope.favListings=data;
-		      	if($('.active.tab').attr('data-tab')=="favorite")
-		      		$scope.genListings=data;
-		      	$('.icon_'+listing_id).removeClass('active');
-	      	  }).
-	      	  error(function(){
-	      	  	console.log('error');
-	      	  });
-    	
-		}
-
-		
-
 	}
 
 	$scope.shareFb=function(listing){
@@ -102,8 +46,6 @@ app.controller('ListingController', ['$rootScope','$scope', '$resource','$filter
 	{
 		switch(clicked_tab){
 			case "all": $scope.genListings = angular.fromJson($scope.listings);
-			break;
-			case "favorite": $scope.genListings = angular.fromJson($scope.favListings);		
 			break;
 			case "user_listing": $scope.genListings = angular.fromJson($scope.user_listing);
 			break;
@@ -134,12 +76,7 @@ app.controller('ListingController', ['$rootScope','$scope', '$resource','$filter
 			swal("Deleted!", "Your Listing has been deleted.", "success"); 
 			$http(req).
 			success(function(data){
-				var found = $filter('filter')($scope.favListings, {id: listing_id}, true);
-				
-				if(found!==null && found.length){
-					$scope.favListings=data.favListings;
-				}
-				found = $filter('filter')($scope.user_listing, {id: listing_id}, true);
+				var found = $filter('filter')($scope.user_listing, {id: listing_id}, true);
 				if(found!==null && found.length){
 					$scope.user_listing=data.user_listing;
 				}
@@ -154,27 +91,8 @@ app.controller('ListingController', ['$rootScope','$scope', '$resource','$filter
 		});
 	}
 
-	$scope.selectArea=function(line){
-		switch(line){
-			case 'Western Line':$scope.areas=myareas[line];$scope.isDisabled=false;break;
-			case 'Central Line':$scope.areas=myareas[line];$scope.isDisabled=false;break;
-			
-		}
-	}
-
 	$scope.isUndefinedOrNull = function(val) {
     	return angular.isUndefined(val) || val === null || val==[] || val==""
 	}
-
-	var myareas={
-    "Central Line": [
-        "thane",
-        "mulund"
-    ],
-    "Western Line": [
-        "malad",
-        "borivali"
-    ]
-};
 
 }]);

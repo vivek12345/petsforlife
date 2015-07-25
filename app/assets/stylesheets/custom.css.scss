@@ -621,6 +621,8 @@ img.ui.medium.image.list_image
 .creator_name{
   text-decoration: none;
   color: rgba(0, 0, 0, 0.5);
+  position: relative;
+  top: 5px;
 }
 .social_share{
   width:100%;
@@ -675,6 +677,14 @@ img.ui.medium.image.list_image
 
 #home .mobile.item{
     display: none;
+}
+.foster_button{
+  width:100%;
+  border-radius: 0px !important;
+}
+.twitter_share{
+  position: relative;
+  bottom: 5px;
 }
 
 

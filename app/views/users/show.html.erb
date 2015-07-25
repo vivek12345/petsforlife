@@ -17,6 +17,9 @@
         </div>
         <div class="description pet_love">
           <p><%=truncate(@user.love_for_pets, length: 200)%></p>
+          <%if @user.for_foster?%>
+            <button class="ui green basic button foster_button">Ready to Foster</button>
+          <%end%>
         </div>
       </div>
       <div class="extra content">

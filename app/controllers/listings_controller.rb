@@ -47,7 +47,6 @@ class ListingsController < ApplicationController
 		end
 	end
 
-
 	def show
 		@listing=Listing.find_by_uuid(params[:id])
 	end
@@ -56,30 +55,10 @@ class ListingsController < ApplicationController
 		
 		@listings=Listing.paginate(:page => params[:page], :per_page => 12)
 		if current_user
-			if !current_user.favourites[0].nil?
-				@favourite=Listing.where(id:current_user.favourites.map {|x| x.listing_id})
-			end
 			@user_listing=current_user.listings.map{|x| x}
 		end
 		@layoutType="grid".to_json
         @extraClass="index_view".to_json
-	end
-
-	def favourite
-		@favourite=Favourite.new(listing_id:params[:listing_id],user_id:current_user.id)
-		if @favourite.save
-			render json: Listing.where(id:current_user.favourites.map {|x| x.listing_id}).to_json(:include => :photos)
-		end
-	end
-
-	def removeFavourite
-		@favourite=Favourite.find_by_listing_id(params[:listing_id])
-		@favourite.destroy
-		if !current_user.favourites[0].nil?
-			render json: Listing.where(id:current_user.favourites.map {|x| x.listing_id}).to_json(:include => :photos)
-		else
-			render json: []
-		end	
 	end
 
 	def destroy
@@ -87,7 +66,6 @@ class ListingsController < ApplicationController
 		if @listing.destroy
 			render json: {
 				:listings => Listing.paginate(:page => params[:page], :per_page => 12).to_json(:include => :photos),
-				:favListings => Listing.where(id:current_user.favourites.map {|x| x.listing_id}).to_json(:include => :photos),
 				:user_listing => current_user.listings.map{|x| x}.to_json(:include => :photos)
 			}
 		end

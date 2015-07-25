@@ -45,6 +45,14 @@
                 <%=f.text_area :love_for_pets,{:"ng-model"=>"user.textarea",:"ng-init"=>"user.textarea='#{@user.love_for_pets}'",:'ng-trim'=>'false',maxlength:'500'}%>
                 <span>{{500-user.textarea.length}} characters left</span>
             </div>
+            <div class="ui segment">
+                <div class="field">
+                  <div class="ui toggle checkbox foster_willing">
+                    <%=f.check_box :for_foster,class:'hidden'%>
+                    <label>Are you willing to foster a pet?</label>
+                  </div>
+                </div>
+            </div>
 
             <div class="ui hidden divider"></div>
         <%=f.submit 'Edit Profile',class:'ui teal button new_user'%>
