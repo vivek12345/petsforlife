@@ -41,6 +41,9 @@ class ListingsController < ApplicationController
 	def update
 		@listing=Listing.find_by_uuid(params[:id])
 		if @listing.update_attributes(listing_params)
+			if @listing.price>0
+				@listing.update_attribute(:for_foster,'0')
+			end
 			redirect_to @listing
 		else
 			render 'edit'

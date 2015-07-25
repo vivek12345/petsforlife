@@ -23,10 +23,18 @@
         <%=f.text_field :title,placeholder:'Title of the listing' %>
       </div>
       <div class="ui segment">
-        <div class="field">
-          <div class="ui toggle checkbox foster_pet">
-            <%=f.check_box :for_foster,class:'hidden foster_checkbox'%>
-            <label>Put my pet for foster home</label>
+        <div class="two fields">
+          <div class="field">
+            <div class="ui toggle checkbox foster_pet">
+              <%=f.radio_button :for_foster,'foster',class:'hidden foster_checkbox checkBox'%>
+              <label>Put my pet for foster home</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui toggle checkbox adoption_pet">
+              <%=f.radio_button :for_foster,'adoption',class:'hidden foster_checkbox checkBox'%>
+              <label>Put this pet for adoption</label>
+            </div>
           </div>
         </div>
       </div>

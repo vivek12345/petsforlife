@@ -27,7 +27,7 @@
         </div>
         <div class="field">
           <label>Listing Type</label>
-          <%= select(:listing,:for_foster,options_for_select([['Buy/Sell',0,{class:'item'}],['Foster',1,{class:'item'}]]),{prompt:'Listing Type'},{:'ng-model'=>'listing1.for_foster',class:'ui dropdown for_foster'})%>
+          <%= select(:listing,:for_foster,options_for_select([['Buy/Sell','0',{class:'item'}],['Foster','foster',{class:'item'}],['Adoption','adoption',{class:'item'}]]),{prompt:'Listing Type'},{:'ng-model'=>'listing1.for_foster',class:'ui dropdown for_foster'})%>
         </div>
         <div class="right floated field">
           <label style="visibility:hidden;">Search</label>

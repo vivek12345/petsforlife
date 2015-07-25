@@ -32,11 +32,11 @@
             <div class="two fields">
                 <div class="required field">
                     <label>Gender</label>
-                    <%= f.select(:gender,options_for_select([['Male','Male',{class:'item'}],['Female','Female',{class:'item'}]]),{prompt:@user.gender},{class:'ui dropdown gender'})%>
+                    <%= f.select(:gender,options_for_select([['Male','Male',{class:'item'}],['Female','Female',{class:'item'}]],:selected => f.object.gender),{prompt:@user.gender},{class:'ui dropdown gender'})%>
                 </div>
                 <div class="required field">
                     <label>City</label>
-                    <%= f.select(:city,options_for_select([['Mumbai','Mumbai',{class:'item'}],['Delhi','Delhi',{class:'item'}],['Pune','Pune',{class:'item'}],['Bangalore','Bangalore',{class:'item'}]]),{prompt:'City'},class:'ui dropdown city')%>
+                    <%= f.select(:city,options_for_select([['Mumbai','Mumbai',{class:'item'}],['Delhi','Delhi',{class:'item'}],['Pune','Pune',{class:'item'}],['Bangalore','Bangalore',{class:'item'}]],:selected => f.object.city),{prompt:'City'},class:'ui dropdown city')%>
                 </div>
             </div>
 

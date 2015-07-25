@@ -43,9 +43,13 @@
           </div> 
         </div>
 
-        <%if listing.for_foster?%>
+        <%if listing.for_foster=='foster'%>
           <button class="ui positive button foster_button">For Foster</button>
-        <%else%>
+        <%end%>
+        <%if listing.for_foster=='adoption'%>
+          <button class="ui teal button foster_button">For Adoption</button>
+        <%end%>
+        <%if listing.for_foster=='0'%>
           <button class="ui blue button foster_button">Buy/Sell</button>
         <%end%>
         

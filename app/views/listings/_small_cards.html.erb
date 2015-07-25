@@ -44,8 +44,9 @@
             <span class="right floated meta" ng-show="!isUndefinedOrNull(listing.age)">Age: {{listing.age}}</span>
           </div> 
         </div>
-        <button class="ui positive button foster_button" ng-show="listing.for_foster">For Foster</button>
-        <button class="ui blue button foster_button" ng-show="!listing.for_foster">Buy/Sell</button>
+        <button class="ui positive button foster_button" ng-show="listing.for_foster=='foster'">For Foster</button>
+        <button class="ui teal button foster_button" ng-show="listing.for_foster=='adoption'">For Adoption</button>
+        <button class="ui blue button foster_button" ng-show="listing.for_foster=='0'">Buy/Sell</button>
         
         <div class="extra content">
           <span class="ui circular facebook icon button" ng-click="shareFb(listing)">

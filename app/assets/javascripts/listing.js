@@ -226,16 +226,22 @@ $(document).ready(function(){
       tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
     }
   });
+  
   $('.foster_willing').checkbox();
-  $('.foster_pet')
-  .checkbox({
+  $('.checkbox').checkbox({
     onChange: function() {
-      $('.price_field').toggleClass('disabled');
-       $('.price_box').val(0.0);
-      $('.price_box').attr('readonly',$('.foster_pet').checkbox('is checked'));
+      if($("input[type='radio']:checked").length>0){
+        $('.price_field').addClass('disabled');
+        $('.price_box').val(0.0);
+        $('.price_box').attr('readonly',true);
+      }
+      else
+      {
+        $('.price_field').removeClass('disabled');
+        $('.price_box').attr('readonly',false);
+      }
     }
   });
-
 });
 
 
