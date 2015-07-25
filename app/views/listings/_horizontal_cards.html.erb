@@ -15,10 +15,10 @@
               <i class="icon icon_{{listing.id}}"></i>
             </div>
             <%if request.fullpath!='/'%>
-              <div class="right floated" ng-show="listing.user_id==<%=current_user.id%>">
-                <i class="circular inverted blue trash icon vk_icons" ng-click="removeListing(listing.id)"></i>
+              <div class="right floated" ng-show="listing.user_id=='<%=current_user.uuid%>'">
+                <i class="circular inverted blue trash icon vk_icons" ng-click="removeListing(listing.uuid)"></i>
               </div>
-              <div class="right floated" ng-show="listing.user.id==<%=current_user.id%>">
+              <div class="right floated" ng-show="listing.user.id=='<%=current_user.uuid%>'">
                 <a href="/listings/{{listing.id}}/edit"><i class="circular inverted teal edit icon vk_icons"></i></a>
               </div>
             <%end%>
@@ -29,7 +29,7 @@
           <%end%>
           
 
-          <span class="listing_title"><%=link_to '{{listing.title}}','/listings/{{listing.id}}',class:'header'%></span>
+          <span class="listing_title"><%=link_to '{{listing.title}}','/listings/{{listing.uuid}}',class:'header'%></span>
           
           <div class="meta">
             <span class="cinema">Posted On

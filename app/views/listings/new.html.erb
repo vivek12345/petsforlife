@@ -1,6 +1,6 @@
 <div class="ui padded page grid new_list_page" ng-controller="ListingController">
 
-  <div class="ui eight wide column new_creation" ng-controller="BreedController" ng-init="<%=@breeds%>">
+  <div class="ui eight wide column new_creation">
 
     <%=form_for @listing, :html=> { class:'ui form centered black stacked segment',id:'new_listing_form'},remote: true do |f|%>
     <%= render 'shared/error_messages', object: f.object %>

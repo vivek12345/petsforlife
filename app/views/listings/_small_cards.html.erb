@@ -13,11 +13,11 @@
                 <i class="icon icon_{{listing.id}}"></i>
             </div>
             <%if request.fullpath!='/'%>
-              <div class="right floated" ng-show="listing.user_id==<%=current_user.id%>">
-                <i class="circular inverted blue trash icon vk_icons" ng-click="removeListing(listing.id)"></i>
+              <div class="right floated" ng-show="listing.user_id=='<%=current_user.uuid%>'">
+                <i class="circular inverted blue trash icon vk_icons" ng-click="removeListing(listing.uuid)"></i>
               </div>
-              <div class="right floated" ng-show="listing.user.id==<%=current_user.id%>">
-                <a href="/listings/{{listing.id}}/edit"><i class="circular inverted teal edit icon vk_icons"></i></a>
+              <div class="right floated" ng-show="listing.user_id=='<%=current_user.uuid%>'">
+                <a ng-href="/listings/{{listing.uuid}}/edit"><i class="circular inverted teal edit icon vk_icons"></i></a>
               </div>
             <%end%>
           <%else%>
@@ -27,10 +27,10 @@
           <%end%>
 
           
-          <%=link_to '{{listing.title}}','/listings/{{listing.id}}',class:'header'%>
+          <%=link_to '{{listing.title}}','/listings/{{listing.uuid}}',class:'header'%>
           <div class="description">
             <div class="image">
-              <a href="/listings/{{listing.id}}">
+              <a href="/listings/{{listing.uuid}}">
               <img ng-src='{{listing.photos[0].file_name.url}}' class:'ui medium image list_image' style="max-width:100%;height:169px;width:100%;" ng-show="listing.photos[0]">
               <%=image_tag 'missing.png',class:'ui medium image list_image',style:'max-width:100%;height:169px;width:100%;',:"ng-show"=>"!listing.photos[0]"%></a>
             </div>

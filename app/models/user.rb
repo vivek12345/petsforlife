@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
     end
 
     #validates_presence_of :gender,:love_for_pets
+    include UuidHelper
     has_many :listings,:dependent => :destroy
     has_many :favourites
     has_many :authentications

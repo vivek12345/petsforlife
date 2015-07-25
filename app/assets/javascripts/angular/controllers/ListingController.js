@@ -90,7 +90,7 @@ app.controller('ListingController', ['$rootScope','$scope', '$resource','$filter
     	{
 	      method: 'feed',
 	      name: listing.title,
-	      link: 'http://www.petzoned.com/listings/'+listing.id,
+	      link: 'http://www.petzoned.com/listings/'+listing.uuid,
 	      picture: share_image,
 	      caption: listing.title,
 	      description: listing.love_for_pets,

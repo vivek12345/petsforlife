@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150714230123) do
+ActiveRecord::Schema.define(version: 20150725141857) do
 
   create_table "attachinary_files", force: true do |t|
     t.integer  "attachinariable_id"
@@ -63,16 +63,17 @@ ActiveRecord::Schema.define(version: 20150714230123) do
     t.text     "love_for_pets"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
+    t.string   "user_id"
     t.string   "age"
     t.string   "city"
+    t.string   "uuid",          limit: 36
   end
 
   create_table "photos", force: true do |t|
     t.string   "file_name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "listing_id"
+    t.string   "listing_id"
   end
 
   create_table "users", force: true do |t|
@@ -86,8 +87,9 @@ ActiveRecord::Schema.define(version: 20150714230123) do
     t.string   "city"
     t.string   "gender"
     t.text     "love_for_pets"
-    t.boolean  "active",            default: false, null: false
-    t.string   "perishable_token",  default: "",    null: false
+    t.boolean  "active",                       default: false, null: false
+    t.string   "perishable_token",             default: "",    null: false
+    t.string   "uuid",              limit: 36
   end
 
   add_index "users", ["perishable_token"], name: "index_users_on_perishable_token"

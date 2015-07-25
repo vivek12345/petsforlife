@@ -32,14 +32,14 @@ class ListingsController < ApplicationController
 	end
 
 	def edit
-		@listing=Listing.find(params[:id])
+		@listing=Listing.find_by_uuid(params[:id])
 		if @listing.user_id!=current_user.id
 			redirect_to listings_path
 		end
 	end
 
 	def update
-		@listing=Listing.find(params[:id])
+		@listing=Listing.find_by_uuid(params[:id])
 		if @listing.update_attributes(listing_params)
 			redirect_to @listing
 		else
@@ -49,26 +49,16 @@ class ListingsController < ApplicationController
 
 
 	def show
-		@listing=Listing.find(params[:id])
+		@listing=Listing.find_by_uuid(params[:id])
 	end
 
 	def index
-		# @listings=Listing.joins("LEFT OUTER JOIN favourites on favourites.listing_id=listings.id")
-		# if params[:query]
-		# 	# listings=Listing.find_by_breed_type(params[:query])
-		# 	@listings=Listing.paginate(:page => params[:page], :per_page => 12).where("breed_type = ?",params[:query])
-		# else
-			@listings=Listing.paginate(:page => params[:page], :per_page => 12)
-		# end
-		# binding.pry
-		#@listings=Listing.all
-		#binding.pry
+		
+		@listings=Listing.paginate(:page => params[:page], :per_page => 12)
 		if current_user
 			if !current_user.favourites[0].nil?
 				@favourite=Listing.where(id:current_user.favourites.map {|x| x.listing_id})
-			#@favourite=Listing.find(current_user.favourites[0].listing_id)
 			end
-		#binding.pry
 			@user_listing=current_user.listings.map{|x| x}
 		end
 		@layoutType="grid".to_json
@@ -79,7 +69,6 @@ class ListingsController < ApplicationController
 		@favourite=Favourite.new(listing_id:params[:listing_id],user_id:current_user.id)
 		if @favourite.save
 			render json: Listing.where(id:current_user.favourites.map {|x| x.listing_id}).to_json(:include => :photos)
-			#render json: Listing.find(current_user.favourites[0].listing_id)
 		end
 	end
 
@@ -94,7 +83,7 @@ class ListingsController < ApplicationController
 	end
 
 	def destroy
-		@listing=Listing.find(params[:listing_id])
+		@listing=Listing.find_by_uuid(params[:listing_id])
 		if @listing.destroy
 			render json: {
 				:listings => Listing.paginate(:page => params[:page], :per_page => 12).to_json(:include => :photos),

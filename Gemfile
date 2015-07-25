@@ -34,6 +34,7 @@ gem 'will_paginate', '~> 3.0.6'
 gem 'sweet-alert'
 gem 'newrelic_rpm'
 gem 'magnific-popup-rails'
+gem 'uuidtools'
 
 group :development do
   gem "better_errors"

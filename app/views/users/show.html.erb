@@ -28,24 +28,21 @@
     </div>
   </div>
   <div class="twelve wide column user_show">
-      <!-- <span class="listing_heading"><%@user.username%> listing's</span> -->
+    <%if !@listings.empty?%>
       <div class="ui small info message">
         Showing <%=@user.listings.count%> listings of <strong><%=@user.username%></strong>
       </div>
-        <%if !@listings.empty?%>
-          <%if request.user_agent =~ /Mobile|webOS/%>
-            <%=render 'listings/small_cards'%>
-          <%else%>
-            <%=render 'listings/horizontal_cards'%>
-          <%end%>
-        <%else%>
-          <div class="ui icon blue message">
-            <i class="info icon"></i>
-            <p>This breeder is yet to post any listings</p>
-          </div>
-        <%end%>
-
-
+      <%if request.user_agent =~ /Mobile|webOS/%>
+        <%=render 'listings/small_cards'%>
+      <%else%>
+        <%=render 'listings/horizontal_cards'%>
+      <%end%>
+    <%else%>
+      <div class="ui icon blue message">
+        <i class="info icon"></i>
+        <p>This breeder is yet to post any listings</p>
+      </div>
+    <%end%>
   </div>
 </div>
 <%end%>
