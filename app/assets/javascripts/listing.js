@@ -74,7 +74,7 @@ $(document).ready(function()
           prompt : 'Please enter a price'
         },
         {
-          type   : 'integer',
+          type  : 'regExp[/^[0-9]*([.][0-9]+)?$/]',
           prompt : 'Please enter a valid price'
         }
       ]
@@ -90,13 +90,6 @@ $(document).ready(function()
     }
   })
 ;
-
-$('.no_user').popup({
-    inline   : true,
-    hoverable: false,
-    position : 'bottom right'
-  });
-
 });
 
 $(document).ready(function(){
