@@ -7,7 +7,7 @@ class AuthenticationsController < ApplicationController
         if authentication || user
           # User is already registered with application
           #flash[:info] = 'Signed in successfully.'
-          sign_in_and_redirect(authentication.user)
+          sign_in_and_redirect(user)
         elsif current_user
           # User is signed in but has not already authenticated with this social network
           current_user.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'])
