@@ -27,14 +27,15 @@ app.controller('ListingController', ['$rootScope','$scope', '$resource','$filter
 
 	$scope.shareFb=function(listing){
 		if(listing.photos[0])
-			share_image=listing.photos[0].file_name.url
+			share_image=listing.photos[0].file_name.url;
 		else
-			share_image='http://www.clker.com/cliparts/n/T/5/z/f/Y/image-missing-md.png'
+			share_image='http://www.clker.com/cliparts/n/T/5/z/f/Y/image-missing-md.png';
+		link = 'http://morning-taiga-2067.herokuapp.com/listings/'+listing.id;
 		FB.ui(
     	{
 	      method: 'feed',
 	      name: listing.title,
-	      link: 'http://www.petzoned.com/listings/'+listing.uuid,
+	      link: link,
 	      picture: share_image,
 	      caption: listing.title,
 	      description: listing.love_for_pets,
