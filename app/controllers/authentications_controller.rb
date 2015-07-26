@@ -2,8 +2,9 @@ class AuthenticationsController < ApplicationController
     def create
         omniauth = request.env['omniauth.auth']
         authentication = Authentication.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
+        user = User.find_by_username_or_email(omniauth['info']['email'])
      
-        if authentication
+        if authentication || user
           # User is already registered with application
           #flash[:info] = 'Signed in successfully.'
           sign_in_and_redirect(authentication.user)
@@ -46,10 +47,10 @@ class AuthenticationsController < ApplicationController
             user_session = UserSession.new(User.find_by_perishable_token(user.perishable_token))
             user_session.save
         end
-        # if (session[:return_to])
-        #   redirect_to session[:return_to]
-        # else
+        if (session[:return_to])
+          redirect_to session[:return_to]
+        else
           redirect_to listings_path
-        # end
+        end
     end
 end
