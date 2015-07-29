@@ -16,7 +16,7 @@
         <div class="meta">
           <%=user.gender%>
         </div>
-        <div class="description pet_love">
+        <div class="description pet_love users_page_pet_love">
           <p><%=truncate(user.love_for_pets, length: 100, omission: '... (ReadMore)')%></p>
           <%if user.for_foster?%>
             <button class="ui green button foster_button">Ready to Foster</button>
