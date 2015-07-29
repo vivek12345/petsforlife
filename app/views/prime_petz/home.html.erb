@@ -73,5 +73,11 @@
     <%=render 'listings/small_cards'%>
   </div>
   <%=render 'layouts/footer'%>
+  <script type="text/javascript">
+  var breeds=new Array();
+  <% Breed.all.each do |breed|%>
+    breeds.push('<%=breed.name %>');
+  <% end%>
+  </script>
 
 

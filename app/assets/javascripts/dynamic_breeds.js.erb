@@ -22,10 +22,7 @@ $(document).ready(function() {
   $('.filter').click(function(){
     $('.ui.dropdown').dropdown('restore defaults');
   });
-  var breeds=new Array();
-  <% Breed.all.each do |breed|%>
-    breeds.push('<%=breed.name %>');
-  <% end%>
+
   var substringMatcher = function(strs) {
     return function findMatches(q, cb) {
       var matches, substringRegex;
