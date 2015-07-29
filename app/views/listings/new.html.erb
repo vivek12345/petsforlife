@@ -44,7 +44,7 @@
 
         <div class="required field">
           <label>Pet</label>
-          <%= f.select(:pet_type,options_for_select([['Dog','Dog',{class:'item'}],['Cat','Cat',{class:'item'}],['Bird','Bird',{class:'item'}]]),{prompt:'Pet'},{:"ng-model"=>"breed.pet_type",value_method: :value,class:'ui dropdown pet_type'})%>
+          <%= f.select(:pet_type,options_for_select([['Dog','Dog',{class:'item'}],['Cat','Cat',{class:'item'}]]),{prompt:'Pet'},{:"ng-model"=>"breed.pet_type",value_method: :value,class:'ui dropdown pet_type'})%>
         </div>
         <div class="field">
           <label>Breed</label>
@@ -55,7 +55,7 @@
 
       </div>
       <div class="two fields">
-        <div class="required field">
+        <div class="field">
           <label>Gender</label>
           <%= f.select(:gender,options_for_select([['Male','Male',{class:'item'}],['Female','Female',{class:'item'}]]),{prompt:'Gender'},class:'ui dropdown gender')%>
         </div>

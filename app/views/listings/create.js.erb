@@ -1,6 +1,9 @@
 <%if @listing.errors.any?%>
     $(document).find(".ui.form .error").html('<%= escape_javascript(render("shared/error_messages", :formats => [:html],object:@listing)) %>');
+    $(document).find(".dimmer").removeClass('active');
+    $(document).find('.new_listing').removeClass('disabled');
 <%else%>
+    $(document).find(".ui.form .error").html('')
     if(mediaDropzone.files.length<=0)
         $(window.location.replace("/listings/<%= @listing.uuid %>"));
     else

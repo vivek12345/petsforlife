@@ -9,7 +9,7 @@
 
         <div class="field">
           <label>Pet</label>
-          <%=select(:listing,:pet_type,options_for_select([['Dog','Dog',{class:'item'}],['Cat','Cat',{class:'item'}],['Bird','Bird',{class:'item'}]]),{prompt:'Pet'},{:'ng-model'=>'listing1.pet_type',:'ng-change'=>'clear()',class:'ui dropdown pet_type'})%>
+          <%=select(:listing,:pet_type,options_for_select([['Dog','Dog',{class:'item'}],['Cat','Cat',{class:'item'}]]),{prompt:'Pet'},{:'ng-model'=>'listing1.pet_type',:'ng-change'=>'clear()',class:'ui dropdown pet_type'})%>
         </div>
         <div class="field">
           <label>Breed</label>

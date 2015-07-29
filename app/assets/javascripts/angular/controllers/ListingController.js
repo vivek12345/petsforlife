@@ -77,11 +77,7 @@ app.controller('ListingController', ['$rootScope','$scope', '$resource','$filter
 			swal("Deleted!", "Your Listing has been deleted.", "success"); 
 			$http(req).
 			success(function(data){
-				var found = $filter('filter')($scope.user_listing, {id: listing_id}, true);
-				if(found!==null && found.length){
-					$scope.user_listing=data.user_listing;
-				}
-				
+				$scope.user_listing=data.user_listing;
 				$scope.listings=data.listings;
 				
 				$scope.changeTab(undefined,$('.active.tab').attr('data-tab'));

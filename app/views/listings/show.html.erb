@@ -17,10 +17,6 @@
       <i class="facebook icon"></i>
       Share On Facebook
     </div>
-    <!-- <div class="ui google plus button social_share">
-      <i class="google plus icon"></i>
-      Share On Goggle Plus
-    </div> -->
     <a href="https://twitter.com/share" class="ui twitter button social_share" data-via="petzoned" data-size="large" data-hashtags="petzoned"><i class="twitter icon"></i>
       Tweet About It</a>
       
@@ -67,7 +63,11 @@
                 </tr>
                 <tr>
                   <td>Breed</td>
-                  <td><%=@listing.breed_type%></td>
+                  <%if @listing.breed_type.empty?%>
+                    <td>Not Specified</td>
+                  <%else%>
+                    <td><%=@listing.breed_type%></td>
+                  <%end%>
                 </tr>
                 <tr>
                   <td>Color</td>
@@ -79,7 +79,11 @@
                 </tr>
                 <tr>
                   <td>Gender</td>
-                  <td><%=@listing.gender%></td>
+                  <%if @listing.gender.empty?%>
+                    <td>Not Specified</td>
+                  <%else%>
+                    <td><%=@listing.gender%></td>
+                  <%end%>
                 </tr>
                 <tr>
                   <td>Age</td>
