@@ -107,6 +107,7 @@ $(document).ready(function(){
     $('.user_show').removeClass('ui four wide column');
     $('.user_show').removeClass('ui twelve wide column');
     $('.user_show').addClass('ui sixteen wide column');
+    $('.user_profile_cards').removeClass('ui four doubling link cards').addClass('ui one doubling link cards');
   }
   $('.special.cards .image').dimmer({
       on: 'hover'

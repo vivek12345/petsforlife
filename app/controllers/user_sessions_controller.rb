@@ -27,7 +27,7 @@ class UserSessionsController < ApplicationController
 
         respond_to do |format|
             format.html { 
-                session[:return_to]=listings_path
+                session.delete(:return_to)
                 redirect_to(login_path)
                 flash[:info]="Logged Out"
             }

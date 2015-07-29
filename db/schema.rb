@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150725211200) do
+ActiveRecord::Schema.define(version: 20150729214901) do
 
   create_table "attachinary_files", force: true do |t|
     t.integer  "attachinariable_id"
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 20150725211200) do
     t.string   "perishable_token",             default: "",    null: false
     t.string   "uuid",              limit: 36
     t.integer  "for_foster",                   default: 0
+    t.string   "phone_no"
   end
 
   add_index "users", ["perishable_token"], name: "index_users_on_perishable_token"

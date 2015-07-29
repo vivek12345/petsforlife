@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
     end
     validates_presence_of :gender
     validates_presence_of :love_for_pets
+    validates_length_of :phone_no, :maximum => 11
+    validates_numericality_of :phone_no,allow_blank: true
 
     #validates_presence_of :gender,:love_for_pets
     include UuidHelper
