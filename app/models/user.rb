@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
         c.validates_length_of_password_field_options = {:on => :create, :minimum => 4}
         c.validates_length_of_password_confirmation_field_options = {:on => :create, :minimum => 4}
     end
+    validates_presence_of :gender
+    validates_presence_of :love_for_pets
 
     #validates_presence_of :gender,:love_for_pets
     include UuidHelper

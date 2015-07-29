@@ -3,7 +3,9 @@
   <div class="ui eight wide column new_creation">
 
     <%=form_for @listing, :html=> { class:'ui form centered black stacked segment',id:'new_listing_form'},remote: true do |f|%>
-    <%= render 'shared/error_messages', object: f.object %>
+    <div class="error">
+    </div>
+    <%render 'shared/error_messages', object: f.object %>
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
     
     <div class="ui black ribbon label">
@@ -77,11 +79,12 @@
       </div>
       <div class="required field">
         <label>Tell everyone in short about your pet</label>
-        <%=f.text_area :love_for_pets,{:'ng-model'=>'newListing.textarea',:'ng-trim'=>'false',maxlength:'150'}%>
-        <span>{{150-newListing.textarea.length}} characters left</span>
+        <%=f.text_area :love_for_pets,{:'ng-model'=>'newListing.textarea',:'ng-trim'=>'false',maxlength:'500'}%>
+        <span>{{500-newListing.textarea.length}} characters left</span>
       </div>
       <h4 class="ui dividing header">Additional Info</h4>
       <div class="two fields">
+      
         <div class="required field price_field">
           <label>Price</label>
           <div class="ui icon input">

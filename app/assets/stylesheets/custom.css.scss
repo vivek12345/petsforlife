@@ -106,6 +106,8 @@ html {
   #home .search-query.mobile.item{
     display: inline-block !important;
     width:150px !important;
+    position: relative;
+    bottom: 5px;
   }
   #home .menu .right.menu > .mobile.item {
     display: block;
@@ -389,9 +391,11 @@ img.ui.medium.image.list_image
 .ui.items > .item > .content > .description{
   color: rgba(0, 0, 0, 0.62) !important;
 }
-.small_cards .pet_love > p{
+.small_cards .pet_love{
     height:100px !important;
-    overflow: hidden;
+    // overflow: hidden;
+    // text-overflow: ellipsis;
+    // width:100%;
   }
 
 
@@ -654,6 +658,7 @@ img.ui.medium.image.list_image
 }
 .city_color_age{
   // height:50px;
+  margin-top:10px;
 }
 .dimmer{
   height:100% !important;
@@ -690,6 +695,12 @@ img.ui.medium.image.list_image
   position: relative;
   bottom:5px;
 }
+.ui.category.search_query.item{
+    position: relative;
+    bottom: 5px;
+}
+
+
 
 
 

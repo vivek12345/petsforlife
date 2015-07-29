@@ -1,8 +1,7 @@
 <div class="ui segment centersegment" ng-show="layout=='grid'">
 
   <div ng-show="layout=='grid'" class="grid">
-    <!--start of active tab-->
-    
+    <!--start of tab-->
     <div class="ui four doubling link cards small_cards active tab" ng-init="init(<%=@listings.to_json(:include=>[:photos,:user]) %>,<%=@user_listing.to_json(:include=>[:photos,:user]) %>,<%=@layoutType%>)" data-tab="all" id="small_cards">
       
       <div class="card" ng-repeat="listing in genListings | filter:{'title':listing2.query} | filter:{'for_foster':listing1.for_foster} | filter:{'gender':listing1.gender,'pet_type':listing1.pet_type,'breed_type':listing1.breed_type,'age':listing1.age,'city':listing1.city}:true">
@@ -32,7 +31,8 @@
 
           <div class="description pet_love">
             <p>
-            {{listing.love_for_pets | limitTo:300}}
+            {{listing.love_for_pets | limitTo:200}}
+            <span ng-show="listing.love_for_pets.length>200"><%=link_to 'Read More....','/listings/{{listing.uuid}}'%></span>
             </p>
           </div>
           <div class="content description city_color_age">
@@ -63,11 +63,8 @@
             </a>
           </div>
         </div>
-      </div>
-      
+      </div>     
     </div>
-    <!-- end of active tab-->
-
-    
+    <!-- end of tab-->    
   </div>
 </div>

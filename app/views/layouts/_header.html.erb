@@ -2,7 +2,13 @@
   <div class="header item">
   <%=link_to 'PetZoned',root_url%></div>
   <%if request.fullpath!='/'%>
-    <input type="text" class="search-query mobile item" placeholder="Search listing" name="query" ng-model="listing2.query">
+    <%if request.fullpath == '/listings'%>
+      <input type="text" class="search-query mobile item" placeholder="Search listing" name="query" ng-model="listing2.query">
+    <%else%>
+     <div class="ui category search-query mobile item">
+        <%=render 'layouts/search'%>
+      </div>
+    <%end%>
   <%end%>
   <div class="right menu">
     <div class="ui mobile dropdown link item">
@@ -24,16 +30,20 @@
               <%=link_to 'Logout',logout_path,class:'item'%>
             </div>
           </div>
-          
         <%else%>
           <%=link_to 'Login',login_path,class:'item'%>
           <%=link_to 'Register',signup_path,class:'item'%>
         <%end%>
-
       </div>
     </div>
      <%if request.fullpath!='/'%>
-      <input type="text" class="search-query item" placeholder="Search listing" name="query" ng-model="listing2.query">
+      <%if request.fullpath == '/listings'%>
+        <input type="text" class="search-query item" placeholder="Search listing" name="query" ng-model="listing2.query">
+      <%else%>
+       <div class="ui category search_query item">
+          <%=render 'layouts/search'%>
+        </div>
+      <%end%>
     <%end%>
     <%=link_to 'Create Listing',new_listing_path,class:'item'%>
     <%=link_to 'Breeders',users_path,class:'item'%>
@@ -42,7 +52,6 @@
       <div class="ui dropdown link item">
         <i class="user icon"></i> <%=current_user.username%>
         <i class="dropdown icon"></i>
-        
         <div class="menu">
           <%=link_to 'View Profile',current_user,class:'item'%><i class="write icon"></i>
           <%=link_to 'Edit Profile',edit_user_path(current_user),class:'item'%><i class="edit icon"></i>
@@ -50,8 +59,8 @@
         </div>
       </div>
     <%else%>
-          <%=link_to 'Login',login_path,class:'item'%>
-          <%=link_to 'Register',signup_path,class:'item'%>
+      <%=link_to 'Login',login_path,class:'item'%>
+      <%=link_to 'Register',signup_path,class:'item'%>
     <%end%>
   </div>
 </div>

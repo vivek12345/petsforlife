@@ -19,7 +19,9 @@
         <div class="description pet_love">
           <p><%=truncate(user.love_for_pets, length: 100, omission: '... (ReadMore)')%></p>
           <%if user.for_foster?%>
-            <button class="ui green basic button foster_button">Ready to Foster</button>
+            <button class="ui green button foster_button">Ready to Foster</button>
+          <%else%>
+            <button class="ui blue button foster_button">Not Ready to Foster</button>
           <%end%>
         </div>
       </div>

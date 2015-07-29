@@ -37,7 +37,8 @@ Rails.application.routes.draw do
   post 'listings/removeFavourite'
   resources :authentications
   get '/auth/:provider/callback' => 'authentications#create'
-  get 'search', to:'listings#search',:as => :search
+  get 'search_breed', to:'listings#search_breed',:as => :search_breed
+  get 'search_listing', to:'listings#search_title',:as => :search_listing
   
 
 

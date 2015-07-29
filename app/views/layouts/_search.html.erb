@@ -1,0 +1,5 @@
+  <div class="ui icon input">
+    <%= form_tag search_listing_path, class:'ui form search_listing_form',method: :get do %>
+        <%=text_field_tag :query_listing,params[:query_listing],class:'title_search',id:'title_search',placeholder:'Search Listing'%>
+    <%end%>
+  </div>

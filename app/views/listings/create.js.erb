@@ -1,4 +1,8 @@
-if(mediaDropzone.files.length<=0)
-    $(window.location.replace("/listings/<%= @listing.uuid %>"));
-else
-mediaDropzone.processQueue();
+<%if @listing.errors.any?%>
+    $(document).find(".ui.form .error").html('<%= escape_javascript(render("shared/error_messages", :formats => [:html],object:@listing)) %>');
+<%else%>
+    if(mediaDropzone.files.length<=0)
+        $(window.location.replace("/listings/<%= @listing.uuid %>"));
+    else
+    mediaDropzone.processQueue();
+<%end%>

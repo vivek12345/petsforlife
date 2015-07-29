@@ -1,5 +1,6 @@
 $(document).ready(function()
 {
+  $('.title_search').val('');
   $('.dimmer').removeClass('active');
   $('.new_listing').removeClass('disabled');
   var listing_id=0;
@@ -193,18 +194,6 @@ $(document).ready(function(){
     }
   });
 
-//   $('.ui.search')
-//   .search({
-//     apiSettings: {
-//       url: '../users/autocomplete/?query={query}'
-//     },
-//     // searchFields   : [
-//     //   'username'
-//     // ],
-//     searchFullText: false
-//   })
-// ;
-  
   $('.imageDisplay').magnificPopup({
     delegate: 'a',
     type: 'image',

@@ -48,7 +48,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # end
   # version :thumb do
     process :eager => true
-    process :resize_to_fit => [264, 170]
+    process :resize_to_fit => [500, 500]
     process :convert => 'jpg'
     cloudinary_transformation :quality => 80
   # end

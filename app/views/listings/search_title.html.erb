@@ -1,0 +1,88 @@
+<div class="ui segment centersegment">
+<%if !@listings.empty?%>
+  <div class="ui small info message">
+    Showing <%=@listings.count%> results for <strong><%=params[:query_listing]%></strong>
+  </div>
+  <div class="grid">
+    <!--start of active tab-->
+    
+    <div class="ui four doubling link cards small_cards" id="small_cards">
+      <% @listings.each do |listing|%>
+      <div class="card">
+        <div class="content small_card_content">
+          <!--i class="right floated like icon"></i-->
+          <%=link_to listing.title,listing,class:'header'%>
+          <div class="description">
+            <div class="image">
+              <a href="/listings/<%=listing.id%>">
+                <%if listing.photos.empty?%>
+                  <%=image_tag 'missing.png',class:'ui medium image list_image',style:'max-width:100%;height:169px;width:100%;'%>
+                <%else%>
+                  <%=image_tag listing.photos[0].file_name.url ,class:'ui medium image list_image',style:'max-width:100%;height:169px;width:100%;'%>
+                <%end%>
+              </a>
+            </div>
+            <div class="ui blue right ribbon label listing_price">
+              <i class="rupee icon"></i><%=listing.price%>
+            </div>
+          </div>
+
+          <div class="description pet_love">
+            <p>
+            <% if listing.love_for_pets.length > 200 %>
+              <%= truncate(listing.love_for_pets, length: 200) %>
+              <%= link_to 'Read more...', listing %>
+            <%else %>
+              <%= listing.love_for_pets %>
+            <% end %>
+            </p>
+            
+          </div>
+          <div class="content description city_color_age">
+            <span class="meta">Posted on <%=listing.created_at.strftime("%B")%><%=listing.created_at.strftime("%Y")%></span>
+            <%if !listing.city.empty?%><span class="right floated meta">City:<%=listing.city%></span><%end%>
+          </div>
+          <div class="content description city_color_age">
+            <%if !listing.color.empty?%><span class="meta">Color:<%=listing.color%></span><%end%>
+            <%if !listing.age.empty?%><span class="right floated meta">Age:<%=listing.age%></span><%end%>
+          </div> 
+        </div>
+
+        <%if listing.for_foster=='foster'%>
+          <button class="ui positive button foster_button">For Foster</button>
+        <%end%>
+        <%if listing.for_foster=='adoption'%>
+          <button class="ui teal button foster_button">For Adoption</button>
+        <%end%>
+        <%if listing.for_foster=='0'%>
+          <button class="ui blue button foster_button">Buy/Sell</button>
+        <%end%>
+        
+        <div class="extra content">
+          <span class="ui circular facebook icon button" ng-click="shareFb(listing)">
+            <i class="facebook icon"></i>
+          </span> 
+          <a href="https://twitter.com/share" class="ui circular twitter icon button" data-via="petzoned" data-size="large" data-hashtags="petzoned"><i class="twitter icon"></i></a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+          <div class="right floated author">
+            <a class="ui blue image label creator_name" href="/users/<%=listing.user.id%>">
+                Posted By
+              <div class="detail"><%=listing.user.username%></div>
+
+            </a>
+          </div>
+        </div>
+      </div>
+      <%end%>
+    </div>
+    <!-- end of active tab-->
+
+    
+  </div>
+  <%else%>
+    <div class="ui small error message">
+      <p>No results found,click on listings to view all the listings</p>
+      <p style="text-align:center;"><%=link_to 'Show all listings',listings_path,class:'ui positive button'%></p>
+  </div>
+  <%end%>
+</div>
