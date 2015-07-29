@@ -33,7 +33,7 @@
   <div class="twelve wide column user_show">
     <%if !@listings.empty?%>
       <div class="ui small info message">
-        Showing <%=@user.listings.count%> listings of <strong><%=@user.username%></strong>
+        Showing listings of <strong><%=@user.username%></strong>
       </div>
       <%if request.user_agent =~ /Mobile|webOS/%>
         <%=render 'listings/small_cards'%>
@@ -49,4 +49,9 @@
   </div>
 </div>
 <%end%>
+<script type="text/javascript">
+$('document').ready(function(){
+  $('.active.tab').attr('data-tab','user_listing');
+});
+</script>
 

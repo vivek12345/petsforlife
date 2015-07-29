@@ -14,8 +14,18 @@
         <script type="text/javascript">
             $(window).load(function() {
                 // Animate loader off screen
-                $(".se-pre-con").fadeOut("slow");;
-            });
+                $(".se-pre-con").fadeOut("slow");
+                window.fbAsyncInit = function() {
+                    FB.init({appId: '1579788118950175', status: true, cookie: true,
+                    xfbml: true});
+                    };
+                    (function() {
+                    var e = document.createElement('script'); e.async = true;
+                    e.src = document.location.protocol +
+                    '//connect.facebook.net/en_US/all.js';
+                    document.getElementById('fb-root').appendChild(e);
+                    }());
+                });
         </script>
 
     </head>
@@ -25,16 +35,16 @@
         <div id="fb-root"></div>
 
         <script>
-            window.fbAsyncInit = function() {
-            FB.init({appId: '1579788118950175', status: true, cookie: true,
-            xfbml: true});
-            };
-            (function() {
-            var e = document.createElement('script'); e.async = true;
-            e.src = document.location.protocol +
-            '//connect.facebook.net/en_US/all.js';
-            document.getElementById('fb-root').appendChild(e);
-            }());
+            // window.fbAsyncInit = function() {
+            // FB.init({appId: '1579788118950175', status: true, cookie: true,
+            // xfbml: true});
+            // };
+            // (function() {
+            // var e = document.createElement('script'); e.async = true;
+            // e.src = document.location.protocol +
+            // '//connect.facebook.net/en_US/all.js';
+            // document.getElementById('fb-root').appendChild(e);
+            // }());
         </script>
         <%if request.fullpath!='/'%>
             <%=render 'layouts/header'%>
