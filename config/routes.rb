@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   post 'listings/removeFavourite'
   resources :authentications
   get '/auth/:provider/callback' => 'authentications#create'
+  match '/auth/failure' =>  'users#new', via: [:get, :post]
   get 'search_breed', to:'listings#search_breed',:as => :search_breed
   get 'search_listing', to:'listings#search_title',:as => :search_listing
   
