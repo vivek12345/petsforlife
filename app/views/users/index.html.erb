@@ -5,16 +5,20 @@
       <div class="right floated meta">
         <%if current_user%>
           <%if !user.phone_no.nil?%>
-            <div class="ui blue label phone_no_label">
-              <i class="call icon" style="margin-right:10px;"></i><%=user.phone_no%>
-            </div>
+            <%if !user.phone_no.empty?%>
+              <div class="ui blue label phone_no_label">
+                <i class="call icon" style="margin-right:10px;"></i><%=user.phone_no%>
+              </div>
+            <%end%>
           <%end%>
         <%end%>
       </div>
       <i class="user icon"></i><%=link_to user.username,user,style:'text-decoration:none;color:#7f7f7f;'%>
     </div>
     <div class="image">
-      <%=image_tag 'default_avatar.png',class:'ui small image'%>
+      <%= link_to user do %>
+        <%=image_tag 'default_avatar.png',class:'ui small image dimmable '%>
+      <% end %>
     </div>
     <div class="content">
       <span class="right floated">

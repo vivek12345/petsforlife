@@ -109,9 +109,6 @@ $(document).ready(function(){
     $('.user_show').addClass('ui sixteen wide column');
     $('.user_profile_cards').removeClass('ui four doubling link cards').addClass('ui one doubling link cards');
   }
-  $('.special.cards .image').dimmer({
-      on: 'hover'
-  });
   $('.show_image:first-child').addClass('active_show_image');
   var numImgs = $('.show_image').length;
   var imageClicked=$('.imageDisplay .active_show_image');
