@@ -14,7 +14,7 @@
           <%=link_to listing.title,listing,class:'header'%>
           <div class="description">
             <div class="image">
-              
+              <a href="/listings/<%=listing.id%>">
                 <%if listing.photos.empty?%>
                   <%=image_tag 'missing.png',class:'ui medium image list_image',style:'max-width:100%;height:169px;width:100%;'%>
                 <%else%>
@@ -63,12 +63,11 @@
             <i class="facebook icon"></i>
           </span> 
           <a href="https://twitter.com/share" class="ui circular twitter icon button" data-via="petzoned" data-size="large" data-hashtags="petzoned"><i class="twitter icon"></i></a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
           <div class="right floated author">
             <a class="ui blue image label creator_name" href="/users/<%=listing.user.id%>">
                 Posted By
               <div class="detail"><%=listing.user.username%></div>
-
             </a>
           </div>
         </div>
@@ -76,8 +75,6 @@
       <%end%>
     </div>
     <!-- end of active tab-->
-
-    
   </div>
   <%else%>
     <div class="ui small error message">
