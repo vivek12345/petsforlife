@@ -36,6 +36,9 @@
         <%if request.fullpath!='/'%>
             <%=render 'layouts/header'%>
         <%end%>
-        <%= yield %>
+        <div class="petzoned_content">
+            <%= yield %>
+        </div>
+        <%=render 'layouts/footer'%>
     </body>
 </html>
