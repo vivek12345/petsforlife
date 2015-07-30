@@ -71,7 +71,7 @@
             <div class="right floated meta">
               <%if current_user%>
                 <%if !@user.phone_no.nil?%>
-                    <%if !@user.phone_no.epmty?%>
+                    <%if !@user.phone_no.empty?%>
                       <div class="ui blue label phone_no_label">
                         <i class="call icon" style="margin-right:10px;"></i><%=@user.phone_no%>
                       </div>
