@@ -1,7 +1,7 @@
 <div class="ui segment centersegment">
 <%if !@listings.empty?%>
   <div class="ui small info message">
-    Showing <%=@listings.count%> results for <strong><%=@listings.first.breed_type%></strong>
+    Showing <%=@listings.count%> results for <strong><%=params[:query]%></strong>
   </div>
   <div class="grid">
     <!--start of active tab-->
