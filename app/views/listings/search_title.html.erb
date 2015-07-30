@@ -14,7 +14,7 @@
           <%=link_to listing.title,listing,class:'header'%>
           <div class="description">
             <div class="image">
-              <a href="/listings/<%=listing.id%>">
+              
                 <%if listing.photos.empty?%>
                   <%=image_tag 'missing.png',class:'ui medium image list_image',style:'max-width:100%;height:169px;width:100%;'%>
                 <%else%>
