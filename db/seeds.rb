@@ -24,6 +24,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 breeds=[
+    ["Cross","Dog"],
+    ["Indie","Dog"],
+    ["Mix","Dog"],
+    ["Mongrel","Dog"],
     ["Affenpinscher","Dog"],
     ["Afghan Hound","Dog"],
     ["Airedale Terrier","Dog"],
@@ -170,7 +174,10 @@ breeds=[
     ["Standard Schnauzer","Dog"],
     ["Sussex Spaniel","Dog"],["Swedish Vallhund","Dog"],["Tibetan Mastiff","Dog"],["Tibetan Spaniel","Dog"],["Tibetan Terrier","Dog"],["Toy Fox Terrier","Dog"],["Toy Manchester Terrier","Dog"],["Toy Poodle","Dog"],["Vizsla","Dog"],["Weimaraner","Dog"],["Welsh Springer Spaniel","Dog"],["Welsh Terrier","Dog"],["West Highland White Terrier","Dog"],["Whippet","Dog"],["Wire Fox Terrier","Dog"],["Wirehaired Pointing Griffon","Dog"],["Yorkshire Terrier","Dog"],["Abyssinian","Cat"],
     ["American Bobtail","Cat"],
-
+    ["Cross","Cat"],
+    ["Indie","Cat"],
+    ["Mix","Cat"],
+    ["Mongrel","Cat"],
     ["American Curl","Cat"],
     ["American Shorthair","Cat"],
     ["American Wirehair","Cat"],
