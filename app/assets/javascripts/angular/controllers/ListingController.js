@@ -38,7 +38,7 @@ app.controller('ListingController', ['$rootScope','$scope', '$resource','$filter
 	      link: link,
 	      picture: share_image,
 	      caption: listing.title,
-	      description: listing.love_for_pets,
+	      description: listing.description,
 	      message: ''
     	});
 	}
