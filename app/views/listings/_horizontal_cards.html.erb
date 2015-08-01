@@ -46,7 +46,7 @@
           </div>
           <div class="description horizontal_description">
             {{listing.description | limitTo:200}}
-            <span ng-show="listing.love_for_pets.length>200"><%=link_to 'Read More....','/listings/{{listing.uuid}}'%></span>
+            <span ng-show="listing.description.length>200"><%=link_to 'Read More....','/listings/{{listing.uuid}}'%></span>
           </div>
 
 
