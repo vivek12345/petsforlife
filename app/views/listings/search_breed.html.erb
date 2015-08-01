@@ -29,11 +29,11 @@
 
           <div class="description pet_love">
             <p>
-              <% if listing.love_for_pets.length > 200 %>
-                <%= truncate(listing.love_for_pets, length: 200) %>
+              <% if listing.description.length > 200 %>
+                <%= truncate(listing.description, length: 200) %>
                 <%= link_to 'Read more...', listing %>
               <%else %>
-                <%= listing.love_for_pets %>
+                <%= listing.description %>
               <% end %>
             </p>
             

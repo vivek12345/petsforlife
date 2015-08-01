@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150729214901) do
+ActiveRecord::Schema.define(version: 20150801120138) do
 
   create_table "attachinary_files", force: true do |t|
     t.integer  "attachinariable_id"
@@ -60,14 +60,14 @@ ActiveRecord::Schema.define(version: 20150729214901) do
     t.string   "phone_no"
     t.integer  "no_of_pets"
     t.string   "color"
-    t.text     "love_for_pets"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "user_id"
     t.string   "age"
     t.string   "city"
-    t.string   "uuid",          limit: 36
-    t.string   "for_foster",               default: "0"
+    t.string   "uuid",        limit: 36
+    t.string   "for_foster",             default: "0"
   end
 
   create_table "photos", force: true do |t|
