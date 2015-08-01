@@ -65,7 +65,7 @@ class ListingsController < ApplicationController
 	end
 
 	def destroy
-		@listing = Listing.find_by_uuid(params[:listing_id])
+		@listing = current_user.listings.find_by_uuid(params[:listing_id])
 		if @listing.destroy
 			render json: {
 				:listings => Listing.paginate(:page => params[:page], :per_page => 12).to_json(:include => :photos),

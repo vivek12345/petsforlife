@@ -74,16 +74,17 @@ app.controller('ListingController', ['$rootScope','$scope', '$resource','$filter
 			closeOnConfirm: false 
 		}, function()
 		{   
-			swal("Deleted!", "Your Listing has been deleted.", "success"); 
+			
 			$http(req).
 			success(function(data){
 				$scope.user_listing=data.user_listing;
 				$scope.listings=data.listings;
-				
+				swal("Deleted!", "Your Listing has been deleted.", "success"); 
 				$scope.changeTab(undefined,$('.active.tab').attr('data-tab'));
 			}).
 			error(function(){
 				console.log('error');
+				swal("Error!", "This listing cannot be deleted.", "error"); 
 			});
 		});
 	}
