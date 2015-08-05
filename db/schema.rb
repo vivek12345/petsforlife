@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150801120138) do
+ActiveRecord::Schema.define(version: 20150801233420) do
 
   create_table "attachinary_files", force: true do |t|
     t.integer  "attachinariable_id"
@@ -40,6 +40,12 @@ ActiveRecord::Schema.define(version: 20150801120138) do
   create_table "breeds", force: true do |t|
     t.string   "name"
     t.string   "pet_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cities", force: true do |t|
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

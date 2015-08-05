@@ -15,15 +15,14 @@
           <label>Breed</label>
           <%=select(:listing,:breed_type,options_for_select(Breed.all.collect{|x| [x.name,x.name,class:'item']}),{prompt:'Breed'},{:'ng-model'=>'listing1.breed_type',class:'ui search dropdown disabled breed_type'})%>
         </div>
-        <div class="field">
-          <label>City</label>
-          <%=select(:listing,:city,options_for_select([['Mumbai','Mumbai',{class:'item'}],['Delhi','Delhi',{class:'item'}],['Pune','Pune',{class:'item'}],['Bangalore','Bangalore',{class:'item'}],['Mohali','Mohali',{class:'item'}],['Gurgaon','Gurgaon',{class:'item'}],['Garhwal','Garhwal',{class:'item'}]]),{prompt:'City'},{:'ng-model'=>'listing1.city',class:'ui dropdown city'})%>
-        </div>
-      
         
         <div class="field">
           <label>Age</label>
           <%= select(:listing,:age,options_for_select([['Young','Young',{class:'item'}],['Adult','Adult',{class:'item'}],['Senior','Senior',{class:'item'}],['Puppy','Puppy',{class:'item'}]]),{prompt:'Age'},{:'ng-model'=>'listing1.age',class:'ui dropdown age'})%>
+        </div>
+        <div class="field">
+          <label>City</label>
+          <%= select(:listing,:city,options_for_select([['Mumbai','Mumbai',{class:'item'}],['Delhi','Delhi',{class:'item'}],['Pune','Pune',{class:'item'}],['Bangalore','Bangalore',{class:'item'}],['Agra','Agra',{class:'item'}],['Ahmedabad','Ahmedabad',{class:'item'}],['Aligarh','Aligarh',{class:'item'}],['Ambala','Ambala',{class:'item'}],['Amritsar','Amritsar',{class:'item'}],['Aurangabad','Aurangabad',{class:'item'}],['Bhopal','Bhopal',{class:'item'}],['Bhubaneshwar','Bhubaneshwar',{class:'item'}],['Chandigarh','Chandigarh',{class:'item'}],['Coimbatore','Coimbatore',{class:'item'}],['Darjeeling','Darjeeling',{class:'item'}],['Dehradun','Dehradun',{class:'item'}],['Faizabad','Faizabad',{class:'item'}],['Faridkot','Faridkot',{class:'item'}],['Fatehpur','Fatehpur',{class:'item'}],['Firozabad','Firozabad',{class:'item'}],['Firozepur','Firozepur',{class:'item'}],['Gandhinagar','Gandhinagar',{class:'item'}],['Ghaziabad','Ghaziabad',{class:'item'}],['Gurgaon','Gurgaon',{class:'item'}],['Guwahati','Guwahati',{class:'item'}],['Gwalior','Gwalior',{class:'item'}],['Hyderabad','Hyderabad',{class:'item'}],['Jaipur','Jaipur',{class:'item'}],['Jalandhar','Jalandhar',{class:'item'}],['Jammu','Jammu',{class:'item'}],['Kannur','Kannur',{class:'item'}],['Lucknow','Lucknow',{class:'item'}],['Nashik','Nashik',{class:'item'}],['Noida','Noida',{class:'item'}],['Ranchi','Ranchi',{class:'item'}],['Shimla','Shimla',{class:'item'}],['Udaipur','Udaipur',{class:'item'}],['Varanasi','Varanasi',{class:'item'}]]),{prompt:'City'},{:'ng-model'=>'listing1.city',class:'ui dropdown city'})%>
         </div>
         <div class="field">
           <label>Type</label>
