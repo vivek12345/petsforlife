@@ -54,9 +54,8 @@ class ListingsController < ApplicationController
 		@listing = Listing.find_by_uuid(params[:id])
 	end
 
-	def index
-		
-		@listings = Listing.paginate(:page => params[:page], :per_page => 12)
+	def index	
+		@listings = Listing.order('created_at DESC').paginate(:page => params[:page], :per_page => 12,)
 		if current_user
 			@user_listing = current_user.listings.map{|x| x}
 		end
