@@ -1,1 +1,1 @@
-var app = angular.module("PetForLife", ['ngResource']);
+var app = angular.module("PetZoned", ['ngResource']);

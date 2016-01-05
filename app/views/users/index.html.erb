@@ -1,46 +1,49 @@
 <div class="ui four doubling special cards user_profile_cards">
-<%@users.each do |user|%>
-  <div class="card user_profile_card">
-    <div class="content">
-      <div class="right floated meta">
-        <%if current_user%>
-          <%if !user.phone_no.nil?%>
-            <%if !user.phone_no.empty?%>
-              <div class="ui blue label phone_no_label">
-                <i class="call icon" style="margin-right:10px;"></i><%=user.phone_no%>
-              </div>
-            <%end%>
-          <%end%>
-        <%end%>
-      </div>
-      <i class="user icon"></i><%=link_to user.username,user,style:'text-decoration:none;color:#7f7f7f;'%>
-    </div>
-    <div class="image">
-      <%= link_to user do %>
-        <%=image_tag 'default_avatar.png',class:'ui small image dimmable '%>
-      <% end %>
-    </div>
-    <div class="content">
-      <span class="right floated">
-        <span class="date">Joined on <%=user.created_at.strftime("%B")%> <%=user.created_at.strftime("%Y")%></span>
-      </span>
-      <i class="edit icon"></i>
-      <%=link_to "#{user.listings.count} Listings",user,style:'text-decoration:none;color:#7f7f7f;'%>
-    </div>
-    <%if current_user%>
-      <div class="extra content">
-        <a class="ui centered label email_label">
-          <%=user.email%>
-        </a>
-      </div>
-    <%end%>
-    <div class="extra content">
-      <%if user.for_foster?%>
-        <button class="ui green button foster_button">Ready to Foster</button>
-      <%else%>
-        <button class="ui blue button foster_button">Not Ready to Foster</button>
-      <%end%>
-    </div>
-  </div>
-<%end%>
+	<%@users.each do |user|%>
+		<div class="card user_profile_card">
+			<div class="content">
+				<div class="right floated meta">
+					<%if current_user%>
+						<%if !user.phone_no.nil?%>
+							<%if !user.phone_no.empty?%>
+								<div class="ui blue label phone_no_label">
+								<i class="call icon" style="margin-right:10px;"></i><%=user.phone_no%>
+								</div>
+							<%end%>
+						<%end%>
+					<%end%>
+				</div>
+				<i class="user icon"></i><%=link_to user.username,user,style:'text-decoration:none;color:#7f7f7f;'%>
+			</div>
+			<div class="image">
+				<%= link_to user do %>
+					<%=image_tag 'default_avatar.png',class:'ui small image dimmable '%>
+				<% end %>
+			</div>
+			<div class="content">
+				<span class="right floated">
+					<span class="date">Joined on <%=user.created_at.strftime("%B")%> <%=user.created_at.strftime("%Y")%></span>
+				</span>
+				<i class="edit icon"></i>
+				<%=link_to "#{user.listings.count} Listings",user,style:'text-decoration:none;color:#7f7f7f;'%>
+			</div>
+			<%if current_user%>
+				<div class="extra content">
+					<a class="ui centered label email_label">
+						<%=user.email%>
+					</a>
+				</div>
+			<%end%>
+			<div class="extra content">
+				<%if user.for_foster?%>
+					<button class="ui green button foster_button">Ready to Foster</button>
+				<%else%>
+				<button class="ui blue button foster_button">Not Ready to Foster</button>
+				<%end%>
+			</div>
+		</div>
+	<%end%>
+</div>
+<div class="will_paginate">
+	<%= will_paginate @listings%>
 </div>

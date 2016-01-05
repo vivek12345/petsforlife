@@ -30,13 +30,13 @@ class UsersController < ApplicationController
             else
                 @layoutType="listview".to_json
             end
-            
+
             @extraClass="show_view".to_json
         end
     end
 
     def index
-        @users=User.order('username')
+        @users = User.order('username').paginate(:page => params[:page], :per_page => 1)
     end
 
 
