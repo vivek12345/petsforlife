@@ -16,7 +16,7 @@ class ListingsController < ApplicationController
       	else
       		respond_to do |format|
 				format.js
-      		end	
+      		end
 		end
 	end
 	def media
@@ -54,10 +54,10 @@ class ListingsController < ApplicationController
 		@listing = Listing.find_by_uuid(params[:id])
 	end
 
-	def index	
-		@listings = Listing.order('created_at DESC').paginate(:page => params[:page], :per_page => 12,)
+	def index
+		@listings = Listing.where(:is_active=>true).order('created_at DESC').paginate(:page => params[:page], :per_page => 12,)
 		if current_user
-			@user_listing = current_user.listings.map{|x| x}
+			@user_listing = current_user.listings.where(:is_active=>true).map{|x| x}
 		end
 		@layoutType = "grid".to_json
         @extraClass = "index_view".to_json
@@ -74,11 +74,11 @@ class ListingsController < ApplicationController
 	end
 
 	def search_breed
-		@listings = Listing.where("lower(breed_type) LIKE ?","%#{params[:query].downcase}%")
+		@listings = Listing.where("is_active='true' and lower(breed_type) LIKE ?","%#{params[:query].downcase}%")
 	end
 
 	def search_title
-		@listings = Listing.where("lower(title) LIKE ?","%#{params[:query_listing].downcase}%")
+		@listings = Listing.where("is_active='true' and lower(title) LIKE ?","%#{params[:query_listing].downcase}%")
 	end
 
 	private

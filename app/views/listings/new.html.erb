@@ -7,11 +7,11 @@
     </div>
     <%render 'shared/error_messages', object: f.object %>
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-    
+
     <div class="ui black ribbon label">
         <i class="signup icon"></i> New Listing
       </div>
-      
+
       <h2 class="ui header">
         <i class="add user icon"></i>
         <div class="content">
@@ -21,7 +21,7 @@
       </h2>
 
       <div class="required field">
-        <label>Title</label>  
+        <label>Title</label>
         <%=f.text_field :title,placeholder:'Title of the listing' %>
       </div>
       <div class="ui segment">
@@ -71,7 +71,7 @@
         <div class="field">
           <label>Color</label>
           <%= f.select(:color,options_for_select([['Black','Black',{class:'item'}],['Brindle','Brindle',{class:'item'}],['Brown/Choclate','Brown/Choclate',{class:'item'}],['Grey/Blue/Silver/Salt & Pepper','Grey/Blue/Silver/Salt & Pepper',{class:'item'}],['Merle','Merle',{class:'item'}],['Red/Golden/Orange/Chestnut','Red/Golden/Orange/Chestnut',{class:'item'}],['Tan/Yellow/Fawn','Tan/Yellow/Fawn',{class:'item'}],['(Tan/Brown & Black & White)','(Tan/Brown & Black & White)',{class:'item'}],['White','White',{class:'item'}]]),{prompt:'Color'},class:'ui dropdown color')%>
-          
+
         </div>
       </div>
       <div class="required field">
@@ -81,14 +81,6 @@
       </div>
       <h4 class="ui dividing header">Additional Info</h4>
       <div class="two fields">
-      
-        <div class="required field price_field">
-          <label>Price</label>
-          <div class="ui icon input">
-            <%=f.text_field :price,placeholder:"Price",class:'price_box'%>
-            <i class="rupee icon"></i>
-          </div>
-        </div>
         <div class="field">
           <label>Phone Number</label>
           <div class="ui icon input">
@@ -101,6 +93,7 @@
 
 
 <div class="ui hidden divider"></div>
+<%=f.hidden_field :is_active, value:true%>
 <%=f.submit 'Create',class:'ui teal button new_listing' %>
 
 <%end%>
@@ -109,7 +102,7 @@
 </div>
 
 <div class="ui eight wide column new_creation">
- 
+
   <div class="ui black stacked segment dropzone" id="media-dropzone">
     <div class="ui blue right ribbon label">
         <i class="upload icon"></i> Upload Images

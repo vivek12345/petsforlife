@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     def show
         @user=User.find_by_uuid(params[:id])
         if @user
-            @listings=@user.listings
+            @listings=@user.listings.where(:is_active=>true)
             if request.user_agent =~ /Mobile|webOS/
                 @layoutType="grid".to_json
             else
